@@ -1,0 +1,395 @@
+WEBVTT
+
+1
+00:00:01.750 --> 00:00:04.318
+This is the second video on pull requests.
+
+2
+00:00:06.391 --> 00:00:09.020
+We will start by discussing forking.
+
+3
+00:00:09.020 --> 00:00:13.909
+We discuss this first because a fork is
+a part of a multi-repository pull request.
+
+4
+00:00:16.430 --> 00:00:21.570
+Forking generally means copying a remote
+repository to your own online account.
+
+5
+00:00:22.920 --> 00:00:27.112
+It is a feature of get hosting
+services such a Bitbucket and GitHub.
+
+6
+00:00:28.290 --> 00:00:32.470
+This diagram shows the upstream
+repository and the fork.
+
+7
+00:00:32.470 --> 00:00:35.580
+Both repositories are remote repositories.
+
+8
+00:00:35.580 --> 00:00:39.560
+The upstream repository is usually
+considered the source of truth for
+
+9
+00:00:39.560 --> 00:00:40.090
+the project.
+
+10
+00:00:42.060 --> 00:00:44.420
+A fork can be used for
+a number of reasons.
+
+11
+00:00:45.530 --> 00:00:50.540
+It can be used to experiment with or
+learn from the upstream repository.
+
+12
+00:00:50.540 --> 00:00:54.590
+You have a separate remote repository that
+can be synchronized with the upstream
+
+13
+00:00:54.590 --> 00:00:57.829
+repository as the upstream
+repository changes.
+
+14
+00:00:58.910 --> 00:01:01.740
+A fork can also be used
+to create branches and
+
+15
+00:01:01.740 --> 00:01:04.240
+issue pull requests to
+the upstream repository.
+
+16
+00:01:05.560 --> 00:01:08.770
+This is how you can contribute
+to the upstream project.
+
+17
+00:01:08.770 --> 00:01:10.690
+We will discuss this later in the video.
+
+18
+00:01:11.780 --> 00:01:15.800
+A fork can also be used to create
+a different source of truth.
+
+19
+00:01:15.800 --> 00:01:19.720
+In other words, it can be used to start
+a new line of development of the project
+
+20
+00:01:19.720 --> 00:01:23.740
+that remains independent from
+the upstream repository.
+
+21
+00:01:23.740 --> 00:01:26.690
+You could use the upstream
+project as a starting point for
+
+22
+00:01:26.690 --> 00:01:28.800
+a different type project or
+
+23
+00:01:28.800 --> 00:01:32.750
+you could create a source of truth that
+competes with the upstream project.
+
+24
+00:01:32.750 --> 00:01:35.740
+This may or
+may not be a desirable thing to do.
+
+25
+00:01:35.740 --> 00:01:38.981
+It maybe better to just help
+improve the upstream project.
+
+26
+00:01:41.055 --> 00:01:43.416
+Next, we will discuss creating a fork.
+
+27
+00:01:46.088 --> 00:01:49.448
+A fork is a feature of
+a Git hosting service.
+
+28
+00:01:49.448 --> 00:01:54.330
+Here, we log in to Bitbucket and navigate
+to the repository that we want to fork.
+
+29
+00:01:54.330 --> 00:01:57.705
+In this case,
+it's the project j repository.
+
+30
+00:01:57.705 --> 00:02:00.120
+We then click on the Fork
+this repository link.
+
+31
+00:02:02.420 --> 00:02:05.180
+We then name the forked repository.
+
+32
+00:02:05.180 --> 00:02:06.981
+We then click Fork repository.
+
+33
+00:02:11.486 --> 00:02:14.417
+If we then look at our
+list of repositories,
+
+34
+00:02:14.417 --> 00:02:18.778
+we can see that we have the upstream
+repository named projectj and
+
+35
+00:02:18.778 --> 00:02:25.559
+the fork named projectjfork Next,
+we will discuss synchronizing a fork.
+
+36
+00:02:29.016 --> 00:02:31.951
+If commits are made on
+the upstream repository,
+
+37
+00:02:31.951 --> 00:02:35.690
+by default the fork will
+not contain those commits.
+
+38
+00:02:35.690 --> 00:02:39.800
+In this example, we are viewing our
+forked repository in the Bitbucket.
+
+39
+00:02:39.800 --> 00:02:43.710
+There is a message saying that this
+fork is 1 commit behind the upstream
+
+40
+00:02:43.710 --> 00:02:45.010
+repository.
+
+41
+00:02:45.010 --> 00:02:47.662
+This means that since
+we last synchronized,
+
+42
+00:02:47.662 --> 00:02:50.674
+a commit has been made to
+the upstream repository.
+
+43
+00:02:50.674 --> 00:02:55.300
+To synchronize your repositories,
+you start by clicking the Sync now link.
+
+44
+00:02:59.130 --> 00:03:03.830
+Synchronizing using Bitbucket creates
+a merge commit on the forked repository.
+
+45
+00:03:03.830 --> 00:03:06.452
+You can see that when
+we sync the repository,
+
+46
+00:03:06.452 --> 00:03:09.214
+Bitbucket displays
+a default commit message.
+
+47
+00:03:09.214 --> 00:03:11.150
+This is for the merge commit.
+
+48
+00:03:11.150 --> 00:03:14.670
+This merge commit is not
+in the upstream repository.
+
+49
+00:03:14.670 --> 00:03:17.550
+So even though the project
+files are synchronized,
+
+50
+00:03:17.550 --> 00:03:20.730
+the commit histories of
+the two repositories differ.
+
+51
+00:03:20.730 --> 00:03:24.940
+This behavior may be fine,
+depending on how you are using the fork.
+
+52
+00:03:24.940 --> 00:03:28.085
+If you would like more control
+over the commit histories,
+
+53
+00:03:28.085 --> 00:03:31.823
+you can manually sync the repositories
+using your local Git client.
+
+54
+00:03:33.818 --> 00:03:38.070
+After sinking the fork, you can
+view the merge commit in Bitbucket.
+
+55
+00:03:38.070 --> 00:03:41.574
+In your local client, you'll need to
+do a pull to see the merge commit and
+
+56
+00:03:41.574 --> 00:03:43.135
+have the latest project files.
+
+57
+00:03:45.899 --> 00:03:49.341
+Next, we will discuss
+multi-repository pull requests.
+
+58
+00:03:51.536 --> 00:03:57.300
+A multi-repository pull request involves
+an upstream repository and a fork.
+
+59
+00:03:57.300 --> 00:04:02.290
+To open a multi-repository pull request,
+you fork the upstream repository and
+
+60
+00:04:02.290 --> 00:04:04.370
+create a branch on that fork.
+
+61
+00:04:04.370 --> 00:04:07.930
+That branch will be the branch
+related to the pull request.
+
+62
+00:04:07.930 --> 00:04:11.207
+When you are ready, you can open
+a pull request right from your fork.
+
+63
+00:04:14.801 --> 00:04:18.777
+To create the pull request,
+navigate to the forked repository and
+
+64
+00:04:18.777 --> 00:04:21.180
+click Create a pull request.
+
+65
+00:04:21.180 --> 00:04:23.900
+Because this is a forked repository,
+
+66
+00:04:23.900 --> 00:04:28.360
+Bitbucket knows the information
+related to the upstream repository.
+
+67
+00:04:28.360 --> 00:04:33.290
+In the window that opens, default pull
+request information is filled out for you.
+
+68
+00:04:33.290 --> 00:04:37.299
+You add a title and description,
+change any other information, and
+
+69
+00:04:37.299 --> 00:04:39.245
+then click Create pull request.
+
+70
+00:04:42.908 --> 00:04:46.860
+The upstream repository will
+then have an open pull request.
+
+71
+00:04:46.860 --> 00:04:51.803
+You can navigate to the pull request's tab
+to view and act upon the pull request.
+
+72
+00:04:55.202 --> 00:05:00.750
+If the upstream owner decides to merge the
+pull request, they have two basic choices.
+
+73
+00:05:00.750 --> 00:05:04.304
+The first is to use the Bitbucket
+interface to perform the merge.
+
+74
+00:05:04.304 --> 00:05:09.004
+The second is to use a local client to
+add the forked repository as a remote and
+
+75
+00:05:09.004 --> 00:05:12.757
+then perform and
+push the merge to the upstream repository.
+
+76
+00:05:15.568 --> 00:05:18.180
+Here is a review of what we
+have discussed in this video.
+
+77
+00:05:19.300 --> 00:05:22.970
+A fork is a remote copy of
+an upstream remote repository.
+
+78
+00:05:24.700 --> 00:05:28.010
+A fork is created using
+an online Git hosting provider.
+
+79
+00:05:29.540 --> 00:05:33.029
+Forks and upstream repositories
+may become out of sync.
+
+80
+00:05:34.801 --> 00:05:39.693
+Pull requests can be made from forks and
+merged into the upstream repository.
+
+81
+00:05:42.550 --> 00:05:46.241
+Now it's time for you to work with some
+of the topics discussed in this video.
+
+82
+00:05:46.241 --> 00:05:49.345
+Separate hands on instructions
+are provided for you.

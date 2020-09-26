@@ -1,0 +1,907 @@
+WEBVTT
+
+1
+00:00:02.696 --> 00:00:05.310
+This video discusses Git Workflows.
+
+2
+00:00:05.310 --> 00:00:08.830
+A workflow defines how your
+team accomplishes work.
+
+3
+00:00:08.830 --> 00:00:13.890
+Git is very flexible and can be tailored
+to many types of projects and teams.
+
+4
+00:00:13.890 --> 00:00:17.620
+You can mix and match some of the workflow
+ideas described in this video.
+
+5
+00:00:19.970 --> 00:00:22.405
+We will start by discussing
+centralized workflows.
+
+6
+00:00:26.020 --> 00:00:29.900
+A centralized workflow uses a single
+branch to accomplish the work
+
+7
+00:00:29.900 --> 00:00:31.030
+of the project.
+
+8
+00:00:31.030 --> 00:00:33.550
+Even though this workflow is very simple,
+
+9
+00:00:33.550 --> 00:00:35.650
+you still gain many of
+the benefits of git.
+
+10
+00:00:36.720 --> 00:00:39.670
+Your team members can all
+work independently, and
+
+11
+00:00:39.670 --> 00:00:42.910
+each has a local copy
+of the project history.
+
+12
+00:00:42.910 --> 00:00:47.270
+In this example, the remote
+repository contains two commits.
+
+13
+00:00:47.270 --> 00:00:52.460
+User A cloned, fetched, or pulled when
+the remote repository only had commit A.
+
+14
+00:00:53.800 --> 00:00:56.110
+They then created commit C.
+
+15
+00:00:56.110 --> 00:01:00.860
+To add commit C to the remote repository,
+this user would have to pull or
+
+16
+00:01:00.860 --> 00:01:04.340
+fetch and merge before pushing commit C.
+
+17
+00:01:04.340 --> 00:01:08.430
+User B currently has both commits
+from the remote repository and
+
+18
+00:01:08.430 --> 00:01:12.230
+would be able to push to the remote
+repository with no problem.
+
+19
+00:01:12.230 --> 00:01:16.453
+A down side of the centralized workflow
+is that you are not taking advantage
+
+20
+00:01:16.453 --> 00:01:19.814
+of features related to branching,
+such as pull requests.
+
+21
+00:01:22.572 --> 00:01:24.870
+Next we will discuss
+the feature branch workflow.
+
+22
+00:01:27.010 --> 00:01:31.330
+In a feature branch workflow, the work
+of the project is done in feature, or
+
+23
+00:01:31.330 --> 00:01:33.300
+topic branches.
+
+24
+00:01:33.300 --> 00:01:36.730
+The work is then merged into
+a longer running branch.
+
+25
+00:01:36.730 --> 00:01:40.400
+This has been the workflow used
+throughout most of this course.
+
+26
+00:01:40.400 --> 00:01:44.100
+The feature branch workflow uses
+a single remote repository.
+
+27
+00:01:44.100 --> 00:01:49.025
+Team members create feature branches and
+can submit their work using pull requests.
+
+28
+00:01:51.150 --> 00:01:53.411
+Next we will discuss forking workflows.
+
+29
+00:01:56.209 --> 00:02:00.170
+The forking workflow involves
+multiple remote repositories.
+
+30
+00:02:00.170 --> 00:02:04.120
+One of the repositories is
+considered upstream from the other.
+
+31
+00:02:04.120 --> 00:02:08.790
+The upstream repository is considered
+the source of truth for the project.
+
+32
+00:02:08.790 --> 00:02:12.280
+Work is usually transferred from
+the remote repository to the upstream
+
+33
+00:02:12.280 --> 00:02:15.130
+repository, via a pull request.
+
+34
+00:02:15.130 --> 00:02:19.530
+One advantage of this workflow is that
+the user of the forked repository does not
+
+35
+00:02:19.530 --> 00:02:23.400
+need to have right access
+to the upstream repository.
+
+36
+00:02:23.400 --> 00:02:27.970
+This is because a user on the upstream
+repository merges the pull request.
+
+37
+00:02:27.970 --> 00:02:33.140
+Because of this, the forking workflow
+is very common in open source projects.
+
+38
+00:02:33.140 --> 00:02:36.100
+Forking a repository is a great
+way to work on a feature
+
+39
+00:02:36.100 --> 00:02:38.470
+branch without sharing your branch.
+
+40
+00:02:38.470 --> 00:02:41.250
+This provides a remote
+backup of your work, and
+
+41
+00:02:41.250 --> 00:02:44.550
+allows you to safely
+rebase your local branch.
+
+42
+00:02:44.550 --> 00:02:48.700
+A downside of this approach is that
+the two remote repositories can become
+
+43
+00:02:48.700 --> 00:02:49.860
+out of sync.
+
+44
+00:02:49.860 --> 00:02:53.800
+It's the responsibility of the forked
+repository to keep up to date with
+
+45
+00:02:53.800 --> 00:02:55.020
+the upstream repository.
+
+46
+00:02:56.110 --> 00:02:59.770
+In this example we have the upstream
+repository on the right,
+
+47
+00:02:59.770 --> 00:03:02.540
+the forked repository is on the left.
+
+48
+00:03:02.540 --> 00:03:06.420
+You can see that the forked repository
+created the feature1 branch
+
+49
+00:03:06.420 --> 00:03:10.240
+before commit C was added
+to the upstream repository.
+
+50
+00:03:10.240 --> 00:03:13.780
+These remote repositories
+are now not synchronized.
+
+51
+00:03:13.780 --> 00:03:18.020
+User A of the forked repository would
+have to synchronize the repository
+
+52
+00:03:18.020 --> 00:03:22.280
+before they could submit a pull
+request with the feature1 branch.
+
+53
+00:03:22.280 --> 00:03:25.950
+This would involve merging or
+rebasing before making the pull request.
+
+54
+00:03:28.440 --> 00:03:31.124
+Finally we will discuss GitFlow workflows.
+
+55
+00:03:33.404 --> 00:03:38.210
+GitFlow is a workflow that allows safe
+continuous releases of the project.
+
+56
+00:03:38.210 --> 00:03:42.510
+It allows work to continue even
+through releases and hotfixes.
+
+57
+00:03:42.510 --> 00:03:46.980
+This commit graph is an example in
+the spirit of a GitFlow workflow.
+
+58
+00:03:46.980 --> 00:03:51.420
+The general ideas here are used in
+specific ways that depend on the team and
+
+59
+00:03:51.420 --> 00:03:52.930
+the type of project.
+
+60
+00:03:52.930 --> 00:03:56.900
+We will break this commit graph
+down step by step shortly, but for
+
+61
+00:03:56.900 --> 00:04:01.200
+now you can see that GitFlow projects
+involve a number of branches.
+
+62
+00:04:01.200 --> 00:04:05.350
+In this diagram, the long running
+branch labels have solid borders and
+
+63
+00:04:05.350 --> 00:04:08.790
+the short lived branch
+labels have dashed borders.
+
+64
+00:04:08.790 --> 00:04:10.260
+You can see that the master and
+
+65
+00:04:10.260 --> 00:04:13.580
+developed branches are the only
+long running branches.
+
+66
+00:04:13.580 --> 00:04:17.570
+If you look at the master branch,
+you can see that there are three commits.
+
+67
+00:04:17.570 --> 00:04:20.190
+Commit A is the initial
+commit in the repository.
+
+68
+00:04:20.190 --> 00:04:23.940
+We will assume that any
+commits on the master branch
+
+69
+00:04:23.940 --> 00:04:28.990
+after commit A represent a version of
+our project that customers can use.
+
+70
+00:04:28.990 --> 00:04:32.410
+These releases have been
+tagged with version labels.
+
+71
+00:04:32.410 --> 00:04:35.835
+This commit graph includes a release
+of version1 of the project,
+
+72
+00:04:35.835 --> 00:04:39.270
+then shortly follows with a minor update.
+
+73
+00:04:39.270 --> 00:04:41.130
+We are going to keep things simple and
+
+74
+00:04:41.130 --> 00:04:45.640
+release version 1 of the project with
+a single feature named feature1.
+
+75
+00:04:45.640 --> 00:04:48.180
+We will discuss the rest
+of this commit graph next.
+
+76
+00:04:50.140 --> 00:04:53.750
+The initial commit of the project
+is created on the master branch.
+
+77
+00:04:53.750 --> 00:04:55.960
+It can be very simple,
+like a read me file.
+
+78
+00:04:57.550 --> 00:05:00.620
+The develop branch is created
+off of the master branch.
+
+79
+00:05:00.620 --> 00:05:03.520
+Commit B is the first commit
+on the develop branch.
+
+80
+00:05:03.520 --> 00:05:05.530
+It too can be very simple.
+
+81
+00:05:05.530 --> 00:05:08.180
+We have now created our
+two long running branches.
+
+82
+00:05:09.650 --> 00:05:13.410
+Our first release of the project is
+planned to have only a single feature
+
+83
+00:05:13.410 --> 00:05:14.890
+named feature1.
+
+84
+00:05:14.890 --> 00:05:18.320
+We create a feature1 branch,
+then get to work.
+
+85
+00:05:18.320 --> 00:05:20.450
+Commit C begins the work of feature1.
+
+86
+00:05:22.660 --> 00:05:25.950
+We then finish the work
+of feature1 in commit D.
+
+87
+00:05:25.950 --> 00:05:29.780
+Let's assume that the team decides
+that feature1 is ready to be merged
+
+88
+00:05:29.780 --> 00:05:31.570
+into the developed branch.
+
+89
+00:05:31.570 --> 00:05:34.320
+This may have been done
+through a pull request.
+
+90
+00:05:34.320 --> 00:05:36.740
+Merge commit E is created
+on the develop branch.
+
+91
+00:05:37.780 --> 00:05:40.890
+At this point,
+the develop branch contains feature1.
+
+92
+00:05:40.890 --> 00:05:45.346
+Since the feature1 branch is merged,
+we can delete the feature1 branch label.
+
+93
+00:05:47.217 --> 00:05:50.795
+The team has decided that the first
+release will contain only a single
+
+94
+00:05:50.795 --> 00:05:54.670
+feature, and that commit E
+represents a release candidate.
+
+95
+00:05:54.670 --> 00:05:58.180
+A release1 branch is
+created off of commit E.
+
+96
+00:05:58.180 --> 00:05:59.995
+At this point, commits intended for
+
+97
+00:05:59.995 --> 00:06:03.570
+release1 can only be made
+on the release1 branch.
+
+98
+00:06:03.570 --> 00:06:07.490
+Any commits to the develop branch
+will be in a future release.
+
+99
+00:06:07.490 --> 00:06:10.280
+The commits on the release1
+branch should mainly be for
+
+100
+00:06:10.280 --> 00:06:14.610
+fixing issues with release1,
+not adding new features.
+
+101
+00:06:14.610 --> 00:06:19.424
+Since the developer is done with feature1
+and knows of no issues with the release,
+
+102
+00:06:19.424 --> 00:06:23.180
+they create a feature2 branch and
+begin working on feature2.
+
+103
+00:06:23.180 --> 00:06:25.620
+This work is for
+a later release of the project.
+
+104
+00:06:26.720 --> 00:06:29.590
+Commit F contains some
+of the work of feature2.
+
+105
+00:06:29.590 --> 00:06:35.080
+The team has discovered a bug in Commit E.
+
+106
+00:06:35.080 --> 00:06:38.050
+Commit G is added to the release1 branch.
+
+107
+00:06:38.050 --> 00:06:39.540
+This commit fixes the bug.
+
+108
+00:06:41.350 --> 00:06:45.760
+As far as the team is concerned, commit G
+is ready for release to the master branch.
+
+109
+00:06:46.960 --> 00:06:49.250
+Merge commit H is created.
+
+110
+00:06:49.250 --> 00:06:51.440
+This contains feature1.
+
+111
+00:06:51.440 --> 00:06:54.870
+Commit H is tagged with
+a version 1.0 label so
+
+112
+00:06:54.870 --> 00:06:59.070
+that team members can easily find
+released versions of the project.
+
+113
+00:06:59.070 --> 00:07:02.350
+When you commit to the master
+branch in a GitFlow workflow,
+
+114
+00:07:02.350 --> 00:07:06.490
+it's important to consider how that
+commit impacts other branches.
+
+115
+00:07:06.490 --> 00:07:12.070
+Commit G should be merged into the develop
+branch, which we do here with commit I.
+
+116
+00:07:12.070 --> 00:07:13.280
+If we didn't do this,
+
+117
+00:07:13.280 --> 00:07:17.150
+the bug fix from commit G would
+not be in the develop branch.
+
+118
+00:07:17.150 --> 00:07:20.530
+This means that the bug would
+come back in the next release.
+
+119
+00:07:20.530 --> 00:07:23.850
+Because we have merged the release1
+branch to both master and
+
+120
+00:07:23.850 --> 00:07:27.160
+develop, we can now
+delete the branch1 label.
+
+121
+00:07:27.160 --> 00:07:30.040
+Release branches are only valid for
+a single release.
+
+122
+00:07:31.160 --> 00:07:33.390
+Let's say that we are working
+away on feature2,
+
+123
+00:07:33.390 --> 00:07:37.350
+and then then someone reports
+a bug with our version 1 release.
+
+124
+00:07:37.350 --> 00:07:41.200
+We create a hotfix1 branch
+to deal with this problem.
+
+125
+00:07:41.200 --> 00:07:44.500
+And create commit J which fixes the bug.
+
+126
+00:07:44.500 --> 00:07:48.260
+We do not branch off of the develop
+branch because new commits could have
+
+127
+00:07:48.260 --> 00:07:50.970
+been made to the develop branch for
+the next release.
+
+128
+00:07:50.970 --> 00:07:53.630
+We don't want those
+features in our hotfix.
+
+129
+00:07:53.630 --> 00:07:58.150
+We want to make the change to the release
+as small as we can to limit our risk
+
+130
+00:07:58.150 --> 00:07:59.480
+while still fixing the bug.
+
+131
+00:08:01.240 --> 00:08:05.320
+Hotfix commit J is then merged
+into master with commit K.
+
+132
+00:08:05.320 --> 00:08:06.890
+This fixes the bug.
+
+133
+00:08:06.890 --> 00:08:10.480
+We tag commit K with version 1.01.
+
+134
+00:08:10.480 --> 00:08:13.850
+This represents the latest
+release of the project.
+
+135
+00:08:13.850 --> 00:08:18.220
+Because we have committed to master, we
+need to also commit to the develop branch.
+
+136
+00:08:18.220 --> 00:08:20.590
+Merge commit L is then created and
+
+137
+00:08:20.590 --> 00:08:24.484
+sharing that the hotfix is also
+included in the develop branch.
+
+138
+00:08:24.484 --> 00:08:29.290
+A hotfix branch is created for a single
+hotfix and once changes are merged
+
+139
+00:08:29.290 --> 00:08:33.680
+to the master and developed branches,
+the hotfix1 branch label can be deleted.
+
+140
+00:08:35.690 --> 00:08:40.690
+At this point, we can continue work on
+feature2 and any other work planned for
+
+141
+00:08:40.690 --> 00:08:41.990
+the next release.
+
+142
+00:08:41.990 --> 00:08:45.280
+This process continues indefinitely,
+allowing for
+
+143
+00:08:45.280 --> 00:08:47.280
+a continuous improvement of the project.
+
+144
+00:08:48.820 --> 00:08:51.950
+We have used some rules
+with our GitFlow workflow.
+
+145
+00:08:51.950 --> 00:08:54.300
+Teams may have different rules.
+
+146
+00:08:54.300 --> 00:08:57.810
+One rule is to only use
+merge commits on master.
+
+147
+00:08:57.810 --> 00:08:58.510
+You can see that,
+
+148
+00:08:58.510 --> 00:09:03.550
+with the exception of Commit A,
+no work is done directly on master.
+
+149
+00:09:03.550 --> 00:09:06.340
+Commits H and K are merge commits.
+
+150
+00:09:06.340 --> 00:09:10.440
+You can tell that they are merge commits,
+because they have have multiple parents.
+
+151
+00:09:10.440 --> 00:09:14.556
+Another rule is that the commits to
+master can only come from release or
+
+152
+00:09:14.556 --> 00:09:15.689
+hotfix branches.
+
+153
+00:09:16.700 --> 00:09:21.030
+You should not directly merge from
+the develop or feature branches.
+
+154
+00:09:21.030 --> 00:09:25.250
+This helps ensure proper testing and
+quality for the release.
+
+155
+00:09:25.250 --> 00:09:29.241
+You can see here that commit H
+merges in the release1 branch and
+
+156
+00:09:29.241 --> 00:09:32.720
+commit K merges in the hotfix1 branch.
+
+157
+00:09:32.720 --> 00:09:33.860
+The third rule is,
+
+158
+00:09:33.860 --> 00:09:37.220
+if you commit to master,
+also merge into the develop branch.
+
+159
+00:09:38.300 --> 00:09:43.490
+If you don't do this, issues that were
+fixed will reappear in future releases.
+
+160
+00:09:43.490 --> 00:09:47.100
+You can see here that when we
+merged commit G into master,
+
+161
+00:09:47.100 --> 00:09:51.450
+we also merged it into the develop
+branch with merge commit I.
+
+162
+00:09:51.450 --> 00:09:54.260
+If we didn't do that,
+the bug fix in commit G,
+
+163
+00:09:54.260 --> 00:09:56.660
+will not be in our future versions.
+
+164
+00:09:56.660 --> 00:10:00.024
+Similarly when we merged
+hotfix J into master,
+
+165
+00:10:00.024 --> 00:10:04.239
+we also merged it into the develop
+branch in merge commit L.
+
+166
+00:10:07.098 --> 00:10:09.370
+Here's a review of what we've
+discussed in this video.
+
+167
+00:10:09.370 --> 00:10:14.599
+A centralized workflow involves
+working on a single branch.
+
+168
+00:10:16.710 --> 00:10:21.162
+In a feature branch workflow,
+work of the project is done on feature or
+
+169
+00:10:21.162 --> 00:10:25.173
+topic branches and
+then merged into longer running branches.
+
+170
+00:10:26.970 --> 00:10:28.385
+In a forking workflow,
+
+171
+00:10:28.385 --> 00:10:32.719
+work is added upstream using pull
+requests from the forked repository.
+
+172
+00:10:34.780 --> 00:10:39.546
+GitFlow workflows enable a continuous
+train of project releases using multiple
+
+173
+00:10:39.546 --> 00:10:40.744
+types of branches.
+
+174
+00:10:42.920 --> 00:10:45.960
+Now it's time to do the final project for
+this course.
+
+175
+00:10:45.960 --> 00:10:48.700
+You will recreate the commit
+graph shown here.
+
+176
+00:10:48.700 --> 00:10:52.450
+It should look pretty familiar to you
+because it's very similar to the GitFlow
+
+177
+00:10:52.450 --> 00:10:54.520
+workflow that we just went through.
+
+178
+00:10:54.520 --> 00:10:58.450
+The only major difference with this
+commit graph is that we've added commits
+
+179
+00:10:58.450 --> 00:10:59.690
+F1 and F2.
+
+180
+00:10:59.690 --> 00:11:01.870
+These are related to feature2.
+
+181
+00:11:01.870 --> 00:11:06.100
+When we created the feature2
+branch off of commit E,
+
+182
+00:11:06.100 --> 00:11:08.200
+it was the current commit
+on the master branch.
+
+183
+00:11:09.280 --> 00:11:12.189
+But then we worked on fixing
+a bug in the release1 branch.
+
+184
+00:11:13.600 --> 00:11:17.070
+Commit F1 is a rebase of
+commit F onto commit I.
+
+185
+00:11:18.120 --> 00:11:23.610
+This incorporates the bug fix of
+commit G into our feature2 work.
+
+186
+00:11:23.610 --> 00:11:28.450
+Later our feature2 work was again
+disrupted by the work of hotfix1.
+
+187
+00:11:28.450 --> 00:11:31.000
+By the time we got back
+to work on feature2,
+
+188
+00:11:31.000 --> 00:11:33.440
+we rebased again, creating commit F2.
+
+189
+00:11:34.640 --> 00:11:38.256
+This ensures that the feature2 branch
+is working off of the latest commit on
+
+190
+00:11:38.256 --> 00:11:40.140
+the develop branch.
+
+191
+00:11:40.140 --> 00:11:43.532
+Instructions for the project
+are provided in a separate document.

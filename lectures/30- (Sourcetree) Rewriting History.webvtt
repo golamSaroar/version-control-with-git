@@ -1,0 +1,529 @@
+WEBVTT
+
+1
+00:00:01.280 --> 00:00:05.898
+This video discusses rewriting history.
+
+2
+00:00:05.898 --> 00:00:10.585
+We will start by talking about amending a commit.
+
+3
+00:00:10.585 --> 00:00:14.295
+You can change the most recent commit.
+
+4
+00:00:14.295 --> 00:00:16.880
+This includes changing the commit message,
+
+5
+00:00:16.880 --> 00:00:19.820
+and/or changing the project files.
+
+6
+00:00:19.820 --> 00:00:21.433
+This creates a new SHA-1,
+
+7
+00:00:21.433 --> 00:00:25.385
+rewriting the history of the commit.
+
+8
+00:00:25.385 --> 00:00:29.310
+Here's an example where our commit message has a typo,
+
+9
+00:00:29.310 --> 00:00:31.810
+and we want to change it.
+
+10
+00:00:31.810 --> 00:00:34.500
+We click on commit,
+
+11
+00:00:34.500 --> 00:00:39.855
+and then we select amend last commit under the commit options.
+
+12
+00:00:39.855 --> 00:00:43.915
+We can fix our typo and click commit.
+
+13
+00:00:43.915 --> 00:00:46.980
+So, history will warn you that you're changing
+
+14
+00:00:46.980 --> 00:00:50.240
+the project history because you're creating a new SHA-1.
+
+15
+00:00:50.240 --> 00:00:54.709
+You click okay, and the commit will be amended.
+
+16
+00:00:54.709 --> 00:00:57.780
+Now the typo in the commit message is fixed,
+
+17
+00:00:57.780 --> 00:01:02.160
+and the commit has a new SHA-1.
+
+18
+00:01:02.160 --> 00:01:05.049
+You can also amend the committed files,
+
+19
+00:01:05.049 --> 00:01:10.763
+so let's say that we wanted to change or add some text to the previous commit,
+
+20
+00:01:10.763 --> 00:01:12.255
+we change the file,
+
+21
+00:01:12.255 --> 00:01:14.220
+we add it to the stage,
+
+22
+00:01:14.220 --> 00:01:16.715
+and then we click commit.
+
+23
+00:01:16.715 --> 00:01:20.395
+Again, we select amend last commit,
+
+24
+00:01:20.395 --> 00:01:23.160
+we can keep the commit message the same,
+
+25
+00:01:23.160 --> 00:01:32.016
+and click commit and the result is still a single commit with the correct files.
+
+26
+00:01:32.016 --> 00:01:37.255
+Next, we will discuss interactive rebase.
+
+27
+00:01:37.255 --> 00:01:42.280
+Interactive rebase lets you edit multiple commits.
+
+28
+00:01:42.280 --> 00:01:45.175
+The commits can belong to any branch.
+
+29
+00:01:45.175 --> 00:01:47.945
+In fact, they can belong to a single branch.
+
+30
+00:01:47.945 --> 00:01:51.425
+With interactive rebase, the commit history is changed.
+
+31
+00:01:51.425 --> 00:01:53.480
+So, if you've shared your commits,
+
+32
+00:01:53.480 --> 00:01:57.220
+you in general don't want to use interactive rebase,
+
+33
+00:01:57.220 --> 00:01:58.585
+and the way that it works,
+
+34
+00:01:58.585 --> 00:02:02.835
+is that the commits after the selected commit can be modified.
+
+35
+00:02:02.835 --> 00:02:05.635
+In this example, before the interactive rebase,
+
+36
+00:02:05.635 --> 00:02:08.995
+we have a master branch with three commits A, B,
+
+37
+00:02:08.995 --> 00:02:12.250
+and C. And after the interactive rebase,
+
+38
+00:02:12.250 --> 00:02:19.430
+we have combined commits B and C into a single commit B prime.
+
+39
+00:02:19.430 --> 00:02:24.205
+Here are the options that you have when you use interactive rebase on a branch.
+
+40
+00:02:24.205 --> 00:02:26.110
+For each commit on the branch,
+
+41
+00:02:26.110 --> 00:02:28.642
+you can use the commit as it is,
+
+42
+00:02:28.642 --> 00:02:31.432
+you can edit its commit message,
+
+43
+00:02:31.432 --> 00:02:35.423
+you can stop the rebase and amend or edit the commit,
+
+44
+00:02:35.423 --> 00:02:37.994
+you can drop or delete a commit,
+
+45
+00:02:37.994 --> 00:02:39.430
+you can squash the commit,
+
+46
+00:02:39.430 --> 00:02:41.075
+which we'll talk about later,
+
+47
+00:02:41.075 --> 00:02:43.000
+and you can also reorder
+
+48
+00:02:43.000 --> 00:02:50.045
+the commits.. Let's look at an example where we edit a commit message.
+
+49
+00:02:50.045 --> 00:02:51.980
+Here before the rebase,
+
+50
+00:02:51.980 --> 00:02:53.522
+we have three commits,
+
+51
+00:02:53.522 --> 00:02:57.215
+and the second commit has a typo in the commit message.
+
+52
+00:02:57.215 --> 00:02:59.180
+After the rebase, we still have
+
+53
+00:02:59.180 --> 00:03:03.405
+three commits but the typo is no longer in the commit message.
+
+54
+00:03:03.405 --> 00:03:06.590
+The rebase changes the commit history, and therefore,
+
+55
+00:03:06.590 --> 00:03:10.055
+commit ID B changes to commit ID B prime,
+
+56
+00:03:10.055 --> 00:03:15.865
+and commit ID C changes to commit ID C prime.
+
+57
+00:03:15.865 --> 00:03:20.265
+To edit a commit message in source tree,
+
+58
+00:03:20.265 --> 00:03:27.615
+you right click on the initial commit and select rebase children interactively.
+
+59
+00:03:27.615 --> 00:03:32.005
+This will bring up an editor allowing you to change the two commits on the branch.
+
+60
+00:03:32.005 --> 00:03:33.865
+To edit the commit message,
+
+61
+00:03:33.865 --> 00:03:39.060
+we select the commit and then click Edit message.
+
+62
+00:03:39.060 --> 00:03:42.880
+Once we have completed the interactive rebase,
+
+63
+00:03:42.880 --> 00:03:49.815
+the messages are correct and the two most recent commit IDs have changed.
+
+64
+00:03:49.815 --> 00:03:54.885
+Another example is to edit the files of a commit.
+
+65
+00:03:54.885 --> 00:03:58.390
+In this case, before the rebase we have three commits,
+
+66
+00:03:58.390 --> 00:04:02.460
+but in commit B we accidentally have a typo in the file name.
+
+67
+00:04:02.460 --> 00:04:06.075
+After the rebase, we've fixed the typo in the file name,
+
+68
+00:04:06.075 --> 00:04:10.165
+and we have new commit IDs B prime and C prime.
+
+69
+00:04:10.165 --> 00:04:13.730
+To edit the commit using source tree,
+
+70
+00:04:13.730 --> 00:04:16.640
+we right click on the first commit of the branch,
+
+71
+00:04:16.640 --> 00:04:21.875
+and select Rebase children interactively.
+
+72
+00:04:21.875 --> 00:04:23.530
+This brings up the commit editor.
+
+73
+00:04:23.530 --> 00:04:26.350
+Since we want to change the highlighted commit,
+
+74
+00:04:26.350 --> 00:04:31.570
+we select the amend commit checkbox and click okay.
+
+75
+00:04:31.570 --> 00:04:36.845
+In our history, we will see that the amended commit is checked out,
+
+76
+00:04:36.845 --> 00:04:40.945
+so we are in a detached head state.
+
+77
+00:04:40.945 --> 00:04:47.230
+At this point, we can go ahead and fix the commit and stage the new files.
+
+78
+00:04:47.230 --> 00:04:53.100
+Here, we've deleted the file with a typo and added the correct file.
+
+79
+00:04:53.310 --> 00:05:01.225
+We then click commit, and we can change the commit message if we want to.
+
+80
+00:05:01.225 --> 00:05:05.310
+At this point, we have a branch in our history and
+
+81
+00:05:05.310 --> 00:05:08.430
+we want to continue the interactive rebase.
+
+82
+00:05:08.430 --> 00:05:11.160
+Under source tree's actions menu,
+
+83
+00:05:11.160 --> 00:05:14.910
+you select continue rebase.
+
+84
+00:05:14.910 --> 00:05:21.840
+And the result is a linear commit graph with fileB.txt fixed.
+
+85
+00:05:21.840 --> 00:05:27.230
+You can see that the original commit is still in the commit history.
+
+86
+00:05:27.410 --> 00:05:30.580
+To delete a commit,
+
+87
+00:05:30.580 --> 00:05:37.660
+you again right click on the initial commit and select rebase children interactively,
+
+88
+00:05:37.660 --> 00:05:41.875
+you highlight the commit that you want to delete.
+
+89
+00:05:41.875 --> 00:05:46.880
+Here you can see that this is the commit with a typo in the filing.
+
+90
+00:05:46.880 --> 00:05:52.200
+Select delete, and then select okay to continue the rebase.
+
+91
+00:05:52.200 --> 00:05:58.121
+And we are left with a clean commit history.
+
+92
+00:05:58.121 --> 00:06:06.890
+Squashing a commit does three main things: it applies a newer commit to an older commit.
+
+93
+00:06:06.890 --> 00:06:09.900
+The newer commit is called the squashed commit.
+
+94
+00:06:09.900 --> 00:06:14.740
+It combines their commit messages and then it removes the newer commit.
+
+95
+00:06:14.740 --> 00:06:18.015
+Let's say in this example that we would like to simplify
+
+96
+00:06:18.015 --> 00:06:23.245
+the commit history so that there is only one commit related to adding feature one.
+
+97
+00:06:23.245 --> 00:06:25.450
+We right click on the initial commit,
+
+98
+00:06:25.450 --> 00:06:30.735
+and select rebase children interactively.
+
+99
+00:06:30.735 --> 00:06:34.565
+We would like to squash these two commits into a single commit,
+
+100
+00:06:34.565 --> 00:06:37.010
+so we select the newer commit,
+
+101
+00:06:37.010 --> 00:06:40.265
+and then click squash with previous.
+
+102
+00:06:40.265 --> 00:06:45.435
+Source tree shows that two commits will be combined into a single commit.
+
+103
+00:06:45.435 --> 00:06:48.835
+Click okay to continue the rebase.
+
+104
+00:06:48.835 --> 00:06:53.220
+After the rebase, we have a single commit related to feature one.
+
+105
+00:06:53.220 --> 00:06:57.410
+So we have squashed or combined the two commits into a single commit.
+
+106
+00:06:57.410 --> 00:07:05.570
+Let's take a look at the difference between a squash and a delete.
+
+107
+00:07:05.570 --> 00:07:09.675
+A squash combines the commits and creates a single commit,
+
+108
+00:07:09.675 --> 00:07:12.775
+the work of both commits is included.
+
+109
+00:07:12.775 --> 00:07:18.555
+Deleting a commit means that no changes from this commit are applied to any other commit.
+
+110
+00:07:18.555 --> 00:07:21.075
+The diff is thrown out meaning that
+
+111
+00:07:21.075 --> 00:07:25.320
+any changes that were made in this commit will be discarded.
+
+112
+00:07:25.320 --> 00:07:28.005
+The work of a deleted commit is lost,
+
+113
+00:07:28.005 --> 00:07:31.005
+and you have a greater chance of a merge conflict
+
+114
+00:07:31.005 --> 00:07:36.440
+because some of the transitional work might be lost.
+
+115
+00:07:36.440 --> 00:07:41.835
+Here's an example of the difference between a squash and a delete.
+
+116
+00:07:41.835 --> 00:07:44.910
+Before the rebase, we have three commits;
+
+117
+00:07:44.910 --> 00:07:47.055
+commit A adds fileA.txt,
+
+118
+00:07:47.055 --> 00:07:50.715
+commit B adds fileB.txt,
+
+119
+00:07:50.715 --> 00:07:54.330
+and commit C adds fileC.txt.
+
+120
+00:07:54.330 --> 00:07:58.590
+After an interactive rebase where we squash commit C,
+
+121
+00:07:58.590 --> 00:08:01.140
+we have a commit B prime that still
+
+122
+00:08:01.140 --> 00:08:04.900
+contains all of the work of the three original commits.
+
+123
+00:08:04.900 --> 00:08:08.940
+After an interactive rebase where we delete commit B,
+
+124
+00:08:08.940 --> 00:08:13.320
+the work of adding fileB.txt is gone and we are left with commit
+
+125
+00:08:13.320 --> 00:08:19.607
+C prime, fileA.txt, and fileC.txt.
+
+126
+00:08:19.607 --> 00:08:24.700
+Here's a review of what we've discussed in this video.
+
+127
+00:08:24.700 --> 00:08:29.928
+You can amend the most recent commits message, and/or committed files.
+
+128
+00:08:29.928 --> 00:08:34.120
+This will create a new SHA-1 for the commit.
+
+129
+00:08:34.120 --> 00:08:39.951
+Interactive rebase allows you to rewrite the history of a branch.
+
+130
+00:08:39.951 --> 00:08:45.925
+A squash reduces multiple commits into a single commit.
+
+131
+00:08:45.925 --> 00:08:49.145
+Now, it's time for you to work with the topics discussed in this video.
+
+132
+00:08:49.145 --> 00:08:52.470
+Separate hands-on instructions are provided.

@@ -1,0 +1,644 @@
+WEBVTT
+
+1
+00:00:02.498 --> 00:00:06.153
+This video discusses the fetch,
+pull, and push commands.
+
+2
+00:00:09.343 --> 00:00:11.710
+We will start with
+a network command overview.
+
+3
+00:00:13.670 --> 00:00:17.660
+Most commands in Git only interact
+with the local repository.
+
+4
+00:00:17.660 --> 00:00:19.460
+However, these four commands,
+
+5
+00:00:19.460 --> 00:00:24.060
+which we will call network commands,
+communicate with the remote repository.
+
+6
+00:00:24.060 --> 00:00:28.540
+We discuss the details elsewhere, but
+we will describe them here briefly.
+
+7
+00:00:28.540 --> 00:00:33.880
+The clone command copies a remote
+repository and creates a local repository.
+
+8
+00:00:33.880 --> 00:00:36.590
+By this point, you have quite
+a bit of experience using clone.
+
+9
+00:00:37.610 --> 00:00:40.150
+The fetch command retrieves
+the latest objects and
+
+10
+00:00:40.150 --> 00:00:42.690
+references from the remote repository.
+
+11
+00:00:42.690 --> 00:00:45.270
+The pull command combines a fetch and
+a merge.
+
+12
+00:00:46.490 --> 00:00:50.633
+The push command adds new objects and
+references to the remote repository.
+
+13
+00:00:50.633 --> 00:00:54.743
+We will discuss fetch, push, and
+pull in more detail in this video.
+
+14
+00:00:56.915 --> 00:00:59.116
+Next, we will discuss the fetch command.
+
+15
+00:01:01.494 --> 00:01:06.290
+The fetch command retrieves new objects
+and references from another repository.
+
+16
+00:01:06.290 --> 00:01:09.200
+It mainly updates all of your
+tracking branch information.
+
+17
+00:01:10.530 --> 00:01:14.290
+Fetch allows you to download and
+view changes on a remote repository
+
+18
+00:01:14.290 --> 00:01:18.360
+without having to immediately
+merge them into your current work.
+
+19
+00:01:18.360 --> 00:01:20.820
+In this example,
+we have executed fetch and
+
+20
+00:01:20.820 --> 00:01:24.230
+it resulted in one new
+commit in the commit graph.
+
+21
+00:01:24.230 --> 00:01:27.090
+You can see that the tracking
+branch is one commit ahead
+
+22
+00:01:27.090 --> 00:01:28.980
+of our local master branch.
+
+23
+00:01:28.980 --> 00:01:33.167
+This means that there's one commit on
+the remote repository's master branch that
+
+24
+00:01:33.167 --> 00:01:34.978
+isn't on our local master branch.
+
+25
+00:01:38.369 --> 00:01:42.580
+You often will not have to explicitly
+click the fetch button on SourceTree.
+
+26
+00:01:42.580 --> 00:01:45.720
+This is because it can be set
+up to fetch in the background.
+
+27
+00:01:45.720 --> 00:01:47.830
+This is a preference in SourceTree.
+
+28
+00:01:47.830 --> 00:01:51.720
+Clicking on the advanced section of
+settings shows the check box related to
+
+29
+00:01:51.720 --> 00:01:53.400
+refreshing remote status.
+
+30
+00:01:53.400 --> 00:01:56.509
+If this box is checked,
+SourceTree will fetch in the background.
+
+31
+00:01:58.590 --> 00:02:02.330
+Let's look the commit graphs before and
+after a fetch.
+
+32
+00:02:02.330 --> 00:02:06.710
+We start with the local repository
+with two commits on a single branch.
+
+33
+00:02:06.710 --> 00:02:10.420
+The master branch label and the tracking
+branch label both point to commit B.
+
+34
+00:02:11.520 --> 00:02:16.680
+The remote repository has one more commit
+than the local repository commit C.
+
+35
+00:02:16.680 --> 00:02:20.570
+This was created after our
+most recent network command.
+
+36
+00:02:20.570 --> 00:02:24.960
+After we execute the fetch, the local
+repository has all of the commits and
+
+37
+00:02:24.960 --> 00:02:28.640
+references from the remote repository,
+but they are on the tracking branch.
+
+38
+00:02:29.650 --> 00:02:32.250
+You can see that this part
+of the local repository
+
+39
+00:02:32.250 --> 00:02:35.360
+matches this part of
+the remote repository.
+
+40
+00:02:35.360 --> 00:02:39.430
+Our local master branch label has
+not moved because of the fetch.
+
+41
+00:02:39.430 --> 00:02:42.430
+A fetch does not impact
+the local branch labels.
+
+42
+00:02:43.620 --> 00:02:44.700
+After the fetch,
+
+43
+00:02:44.700 --> 00:02:48.900
+the tracking branch has the same commits
+as the remote repository's master branch.
+
+44
+00:02:51.200 --> 00:02:53.060
+Next, we will discuss the pull command.
+
+45
+00:02:55.971 --> 00:02:59.890
+Pull is a network command that
+combines fetch and merge.
+
+46
+00:02:59.890 --> 00:03:04.430
+First, new objects and references from
+the remote repository are fetched.
+
+47
+00:03:04.430 --> 00:03:07.820
+If new objects are added to
+the current branches tracking branch,
+
+48
+00:03:07.820 --> 00:03:10.922
+the tracking branch is merged
+into the local branch.
+
+49
+00:03:10.922 --> 00:03:15.630
+Here, SourceTree has notified us that one
+new commit is in the remote repository.
+
+50
+00:03:15.630 --> 00:03:17.510
+We click on the pull button.
+
+51
+00:03:17.510 --> 00:03:21.030
+In this case, we are pulling
+the master branch from origin and
+
+52
+00:03:21.030 --> 00:03:23.140
+merging it into the local master branch.
+
+53
+00:03:24.340 --> 00:03:29.420
+We can specify the type of merge related
+to the pull using the options shown here.
+
+54
+00:03:29.420 --> 00:03:32.710
+By default, the merge will be
+fast-forwarded if possible.
+
+55
+00:03:32.710 --> 00:03:34.580
+Otherwise, a merge commit will be created.
+
+56
+00:03:37.620 --> 00:03:39.390
+After the pull, the tracking branch and
+
+57
+00:03:39.390 --> 00:03:42.330
+local master branch labels
+point to the same commit.
+
+58
+00:03:42.330 --> 00:03:43.764
+The branches are synchronized.
+
+59
+00:03:46.259 --> 00:03:50.550
+Here we look at executing a pull
+that includes fast-forward merge.
+
+60
+00:03:50.550 --> 00:03:53.585
+Before the pull,
+the local repository has two commits.
+
+61
+00:03:54.610 --> 00:03:57.910
+The remote repository also
+has a third commit, commit C.
+
+62
+00:03:58.930 --> 00:04:02.030
+If we perform a pull,
+commit C will be fetched and
+
+63
+00:04:02.030 --> 00:04:04.470
+the tracking branch
+label will point to it.
+
+64
+00:04:04.470 --> 00:04:07.640
+Because we haven't made any commits
+to the master branch locally
+
+65
+00:04:07.640 --> 00:04:12.470
+that aren't on the remote repository,
+a fast-forward merge is then performed.
+
+66
+00:04:12.470 --> 00:04:17.360
+This simply moves the master branch
+label and head reference to commit C.
+
+67
+00:04:17.360 --> 00:04:21.595
+After executing the pull, the local and
+remote branches are synchronized.
+
+68
+00:04:24.828 --> 00:04:28.080
+Let's look at the pull that
+involves the merge commit.
+
+69
+00:04:28.080 --> 00:04:33.440
+Before the pull, we have a local
+repository with three commits A, B, and D.
+
+70
+00:04:33.440 --> 00:04:38.050
+The tracking branch commit is commit B and
+the local master branch tip is commit D.
+
+71
+00:04:39.200 --> 00:04:44.310
+The remote repository also has three
+commits, but the last commit is commit C.
+
+72
+00:04:44.310 --> 00:04:47.950
+What probably happened is that we fetched
+when there were two commits on the remote
+
+73
+00:04:47.950 --> 00:04:49.270
+repository.
+
+74
+00:04:49.270 --> 00:04:54.180
+Someone then made and pushed commit
+C sometime before we make commit D.
+
+75
+00:04:54.180 --> 00:04:57.425
+When we execute a pull,
+first the fetch happens.
+
+76
+00:04:57.425 --> 00:04:59.700
+Commit C is retrieved from origin and
+
+77
+00:04:59.700 --> 00:05:02.710
+the tracking branch label
+then points to commit C.
+
+78
+00:05:02.710 --> 00:05:04.830
+That is the same as the tip
+of the remote repository.
+
+79
+00:05:04.830 --> 00:05:08.670
+After the fetch,
+the tracking branch is merged into
+
+80
+00:05:08.670 --> 00:05:12.350
+the local master branch
+creating merge commit E.
+
+81
+00:05:12.350 --> 00:05:15.340
+The merge commit is necessary
+because commits D and
+
+82
+00:05:15.340 --> 00:05:18.260
+C both think that commit B is its parent.
+
+83
+00:05:18.260 --> 00:05:20.900
+Notice that the tracking
+branch label stays behind
+
+84
+00:05:20.900 --> 00:05:23.270
+because we merged into
+the local master branch.
+
+85
+00:05:24.290 --> 00:05:28.890
+That also makes sense because the tracking
+branch represents the remote branch, and
+
+86
+00:05:28.890 --> 00:05:30.930
+the remote branch tip is on commit C.
+
+87
+00:05:31.940 --> 00:05:35.480
+At this point, the remote doesn't know
+that we created a merge commit locally.
+
+88
+00:05:38.620 --> 00:05:41.910
+If you have new local commits and
+new remote commits,
+
+89
+00:05:41.910 --> 00:05:46.690
+you find yourself in a situation where
+a fast-forward merge is not possible.
+
+90
+00:05:46.690 --> 00:05:51.420
+In this case, our local master branch in
+one commit ahead of the tracking branch
+
+91
+00:05:51.420 --> 00:05:53.840
+and one commit behind the tracking branch.
+
+92
+00:05:53.840 --> 00:05:57.141
+In this case by default,
+a pull will create a merge commit.
+
+93
+00:06:00.875 --> 00:06:04.620
+Executing a pull in this
+situation creates a merge commit.
+
+94
+00:06:04.620 --> 00:06:07.335
+This commit is only in
+the local repository.
+
+95
+00:06:07.335 --> 00:06:12.290
+SourceTree notifies us that two local
+commits are not on the remote repository.
+
+96
+00:06:12.290 --> 00:06:16.300
+You typically would click push at this
+point then to add the commit to the remote
+
+97
+00:06:16.300 --> 00:06:17.047
+repository.
+
+98
+00:06:20.978 --> 00:06:24.184
+Notice the similarities between
+merging after a pull and
+
+99
+00:06:24.184 --> 00:06:25.860
+merging in a feature branch.
+
+100
+00:06:27.420 --> 00:06:30.290
+On the left,
+we create a merge commit after a pull.
+
+101
+00:06:30.290 --> 00:06:33.630
+Notice that a merge commit was
+created even though the only branch
+
+102
+00:06:33.630 --> 00:06:35.200
+is the master branch.
+
+103
+00:06:35.200 --> 00:06:39.560
+This is because the tip of the tracking
+branch is acting like a topic branch
+
+104
+00:06:39.560 --> 00:06:42.190
+to get the tracking branch
+is just another branch.
+
+105
+00:06:44.060 --> 00:06:46.590
+On the right, we merge in a topic branch.
+
+106
+00:06:46.590 --> 00:06:49.650
+Notice that the commit graphs
+are basically the same.
+
+107
+00:06:49.650 --> 00:06:53.579
+Anything that can happen when merging in
+a topic branch can happen when merging in
+
+108
+00:06:53.579 --> 00:06:54.577
+a tracking branch.
+
+109
+00:06:57.176 --> 00:06:59.382
+Next, we will discuss the push command.
+
+110
+00:07:02.876 --> 00:07:06.810
+The push command is used to add
+commits to the remote repository.
+
+111
+00:07:06.810 --> 00:07:09.340
+Here we have been notified by
+SourceTree that we have two
+
+112
+00:07:09.340 --> 00:07:11.840
+local commits that are not
+in a remote repository.
+
+113
+00:07:12.890 --> 00:07:15.820
+When you click on push,
+this dialogue opens.
+
+114
+00:07:15.820 --> 00:07:19.710
+You can select the repository to
+push to and specify the local and
+
+115
+00:07:19.710 --> 00:07:21.640
+remote branches involved in the push.
+
+116
+00:07:23.928 --> 00:07:26.870
+After executing the push,
+the tracker branch label and
+
+117
+00:07:26.870 --> 00:07:29.600
+local branch label point
+to the same commit.
+
+118
+00:07:29.600 --> 00:07:31.039
+The branches are synchronized.
+
+119
+00:07:34.828 --> 00:07:38.740
+The general rule is to fetch or
+pull before you do a push.
+
+120
+00:07:38.740 --> 00:07:40.300
+You don't have to do this, but
+
+121
+00:07:40.300 --> 00:07:45.450
+if you try to push when you don't have the
+latest remote changes, the push will fail.
+
+122
+00:07:45.450 --> 00:07:49.910
+If you execute a fetch and no objects
+are retrieved, you can safely push.
+
+123
+00:07:49.910 --> 00:07:53.080
+If you are worried about a pull
+creating an unwanted merge commit,
+
+124
+00:07:53.080 --> 00:07:55.141
+you can use the fast-forward only option.
+
+125
+00:07:56.360 --> 00:07:59.080
+This example shows what happens
+when we try to push but
+
+126
+00:07:59.080 --> 00:08:01.325
+don't have the latest commits locally.
+
+127
+00:08:01.325 --> 00:08:05.030
+Git rejects the push suggesting
+that you do a pull first.
+
+128
+00:08:05.030 --> 00:08:09.019
+This is to prevent work on the remote
+repository from being overwritten.
+
+129
+00:08:12.121 --> 00:08:14.860
+Here is a review of what we
+have discussed in this video.
+
+130
+00:08:16.260 --> 00:08:20.490
+Clone, fetch, pull, and push commands
+communicate with a remote repository.
+
+131
+00:08:21.780 --> 00:08:23.930
+Fetch updates tracking branch information.
+
+132
+00:08:25.580 --> 00:08:28.940
+Pull combines a fetch and a merge.
+
+133
+00:08:28.940 --> 00:08:31.645
+Push adds commits to
+the remote repository.
+
+134
+00:08:34.151 --> 00:08:37.735
+Now it's time to work with some of
+the topics discussed in this video,
+
+135
+00:08:37.735 --> 00:08:40.186
+separate hands on
+instructions are provided.

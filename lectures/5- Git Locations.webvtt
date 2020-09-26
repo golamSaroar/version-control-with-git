@@ -1,0 +1,233 @@
+WEBVTT
+
+1
+00:00:01.520 --> 00:00:07.790
+In this video, we will discuss locations related to Git managed content.
+
+2
+00:00:07.790 --> 00:00:13.175
+We will begin by discussing the working tree.
+
+3
+00:00:13.175 --> 00:00:15.395
+Here are locations related to Git.
+
+4
+00:00:15.395 --> 00:00:17.035
+If you can understand these,
+
+5
+00:00:17.035 --> 00:00:21.310
+you're well on your way to having a solid fundamental understanding of Git.
+
+6
+00:00:21.310 --> 00:00:25.215
+This video is only an introduction to these topics.
+
+7
+00:00:25.215 --> 00:00:29.070
+We will strengthen your understanding of them as you go through the course.
+
+8
+00:00:29.070 --> 00:00:33.005
+We will start by looking at the working tree.
+
+9
+00:00:33.005 --> 00:00:36.500
+We know that a commit is a single snapshot of the project.
+
+10
+00:00:36.500 --> 00:00:39.530
+The working tree is the location on your computer that
+
+11
+00:00:39.530 --> 00:00:43.390
+contains the directories and files of a single commit.
+
+12
+00:00:43.390 --> 00:00:46.460
+This is where you can view and edit the files of the project,
+
+13
+00:00:46.460 --> 00:00:48.700
+preparing them for the next commit.
+
+14
+00:00:48.700 --> 00:00:51.350
+We will learn later that you check out a commit to
+
+15
+00:00:51.350 --> 00:00:54.960
+place its directories and files into the working tree.
+
+16
+00:00:54.960 --> 00:00:57.710
+Next, we will discuss the staging area,
+
+17
+00:00:57.710 --> 00:01:03.245
+which is also sometimes called the index.
+
+18
+00:01:03.245 --> 00:01:05.970
+The staging area contains a list of files that are
+
+19
+00:01:05.970 --> 00:01:09.690
+planned to be included in the next commit that you make.
+
+20
+00:01:09.690 --> 00:01:12.550
+You prepare the staging area just the way that you want it,
+
+21
+00:01:12.550 --> 00:01:16.510
+so that the next commit is a meaningful snapshot of the project.
+
+22
+00:01:16.510 --> 00:01:19.590
+You will learn later that you use the add command to add
+
+23
+00:01:19.590 --> 00:01:23.059
+new or modified files to the staging area.
+
+24
+00:01:23.059 --> 00:01:26.910
+Next, we will discuss the local repository.
+
+25
+00:01:26.910 --> 00:01:32.314
+The local repository contains all of the commits that have been made for the project.
+
+26
+00:01:32.314 --> 00:01:36.947
+These commits represent the version history of the project.
+
+27
+00:01:36.947 --> 00:01:41.989
+Next, we will discuss the project directory.
+
+28
+00:01:41.989 --> 00:01:44.800
+The first three locations that we discussed,
+
+29
+00:01:44.800 --> 00:01:46.840
+the working tree, staging area,
+
+30
+00:01:46.840 --> 00:01:49.690
+and local repository are commonly all
+
+31
+00:01:49.690 --> 00:01:53.285
+contained in a single directory on your local computer.
+
+32
+00:01:53.285 --> 00:01:55.605
+This is called the project directory.
+
+33
+00:01:55.605 --> 00:01:59.105
+The project directory contains the working tree.
+
+34
+00:01:59.105 --> 00:02:02.255
+The working tree contains the directories and files
+
+35
+00:02:02.255 --> 00:02:05.605
+of a single commit or snapshot of your project.
+
+36
+00:02:05.605 --> 00:02:09.455
+You can view and edit these files to prepare them for the next commit.
+
+37
+00:02:09.455 --> 00:02:14.725
+The project directory also contains a hidden directory named.git.
+
+38
+00:02:14.725 --> 00:02:18.690
+This is where the staging area and local repository are located.
+
+39
+00:02:18.690 --> 00:02:21.000
+Notice that if you delete your project directory,
+
+40
+00:02:21.000 --> 00:02:24.713
+you are also deleting your local repository and staging area,
+
+41
+00:02:24.713 --> 00:02:28.070
+because they are in the.git directory.
+
+42
+00:02:28.070 --> 00:02:32.245
+Finally, we will discuss the remote repository.
+
+43
+00:02:32.245 --> 00:02:35.995
+We have seen that the working tree, staging area,
+
+44
+00:02:35.995 --> 00:02:41.160
+and local repository are all located in the project directory on your local machine.
+
+45
+00:02:41.160 --> 00:02:46.505
+The remote repository is usually located in a data center or in the cloud.
+
+46
+00:02:46.505 --> 00:02:49.840
+The remote repository contains the commits of the project,
+
+47
+00:02:49.840 --> 00:02:54.720
+and is often considered the source of truth or official state of the project.
+
+48
+00:02:54.720 --> 00:02:57.775
+When the local and remote repositories are synchronized,
+
+49
+00:02:57.775 --> 00:03:01.280
+they contain exactly the same commits.
+
+50
+00:03:01.280 --> 00:03:06.950
+You now have a basic understanding of the important locations related to Git.
+
+51
+00:03:06.950 --> 00:03:10.975
+The working tree contains the project files for a single commit,
+
+52
+00:03:10.975 --> 00:03:16.050
+the staging area holds a list of files that will be included in the next commit,
+
+53
+00:03:16.050 --> 00:03:21.390
+the local repository contains all of the commits of the project.
+
+54
+00:03:21.390 --> 00:03:22.460
+On your local computer,
+
+55
+00:03:22.460 --> 00:03:24.650
+you have a project directory that contains
+
+56
+00:03:24.650 --> 00:03:28.295
+the working tree as well as a hidden.git directory.
+
+57
+00:03:28.295 --> 00:03:33.005
+The staging area and local repository are located in this directory.
+
+58
+00:03:33.005 --> 00:03:38.340
+The remote repository contains the commits of the project on a remote computer.

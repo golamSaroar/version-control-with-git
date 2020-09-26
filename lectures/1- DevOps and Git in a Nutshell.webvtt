@@ -1,0 +1,583 @@
+WEBVTT
+
+1
+00:00:02.260 --> 00:00:06.690
+In this video, we will discuss
+how DevOps and Git are related.
+
+2
+00:00:06.690 --> 00:00:08.450
+If you're not familiar with DevOps,
+
+3
+00:00:08.450 --> 00:00:12.460
+it basically means modern
+software development practices.
+
+4
+00:00:12.460 --> 00:00:15.252
+If you're not familiar with
+the Git version control system,
+
+5
+00:00:15.252 --> 00:00:18.755
+then you're in the right place,
+because that's what this course is about.
+
+6
+00:00:22.032 --> 00:00:25.909
+We will start by discussing
+continuous improvement in general and
+
+7
+00:00:25.909 --> 00:00:29.589
+then see how Git is used to
+continuously improve your project.
+
+8
+00:00:32.918 --> 00:00:38.650
+DevOps has a few fundamental principles
+that most modern software projects follow.
+
+9
+00:00:38.650 --> 00:00:42.520
+One of the key principles is to
+continuously plan, build and
+
+10
+00:00:42.520 --> 00:00:44.690
+release small improvements
+to your product.
+
+11
+00:00:45.800 --> 00:00:49.595
+This is contrasted with what might
+be called the waterfall approach,
+
+12
+00:00:49.595 --> 00:00:53.664
+In which many features are planned,
+developed and released as one batch.
+
+13
+00:00:57.168 --> 00:00:59.825
+Continuous small changes to a product,
+
+14
+00:00:59.825 --> 00:01:04.210
+also known as small batch sizes
+leads to continuous improvement.
+
+15
+00:01:05.370 --> 00:01:08.330
+On left you'll see a product
+with a single bug,
+
+16
+00:01:08.330 --> 00:01:12.250
+on the right the only difference
+is that the single bug is removed.
+
+17
+00:01:12.250 --> 00:01:15.780
+Even though the change is small these
+are different versions of the product.
+
+18
+00:01:18.430 --> 00:01:20.939
+Small batch size also applies to features.
+
+19
+00:01:22.030 --> 00:01:25.890
+The version of the product on
+the left contains only blue icons.
+
+20
+00:01:25.890 --> 00:01:28.535
+The product on the right
+adds a single feature,
+
+21
+00:01:28.535 --> 00:01:30.727
+the ability to have multicolor icons.
+
+22
+00:01:34.381 --> 00:01:37.881
+Now that we know that modern
+products are continuously improved,
+
+23
+00:01:37.881 --> 00:01:41.518
+we will look at how Git helps manage
+the many versions of the product.
+
+24
+00:01:44.925 --> 00:01:49.347
+Let's say that our product is
+an application that currently contains 50
+
+25
+00:01:49.347 --> 00:01:50.266
+files of code.
+
+26
+00:01:50.266 --> 00:01:52.610
+We will call this our project.
+
+27
+00:01:52.610 --> 00:01:55.538
+We want to continuously
+improve this project.
+
+28
+00:01:55.538 --> 00:01:57.996
+We will now look at how
+Git helps to do that.
+
+29
+00:02:00.658 --> 00:02:05.670
+Git manages versions of products
+forming a project history.
+
+30
+00:02:05.670 --> 00:02:08.000
+Each version of a project
+is called a commit.
+
+31
+00:02:09.090 --> 00:02:13.690
+In this example the first version of
+the project is represented by commit A and
+
+32
+00:02:13.690 --> 00:02:15.710
+contains a bug.
+
+33
+00:02:15.710 --> 00:02:20.198
+The second version of the project is
+represented by commit B which differs from
+
+34
+00:02:20.198 --> 00:02:22.719
+commit A only in that
+the bug has been fixed.
+
+35
+00:02:25.525 --> 00:02:29.826
+Assuming the bug fix involves
+a change to only one of the 50 files,
+
+36
+00:02:29.826 --> 00:02:33.680
+Commits A and
+B only differ by that single file.
+
+37
+00:02:33.680 --> 00:02:37.530
+This is how small improvements can
+continuously be made to the product.
+
+38
+00:02:37.530 --> 00:02:40.387
+Git is really good at managing
+small changes like this.
+
+39
+00:02:43.398 --> 00:02:47.570
+A question that you may have right now is,
+is Git efficient?
+
+40
+00:02:47.570 --> 00:02:51.050
+We know that each commit is
+a snapshot of the entire project at
+
+41
+00:02:51.050 --> 00:02:52.890
+a given point in time.
+
+42
+00:02:52.890 --> 00:02:55.000
+With many small changes to the project,
+
+43
+00:02:55.000 --> 00:02:58.620
+you might think that Git stores
+many copies of the same file.
+
+44
+00:02:58.620 --> 00:03:00.230
+This is not how Git works however.
+
+45
+00:03:02.260 --> 00:03:06.020
+Behind the scenes,
+Git is very efficient at storing commits.
+
+46
+00:03:06.020 --> 00:03:08.240
+Each unique file is stored only once.
+
+47
+00:03:09.240 --> 00:03:13.930
+For example, after commit A,
+Git has stored 50 files.
+
+48
+00:03:13.930 --> 00:03:19.360
+Commit B only adds one file for Git to
+store, the file that contains the bug fix.
+
+49
+00:03:19.360 --> 00:03:23.280
+So after commit B,
+there are a total of 51 files stored.
+
+50
+00:03:23.280 --> 00:03:25.230
+We will learn more about
+how this works later.
+
+51
+00:03:28.740 --> 00:03:32.180
+The collection of commits contain
+the history of the project.
+
+52
+00:03:32.180 --> 00:03:34.940
+At any time you can review
+the projects history and
+
+53
+00:03:34.940 --> 00:03:38.360
+undo changes by going back to
+the previous version of the project.
+
+54
+00:03:39.460 --> 00:03:44.610
+In this example, commit A is the version
+of our product with only blue icons.
+
+55
+00:03:44.610 --> 00:03:47.900
+Commit B adds the multicolor
+icon feature to the product.
+
+56
+00:03:49.250 --> 00:03:53.170
+Let's say that customers don't like
+that feature for some reason, or worse,
+
+57
+00:03:53.170 --> 00:03:57.110
+adding that feature introduced some
+problems that you didn't foresee.
+
+58
+00:03:57.110 --> 00:04:01.010
+You can easily go back to a version
+of the product without the feature.
+
+59
+00:04:01.010 --> 00:04:03.337
+Either by going back to commit A, or
+
+60
+00:04:03.337 --> 00:04:06.918
+by adding a new commit that
+undoes the work of commit B.
+
+61
+00:04:10.694 --> 00:04:13.969
+Now that we've seen how commits
+helped managed the many versions of
+
+62
+00:04:13.969 --> 00:04:16.470
+a continuously improving project.
+
+63
+00:04:16.470 --> 00:04:19.310
+We will look at an important
+feature of Git called branches.
+
+64
+00:04:22.130 --> 00:04:23.500
+All commits belong to a branch.
+
+65
+00:04:24.570 --> 00:04:27.690
+A branch can be thought of as
+an independent line of development
+
+66
+00:04:27.690 --> 00:04:28.980
+of the project.
+
+67
+00:04:28.980 --> 00:04:33.050
+By default, there is a single branch and
+it's called master.
+
+68
+00:04:33.050 --> 00:04:37.010
+In this example, commits A, B, and
+C all belong to the master branch.
+
+69
+00:04:40.400 --> 00:04:44.460
+How do you maintain a stable project at
+the same time that you are working on it?
+
+70
+00:04:44.460 --> 00:04:48.420
+You can create a separate branch and work
+on it independently of the master branch.
+
+71
+00:04:49.630 --> 00:04:52.110
+Here a featureX branch was created, and
+
+72
+00:04:52.110 --> 00:04:56.510
+commit C includes content that is
+unique to the featureX branch.
+
+73
+00:04:56.510 --> 00:05:01.250
+In this case, the master branch does not
+know that the featureX branch exists.
+
+74
+00:05:01.250 --> 00:05:05.650
+The master branch thinks that the latest
+commit is B, even though separate work has
+
+75
+00:05:05.650 --> 00:05:10.150
+been done on commit C.
+
+76
+00:05:10.150 --> 00:05:14.340
+We've seen that branches can be used to
+independently work on the project without
+
+77
+00:05:14.340 --> 00:05:16.400
+disrupting the rest of the project.
+
+78
+00:05:16.400 --> 00:05:20.780
+Here the master branch sees
+the project as 50 stable files.
+
+79
+00:05:20.780 --> 00:05:23.430
+This commit has usually been tested,
+approved and
+
+80
+00:05:23.430 --> 00:05:26.310
+maybe the version of the product
+that is currently in production.
+
+81
+00:05:28.022 --> 00:05:33.220
+The featureX branch sees the same 50 files
+plus maybe one file that was added for
+
+82
+00:05:33.220 --> 00:05:33.880
+the new feature.
+
+83
+00:05:37.710 --> 00:05:41.070
+The independence of branches
+allow teams to scale their work.
+
+84
+00:05:42.290 --> 00:05:46.630
+In this example, the project can
+be in production at commit B and
+
+85
+00:05:46.630 --> 00:05:51.561
+separate development can be done
+on featureX, bugY, and featureZ.
+
+86
+00:05:52.870 --> 00:05:57.581
+Commit B on the master branch is not aware
+of or impacted by the other branches.
+
+87
+00:06:01.033 --> 00:06:04.886
+So far we've discussed the importance
+of many small changes to continuous
+
+88
+00:06:04.886 --> 00:06:06.235
+improvement.
+
+89
+00:06:06.235 --> 00:06:10.520
+We've seen that Git can manage the many
+versions of projects with commits and
+
+90
+00:06:10.520 --> 00:06:14.240
+that the project can be worked
+on independently using branches.
+
+91
+00:06:14.240 --> 00:06:18.205
+Finally, we'll discuss merging
+independent branches using pull requests.
+
+92
+00:06:21.116 --> 00:06:24.203
+When a branch is ready to become
+part of the master branch,
+
+93
+00:06:24.203 --> 00:06:26.980
+it can be merged into the master branch.
+
+94
+00:06:26.980 --> 00:06:30.340
+A merge combines the work
+of separate branches.
+
+95
+00:06:30.340 --> 00:06:34.250
+There are a few ways to merge in Git,
+which we'll discuss later.
+
+96
+00:06:34.250 --> 00:06:36.120
+In this example, before the merge,
+
+97
+00:06:36.120 --> 00:06:40.440
+featureX is implemented on its own
+branch which is also called featureX.
+
+98
+00:06:41.650 --> 00:06:45.550
+Before the merge, the master branch has
+no knowledge of the featureX branch.
+
+99
+00:06:46.580 --> 00:06:50.220
+After the merge, there's a single
+master branch with the latest commit,
+
+100
+00:06:50.220 --> 00:06:52.390
+including the code that
+implements featureX.
+
+101
+00:06:55.550 --> 00:06:58.150
+Before you merge content
+into the master branch,
+
+102
+00:06:58.150 --> 00:06:59.860
+how do you know that
+your changes are good?
+
+103
+00:07:00.960 --> 00:07:04.600
+A pull request is a request to merge
+your branch into another branch.
+
+104
+00:07:05.650 --> 00:07:10.170
+This request is usually made by developer
+of the branch when the feature, bug fix or
+
+105
+00:07:10.170 --> 00:07:12.290
+other change is complete.
+
+106
+00:07:12.290 --> 00:07:15.660
+In this example, the pull request
+is a request to merge the commit
+
+107
+00:07:15.660 --> 00:07:19.180
+that includes featureX
+into the master branch.
+
+108
+00:07:19.180 --> 00:07:23.780
+During a pull request team members can
+discuss, review, and approve your changes.
+
+109
+00:07:24.810 --> 00:07:27.620
+You can also require that
+automated test pass before
+
+110
+00:07:27.620 --> 00:07:29.820
+the merge is allowed to happen.
+
+111
+00:07:29.820 --> 00:07:32.900
+This helps ensure that the changes
+introduced by the merge don't
+
+112
+00:07:32.900 --> 00:07:34.527
+cause problems for the customer.
+
+113
+00:07:38.364 --> 00:07:42.456
+If the pull request is accepted,
+your version of the project is merged and
+
+114
+00:07:42.456 --> 00:07:45.170
+becomes the latest commit
+on the master branch.
+
+115
+00:07:46.430 --> 00:07:49.990
+You can feel good about the quality
+because the changes were reviewed and
+
+116
+00:07:49.990 --> 00:07:51.769
+automated tests have passed.
+
+117
+00:07:55.640 --> 00:07:59.043
+We have seen some of the ways that
+Git is fundamental to DevOps and
+
+118
+00:07:59.043 --> 00:08:00.754
+modern software development.
+
+119
+00:08:00.754 --> 00:08:04.802
+Git manages many small improvements
+to the project using commits,
+
+120
+00:08:04.802 --> 00:08:09.870
+it also allows simultaneous stability and
+development through branches.
+
+121
+00:08:09.870 --> 00:08:14.430
+And improves product quality using pull
+requests which can include review and
+
+122
+00:08:14.430 --> 00:08:15.058
+testing.

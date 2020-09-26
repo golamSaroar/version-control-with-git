@@ -1,0 +1,197 @@
+WEBVTT
+
+1
+00:00:01.260 --> 00:00:06.867
+In this video, we will discuss Git IDs.
+
+2
+00:00:06.867 --> 00:00:11.885
+We will start by briefly discussing Git objects.
+
+3
+00:00:11.885 --> 00:00:18.175
+Internally, Git uses objects to store four types of things.
+
+4
+00:00:18.175 --> 00:00:21.685
+A commit object is a simple text file that contains
+
+5
+00:00:21.685 --> 00:00:25.110
+information such as the commit user information,
+
+6
+00:00:25.110 --> 00:00:28.690
+commit message, a reference to the commits parent or
+
+7
+00:00:28.690 --> 00:00:32.680
+parents and a reference to the root tree of the project.
+
+8
+00:00:32.680 --> 00:00:38.075
+That information is all that Git needs to rebuild the full contents of a commit.
+
+9
+00:00:38.075 --> 00:00:44.275
+An annotated tag is a reference to a specific commit.
+
+10
+00:00:44.275 --> 00:00:46.780
+A tree is an object that contains a list of
+
+11
+00:00:46.780 --> 00:00:50.710
+the file names and directories inside of a directory.
+
+12
+00:00:50.710 --> 00:00:57.070
+A blob is an object that stores the content of a file that is being managed by Git.
+
+13
+00:00:57.070 --> 00:01:02.700
+A typical Git user may only interact with commit objects and tags,
+
+14
+00:01:02.700 --> 00:01:06.900
+letting Git worry about the details related to trees and blobs.
+
+15
+00:01:06.900 --> 00:01:11.160
+Git keeps these objects internally in something called the object store but
+
+16
+00:01:11.160 --> 00:01:16.008
+you typically don't directly interact with the object store.
+
+17
+00:01:16.008 --> 00:01:19.090
+Next, we will discuss Git IDs.
+
+18
+00:01:19.090 --> 00:01:27.253
+A Git ID is the name of a Git object.
+
+19
+00:01:27.253 --> 00:01:32.815
+All of the objects stored by Git are named with a 40-character hexadecimal string.
+
+20
+00:01:32.815 --> 00:01:35.648
+These strings are commonly known as Git IDs,
+
+21
+00:01:35.648 --> 00:01:39.900
+but they are also known as object IDs,
+
+22
+00:01:39.900 --> 00:01:42.520
+SHA-1, hashes and checksums.
+
+23
+00:01:42.520 --> 00:01:46.140
+You commonly see these Git IDs as you work with Git.
+
+24
+00:01:46.140 --> 00:01:51.540
+For example, source tree shows the 40-character commit IDs with the commit details.
+
+25
+00:01:51.540 --> 00:01:55.535
+That string is the name of a Git commit object.
+
+26
+00:01:55.535 --> 00:02:02.755
+Git IDs are what's known as secure hash algorithm 1 or SHA-1 values.
+
+27
+00:02:02.755 --> 00:02:05.770
+This 40-character hexadecimal string is
+
+28
+00:02:05.770 --> 00:02:09.940
+the result of a mathematical computation based on the content.
+
+29
+00:02:09.940 --> 00:02:15.020
+Statistically speaking, the SHA-1 value is unique for a given piece of content.
+
+30
+00:02:15.020 --> 00:02:19.130
+The exact same content will always result in the same SHA-1 value,
+
+31
+00:02:19.130 --> 00:02:21.190
+but it is virtually impossible to find
+
+32
+00:02:21.190 --> 00:02:25.785
+two different content files that produce the same SHA-1 value.
+
+33
+00:02:25.785 --> 00:02:29.753
+SHA-1 values are designed to avalanche,
+
+34
+00:02:29.753 --> 00:02:32.155
+which means that small changes to the content
+
+35
+00:02:32.155 --> 00:02:35.485
+leads to a large difference in the SHA-1 values.
+
+36
+00:02:35.485 --> 00:02:41.946
+To see this, the SHA-1 of the simple string 'Hi' start with 45b9.
+
+37
+00:02:41.946 --> 00:02:48.280
+The SHA-1 of the same string with the trailing space starts with 0b5d.
+
+38
+00:02:48.280 --> 00:02:54.985
+You can see that even very similar content leads to drastically different SHA-1 values.
+
+39
+00:02:54.985 --> 00:03:00.859
+Finally, we will discuss shortening Git IDs.
+
+40
+00:03:00.859 --> 00:03:06.099
+Since the 40-character Git IDs names are not very people friendly,
+
+41
+00:03:06.099 --> 00:03:10.410
+source trees sometimes only shows the first portion of the string.
+
+42
+00:03:10.410 --> 00:03:13.200
+Here you, can see that source tree sometimes displays them with
+
+43
+00:03:13.200 --> 00:03:17.670
+40 characters but also with seven and 10 characters.
+
+44
+00:03:17.670 --> 00:03:24.612
+Even the first seven characters of the ID uniquely identifies it in almost all cases.
+
+45
+00:03:24.612 --> 00:03:30.327
+Here is a review of what we've discussed in this video.
+
+46
+00:03:30.327 --> 00:03:36.225
+Git object names are also known as Git IDs.
+
+47
+00:03:36.225 --> 00:03:39.595
+Git objects are named with SHA-1 values.
+
+48
+00:03:39.595 --> 00:03:46.335
+Statistically speaking, SHA-1 values are unique for a given piece of content.
+
+49
+00:03:46.335 --> 00:03:51.920
+Git IDs are often shortened to the first four or more characters.

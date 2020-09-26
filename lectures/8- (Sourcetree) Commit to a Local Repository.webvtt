@@ -1,0 +1,275 @@
+WEBVTT
+
+1
+00:00:02.184 --> 00:00:03.003
+In this video,
+
+2
+00:00:03.003 --> 00:00:06.910
+you will learn about committing to
+a local repository using SourceTree.
+
+3
+00:00:09.580 --> 00:00:12.950
+We will start by viewing the status
+of files in the working tree and
+
+4
+00:00:12.950 --> 00:00:13.620
+staging area.
+
+5
+00:00:15.790 --> 00:00:19.530
+The File status tab shows the status
+of files in the working tree and
+
+6
+00:00:19.530 --> 00:00:20.770
+staging area.
+
+7
+00:00:20.770 --> 00:00:24.810
+When you view a new local repository,
+the File status established so
+
+8
+00:00:24.810 --> 00:00:26.340
+that there are no files.
+
+9
+00:00:26.340 --> 00:00:29.550
+That is assuming your project
+directory was empty to start with.
+
+10
+00:00:31.400 --> 00:00:36.210
+When a file is first placed in the working
+tree, its status is untracked.
+
+11
+00:00:36.210 --> 00:00:40.030
+The file is only in the working tree,
+not in the staging area or
+
+12
+00:00:40.030 --> 00:00:42.080
+in the local repository.
+
+13
+00:00:42.080 --> 00:00:46.560
+Here we have created a file name
+fileA.txt in the working tree.
+
+14
+00:00:46.560 --> 00:00:50.640
+You can see that the file is untracked
+because of the question mark icon and
+
+15
+00:00:50.640 --> 00:00:55.830
+because the pane at the right
+shows that fileA.txt is untracked.
+
+16
+00:00:55.830 --> 00:01:00.190
+Any content that was in the project folder
+when the local repository was created will
+
+17
+00:01:00.190 --> 00:01:01.710
+also show as untracked.
+
+18
+00:01:04.580 --> 00:01:06.421
+Next, we will add content
+to the staging area.
+
+19
+00:01:09.161 --> 00:01:13.758
+Staged content is content that
+will be part of the next commit.
+
+20
+00:01:13.758 --> 00:01:18.060
+Staging a file added to the file
+list in the staging area.
+
+21
+00:01:18.060 --> 00:01:21.720
+We can add our untracked file
+by selecting the three dots and
+
+22
+00:01:21.720 --> 00:01:23.420
+then selecting Stage file.
+
+23
+00:01:25.750 --> 00:01:28.680
+Once a file has been staged,
+you can see that it's been
+
+24
+00:01:28.680 --> 00:01:32.790
+added to the staged file pane,
+and the icon changes to a plus.
+
+25
+00:01:34.360 --> 00:01:38.850
+You can click the unstaged files
+checkbox to add all untracked or
+
+26
+00:01:38.850 --> 00:01:40.760
+modified files at once.
+
+27
+00:01:40.760 --> 00:01:43.579
+This also works to add all
+of the files in a directory.
+
+28
+00:01:45.969 --> 00:01:51.110
+If you make changes to a staged file,
+its state become modified.
+
+29
+00:01:51.110 --> 00:01:54.710
+You must stage the file again if you
+want to add the modified file to
+
+30
+00:01:54.710 --> 00:01:55.450
+the next commit.
+
+31
+00:01:56.510 --> 00:01:59.352
+Notice that the modified
+icon contains three dots.
+
+32
+00:02:02.777 --> 00:02:06.560
+Next, we will commit the staged
+content to the local repository.
+
+33
+00:02:09.560 --> 00:02:13.970
+Once you have added content to the stage,
+committing the content takes a snapshot of
+
+34
+00:02:13.970 --> 00:02:19.220
+the stage content and places it in
+the local repository as a commit.
+
+35
+00:02:19.220 --> 00:02:22.570
+You can then feel free to experiment
+with the committed content
+
+36
+00:02:22.570 --> 00:02:25.400
+knowing that you can go back
+to this snapshot at any time.
+
+37
+00:02:27.060 --> 00:02:31.710
+When you want to begin the process of
+creating a snapshot of the staged content,
+
+38
+00:02:31.710 --> 00:02:32.360
+click Commit.
+
+39
+00:02:34.710 --> 00:02:38.430
+When making a commit,
+you must specify a commit message,
+
+40
+00:02:38.430 --> 00:02:39.820
+as shown in the bottom window.
+
+41
+00:02:40.830 --> 00:02:44.710
+You want to add a meaningful commit
+message that accurately describes
+
+42
+00:02:44.710 --> 00:02:47.460
+the changes that you made to the project.
+
+43
+00:02:47.460 --> 00:02:50.021
+That commit message becomes
+part of the project history.
+
+44
+00:02:52.053 --> 00:02:57.672
+You can then click on Commit to add
+the commit to the local repository.
+
+45
+00:02:57.672 --> 00:03:00.390
+Finally, we will view the commit history.
+
+46
+00:03:02.982 --> 00:03:06.420
+The History tab shows the commit history.
+
+47
+00:03:06.420 --> 00:03:09.690
+You can see that there is a single
+commit in the local repository.
+
+48
+00:03:09.690 --> 00:03:11.350
+You can also see the commit message.
+
+49
+00:03:12.730 --> 00:03:15.180
+The lower frame shows
+the details of the commit.
+
+50
+00:03:18.030 --> 00:03:22.900
+You should now be able to use SourceTree
+to create commits in the local repository.
+
+51
+00:03:22.900 --> 00:03:27.829
+The File status tab is used to view,
+stage, and commit files or directories.
+
+52
+00:03:29.010 --> 00:03:32.420
+Click Commit to begin
+the process of committing, and
+
+53
+00:03:32.420 --> 00:03:35.090
+make sure to specify
+a meaningful commit message.
+
+54
+00:03:36.240 --> 00:03:39.000
+Use the History tab to view
+the project's commits.
+
+55
+00:03:41.740 --> 00:03:45.038
+Now you are ready to perform
+the tasks demonstrated in this video.
+
+56
+00:03:45.038 --> 00:03:49.506
+The separate hands-on instructions will
+guide you through viewing file status,
+
+57
+00:03:49.506 --> 00:03:53.079
+staging content, committing
+content to a local repository, and
+
+58
+00:03:53.079 --> 00:03:54.762
+viewing your commit history.

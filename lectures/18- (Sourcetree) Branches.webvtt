@@ -1,0 +1,994 @@
+WEBVTT
+
+1
+00:00:01.990 --> 00:00:04.270
+This video discusses Git branches.
+
+2
+00:00:06.140 --> 00:00:08.350
+We will start with
+an overview of branches.
+
+3
+00:00:11.020 --> 00:00:14.220
+All commits of a project
+belong to a branch.
+
+4
+00:00:14.220 --> 00:00:16.630
+By default commits belong
+to the master branch.
+
+5
+00:00:17.660 --> 00:00:22.300
+A branch is a set of commits starting with
+the most recent commit in the branch and
+
+6
+00:00:22.300 --> 00:00:25.780
+tracing back to
+the projects's first commit.
+
+7
+00:00:25.780 --> 00:00:29.570
+In this example, starting from the most
+recent commit on the branch,the
+
+8
+00:00:29.570 --> 00:00:33.060
+master branch contains commit B and A.
+
+9
+00:00:33.060 --> 00:00:37.740
+The featureX branch contains commits C,
+B and A.
+
+10
+00:00:37.740 --> 00:00:40.830
+Notice that commits B and
+A belong to both branches.
+
+11
+00:00:42.720 --> 00:00:44.880
+Lets take a look at some of
+the benefits of branches.
+
+12
+00:00:44.880 --> 00:00:48.200
+We will see that creating
+a branch is fast and
+
+13
+00:00:48.200 --> 00:00:52.750
+easy, creating a branch only
+creates one tiny file, a reference.
+
+14
+00:00:54.340 --> 00:00:56.670
+Branches enable experimentation.
+
+15
+00:00:56.670 --> 00:00:58.760
+Team members can isolate their work so
+
+16
+00:00:58.760 --> 00:01:01.534
+that it doesn't impact others
+until the work is ready.
+
+17
+00:01:01.534 --> 00:01:04.490
+Branches are not aware of other branches.
+
+18
+00:01:04.490 --> 00:01:07.830
+This allows you to experiment
+with changes to the project
+
+19
+00:01:07.830 --> 00:01:12.070
+while at the same time the team retains
+a stable version of the project.
+
+20
+00:01:12.070 --> 00:01:16.890
+If you have an idea for a change, you
+can create a branch and test your idea.
+
+21
+00:01:16.890 --> 00:01:20.600
+Later, you can throw out your branch or
+merge it into the official project.
+
+22
+00:01:22.600 --> 00:01:26.790
+Branches enable multiple team members
+to concurrently work on the project
+
+23
+00:01:26.790 --> 00:01:28.940
+without stepping on each other’s work.
+
+24
+00:01:28.940 --> 00:01:32.060
+Merging the work together later
+usually is not too difficult.
+
+25
+00:01:33.770 --> 00:01:38.620
+Branches allow you to support multiple
+versions of the project simultaneously.
+
+26
+00:01:38.620 --> 00:01:42.000
+For example, if the project is
+a software project with customers and
+
+27
+00:01:42.000 --> 00:01:43.980
+several supported versions.
+
+28
+00:01:43.980 --> 00:01:47.490
+You can update each version if
+an important hotfix is necessary
+
+29
+00:01:49.186 --> 00:01:52.656
+Branches can be short-lived or
+long-running.
+
+30
+00:01:52.656 --> 00:01:57.100
+Short-lived branches are commonly
+called topic or feature branches and
+
+31
+00:01:57.100 --> 00:02:00.170
+usually contain one small
+change to the project.
+
+32
+00:02:00.170 --> 00:02:04.552
+For example, a topic branch may
+contain a new feature, a bug fix,
+
+33
+00:02:04.552 --> 00:02:10.920
+a hotfix, a configuration change, or any
+other change that the project requires.
+
+34
+00:02:10.920 --> 00:02:15.210
+When it's ready, a topic branch is
+merged into a long running branch.
+
+35
+00:02:15.210 --> 00:02:19.250
+In this example,
+the featureX branch is a topic branch.
+
+36
+00:02:19.250 --> 00:02:21.880
+Two commits where needed
+to create the feature, and
+
+37
+00:02:21.880 --> 00:02:25.235
+then the feature was merged
+into the master branch.
+
+38
+00:02:25.235 --> 00:02:27.620
+Long-running branches,
+like the master branch,
+
+39
+00:02:27.620 --> 00:02:32.340
+live longer than topic branches and
+can even live for the life of the project.
+
+40
+00:02:32.340 --> 00:02:34.260
+Examples of branches that might live for
+
+41
+00:02:34.260 --> 00:02:38.750
+the life of a project are a master
+branch or a develop branch.
+
+42
+00:02:38.750 --> 00:02:42.830
+We will see later that Git branches are
+flexible enough to work with many types of
+
+43
+00:02:42.830 --> 00:02:43.950
+work flows.
+
+44
+00:02:43.950 --> 00:02:47.670
+So you can pick a branching strategy
+that works best for your team and for
+
+45
+00:02:47.670 --> 00:02:48.220
+your project.
+
+46
+00:02:50.259 --> 00:02:55.430
+Branches are located in the local
+repository and in the remote repository.
+
+47
+00:02:55.430 --> 00:02:59.740
+To view local branches in Sourcetree,
+click on the Branches tab.
+
+48
+00:02:59.740 --> 00:03:02.660
+To view remote branches,
+click on the Remotes tab.
+
+49
+00:03:04.348 --> 00:03:06.720
+Next, we will discuss creating a branch.
+
+50
+00:03:09.501 --> 00:03:13.450
+Creating a branch simply
+creates a new branch label.
+
+51
+00:03:13.450 --> 00:03:16.810
+Here we start with just a master
+branch containing three commits.
+
+52
+00:03:17.920 --> 00:03:22.270
+We can create a featureX branch off
+of the most recent master commit
+
+53
+00:03:22.270 --> 00:03:25.730
+by creating a featureX branch label,
+pointing to the commit.
+
+54
+00:03:28.770 --> 00:03:31.762
+To create the featureX
+branch label in Sourcetree,
+
+55
+00:03:31.762 --> 00:03:34.420
+click on Branch to bring
+up the branch window.
+
+56
+00:03:36.418 --> 00:03:40.380
+In the window that opens,
+select New Branch.
+
+57
+00:03:40.380 --> 00:03:44.080
+Type the name of your branch and
+select Create Branch.
+
+58
+00:03:44.080 --> 00:03:46.670
+We'll discuss the other options
+in the window a little later.
+
+59
+00:03:48.040 --> 00:03:49.600
+Next, we will discuss checkout.
+
+60
+00:03:51.418 --> 00:03:56.560
+Checkout is usually related to
+branches and does two main things.
+
+61
+00:03:56.560 --> 00:04:00.270
+First, it switches the current commit,
+which is the commit that the HEAD
+
+62
+00:04:00.270 --> 00:04:03.660
+reference points to,
+to the checked out branch label or commit.
+
+63
+00:04:04.670 --> 00:04:07.380
+In this example,
+if we were on the master branch and
+
+64
+00:04:07.380 --> 00:04:11.650
+then checked out the featureX branch, the
+HEAD reference changes from pointing to
+
+65
+00:04:11.650 --> 00:04:15.310
+the master branch label,
+to pointing to the featureX branch label.
+
+66
+00:04:17.400 --> 00:04:21.370
+The second thing that checkout does is it
+updates the working tree with the files
+
+67
+00:04:21.370 --> 00:04:22.740
+from the checkout commit.
+
+68
+00:04:24.030 --> 00:04:28.560
+Once you have checked out a branch,
+you can work on and commit to the branch.
+
+69
+00:04:28.560 --> 00:04:33.210
+In this example, the featureX label points
+to the same commit as the master branch
+
+70
+00:04:33.210 --> 00:04:37.620
+label so at this point the working tree
+files will be the same for both branches.
+
+71
+00:04:40.670 --> 00:04:45.120
+Creating a branch will also check out
+a branch if the Checkout new branch
+
+72
+00:04:45.120 --> 00:04:47.275
+check box is selected.
+
+73
+00:04:47.275 --> 00:04:50.300
+Checkout new branch is
+selected by default.
+
+74
+00:04:50.300 --> 00:04:52.643
+This means that after
+you create the branch,
+
+75
+00:04:52.643 --> 00:04:55.120
+the working tree will be
+updated if necessary.
+
+76
+00:04:55.120 --> 00:04:58.330
+And the next commit that you make
+will belong to the new branch.
+
+77
+00:04:59.930 --> 00:05:03.120
+Here's a look at what happens if
+you create a branch without having
+
+78
+00:05:03.120 --> 00:05:06.260
+the Checkout new branch
+check box selected.
+
+79
+00:05:06.260 --> 00:05:10.120
+After creating the branch, the HEAD
+reference remains on the original branch.
+
+80
+00:05:11.200 --> 00:05:15.490
+The only thing that you've done is
+create a tiny featureX reference.
+
+81
+00:05:15.490 --> 00:05:19.220
+If you changed the project to this point
+and make a commit, that commit would
+
+82
+00:05:19.220 --> 00:05:23.720
+belong to the master branch because you
+have not checked out the featureX branch.
+
+83
+00:05:23.720 --> 00:05:26.540
+In other words,
+if you don't check out the new branch,
+
+84
+00:05:26.540 --> 00:05:29.940
+the HEAD referenced still points
+to the master branch label.
+
+85
+00:05:29.940 --> 00:05:34.400
+And new commits will be made to the master
+branch leaving the featureX label behind.
+
+86
+00:05:36.500 --> 00:05:37.970
+If you create a branch and
+
+87
+00:05:37.970 --> 00:05:43.100
+have the checkout new branch check box
+selected, the behavior is different.
+
+88
+00:05:43.100 --> 00:05:46.060
+Checking out the featureX branch
+means that the HEAD reference
+
+89
+00:05:46.060 --> 00:05:48.280
+points to the featureX label.
+
+90
+00:05:48.280 --> 00:05:52.240
+And if necessary, the working tree will
+be updated with the files from the commit
+
+91
+00:05:52.240 --> 00:05:53.050
+that you checked out.
+
+92
+00:05:54.230 --> 00:05:57.120
+This means that any work that
+you commit at this point
+
+93
+00:05:57.120 --> 00:06:00.310
+will belong to the featureX branch and
+not the master branch.
+
+94
+00:06:02.953 --> 00:06:07.254
+After you've created and checked out
+the featureX branch, as shown on the left,
+
+95
+00:06:07.254 --> 00:06:11.490
+the next commit that is made will
+be made to the featureX branch.
+
+96
+00:06:11.490 --> 00:06:14.810
+The HEAD reference moves along
+with the featureX label and
+
+97
+00:06:14.810 --> 00:06:17.280
+the master label stays where it was.
+
+98
+00:06:17.280 --> 00:06:20.780
+The master branch no longer
+points to the latest commit.
+
+99
+00:06:20.780 --> 00:06:25.000
+In fact, the master branch doesn't know
+about the featureX branch label or
+
+100
+00:06:25.000 --> 00:06:27.870
+about the latest commit on featureX.
+
+101
+00:06:27.870 --> 00:06:31.910
+This is how the featureX branch can make
+changes to the project without disturbing
+
+102
+00:06:31.910 --> 00:06:32.700
+the master branch.
+
+103
+00:06:35.030 --> 00:06:37.070
+To change branches in Sourcetree,
+
+104
+00:06:37.070 --> 00:06:40.540
+simply click on the branch
+that you'd like to change to.
+
+105
+00:06:40.540 --> 00:06:43.900
+This performs a checkout which means
+that your working tree will be
+
+106
+00:06:43.900 --> 00:06:46.450
+updated with the files from that branch.
+
+107
+00:06:46.450 --> 00:06:49.430
+And the HEAD reference will change
+to point to the new branch label.
+
+108
+00:06:50.520 --> 00:06:55.200
+Once you have switched branches, any work
+that you commit is is to that branch.
+
+109
+00:06:55.200 --> 00:06:59.950
+In this example, we have switched from
+the featureX branch to the master branch.
+
+110
+00:06:59.950 --> 00:07:03.390
+Our working tree will now contain
+the latest files from the master branch.
+
+111
+00:07:06.260 --> 00:07:10.867
+If you attempt to checkout a branch but
+have unsaved work on the current branch,
+
+112
+00:07:10.867 --> 00:07:12.550
+Git will notify you.
+
+113
+00:07:12.550 --> 00:07:17.300
+In general, Git will notify you when
+it thinks you might lose unsaved work.
+
+114
+00:07:17.300 --> 00:07:20.110
+In this example,
+we were on the featureX branch, and
+
+115
+00:07:20.110 --> 00:07:22.790
+made some changes to the working tree.
+
+116
+00:07:22.790 --> 00:07:26.360
+Attempting to switch to the master
+branch brought up a confirmation dialog.
+
+117
+00:07:27.540 --> 00:07:31.123
+If you click on OK at this point,
+your uncommitted changes will be saved
+
+118
+00:07:31.123 --> 00:07:34.120
+by Sourcetree, and
+you are switched to the master branch.
+
+119
+00:07:34.120 --> 00:07:38.040
+The working tree is updated with
+the files from that branch.
+
+120
+00:07:39.090 --> 00:07:41.610
+When you switch back to
+the featureX branch,
+
+121
+00:07:41.610 --> 00:07:44.170
+you will see your uncommitted changes.
+
+122
+00:07:44.170 --> 00:07:48.460
+If you had checked the discard local
+changes button before clicking OK,
+
+123
+00:07:48.460 --> 00:07:51.140
+the local changes would be
+lost as you switch branches.
+
+124
+00:07:53.199 --> 00:07:57.336
+Once we have checked out master, we can
+do some work in the working tree and
+
+125
+00:07:57.336 --> 00:07:58.950
+create a commit.
+
+126
+00:07:58.950 --> 00:08:00.450
+Now the featureX branch and
+
+127
+00:08:00.450 --> 00:08:04.660
+master branch both have a commit that
+doesn't belong to the other branch.
+
+128
+00:08:04.660 --> 00:08:09.110
+You can see that commit D uniquely
+belongs to the featureX branch and
+
+129
+00:08:09.110 --> 00:08:11.730
+commit E uniquely belongs
+to the master branch.
+
+130
+00:08:13.842 --> 00:08:16.639
+Next, we will discuss detached HEADs.
+
+131
+00:08:18.392 --> 00:08:22.668
+Usually you checkout a branch which checks
+out the commit that the branch label
+
+132
+00:08:22.668 --> 00:08:23.820
+points to.
+
+133
+00:08:23.820 --> 00:08:27.570
+But you also have the option of
+directly checking out a commit.
+
+134
+00:08:27.570 --> 00:08:30.810
+For example, you might check out
+a commit to temporarily view
+
+135
+00:08:30.810 --> 00:08:33.250
+an older version of the project.
+
+136
+00:08:33.250 --> 00:08:37.930
+Checking out a commit rather than
+a branch leads to a detached HEAD state.
+
+137
+00:08:37.930 --> 00:08:41.910
+This means that instead of the HEAD
+reference pointing to a branch label,
+
+138
+00:08:41.910 --> 00:08:45.570
+the HEAD points directly
+to the SHA1 of a commit.
+
+139
+00:08:45.570 --> 00:08:49.830
+So a detached HEAD basically means that
+the HEAD reference is detached from
+
+140
+00:08:49.830 --> 00:08:51.175
+a branch label.
+
+141
+00:08:51.175 --> 00:08:55.750
+Git will warn you that if you continue,
+you will be in a detached HEAD state.
+
+142
+00:08:55.750 --> 00:08:56.720
+In this example,
+
+143
+00:08:56.720 --> 00:09:00.740
+in the before state we have the master
+branch checked out, as is normal.
+
+144
+00:09:01.910 --> 00:09:06.520
+If we then check out commit B, that
+commit will become the current commit.
+
+145
+00:09:06.520 --> 00:09:09.520
+And the head reference will
+point directly at commit B,
+
+146
+00:09:09.520 --> 00:09:11.200
+creating a detached HEAD state.
+
+147
+00:09:13.642 --> 00:09:15.645
+Here, we are on the master branch and
+
+148
+00:09:15.645 --> 00:09:19.915
+attempt to check out the initial
+commit by double clicking on it.
+
+149
+00:09:19.915 --> 00:09:23.710
+Sourcetree will warn you that your working
+tree will be updated with the files from
+
+150
+00:09:23.710 --> 00:09:27.390
+that commit, but
+you will then be in a detached HEAD state.
+
+151
+00:09:27.390 --> 00:09:32.050
+Click OK to allow this, or Cancel if you
+want to remain on the master branch.
+
+152
+00:09:33.999 --> 00:09:38.342
+Temporarily viewing the files of a commit
+while in a detached HEAD state is
+
+153
+00:09:38.342 --> 00:09:40.060
+perfectly fine.
+
+154
+00:09:40.060 --> 00:09:43.560
+However, if you want to work on
+files of the checked out commit and
+
+155
+00:09:43.560 --> 00:09:48.270
+create new commits, you should create
+a branch on that commit first.
+
+156
+00:09:48.270 --> 00:09:52.600
+On the left, we have checked out commit B,
+creating a detached HEAD.
+
+157
+00:09:52.600 --> 00:09:56.100
+If we want to create commits
+based off of commit B,
+
+158
+00:09:56.100 --> 00:10:00.190
+we should first create a featureX
+branch label and checkout that branch.
+
+159
+00:10:00.190 --> 00:10:03.000
+That puts us back in the normal
+state where the HEAD reference
+
+160
+00:10:03.000 --> 00:10:04.770
+points to a branch label.
+
+161
+00:10:04.770 --> 00:10:07.440
+The next commit would then be
+made to the featureX branch.
+
+162
+00:10:09.237 --> 00:10:12.280
+Finally, we will discuss
+deleting a branch label.
+
+163
+00:10:14.464 --> 00:10:18.800
+Deleting a branch really just means
+that you're deleting a branch label.
+
+164
+00:10:18.800 --> 00:10:22.440
+Deleting a branch label normally
+does not delete any commits,
+
+165
+00:10:22.440 --> 00:10:23.540
+at least not right away.
+
+166
+00:10:24.600 --> 00:10:28.730
+In the example on the left,
+we created a featureX branch.
+
+167
+00:10:28.730 --> 00:10:32.590
+This simply added the featureX
+label to the latest commit.
+
+168
+00:10:32.590 --> 00:10:35.800
+If we then immediately
+delete the featureX branch,
+
+169
+00:10:35.800 --> 00:10:39.370
+all that happens is that
+the featureX label is deleted.
+
+170
+00:10:39.370 --> 00:10:41.830
+This shows how truly
+lightweight git branches are.
+
+171
+00:10:44.636 --> 00:10:49.089
+One way to delete a branch label in
+Sourcetree is to right click on the branch
+
+172
+00:10:49.089 --> 00:10:52.890
+that you want to delete and
+select Delete branch.
+
+173
+00:10:52.890 --> 00:10:55.500
+In this case,
+we want to delete the featureX branch.
+
+174
+00:10:57.570 --> 00:11:00.920
+Click OK to delete the branch label.
+
+175
+00:11:00.920 --> 00:11:04.950
+Git will check to see if you're putting
+committed work at risk by doing this.
+
+176
+00:11:04.950 --> 00:11:08.310
+This can happen if you have commits
+on the branch that don't belong to
+
+177
+00:11:08.310 --> 00:11:09.710
+any other branches.
+
+178
+00:11:09.710 --> 00:11:13.280
+If you won't lose any work,
+the branch label will be deleted.
+
+179
+00:11:13.280 --> 00:11:16.880
+If deleting the branch label puts
+some of your commits at risk,
+
+180
+00:11:16.880 --> 00:11:19.740
+Git will not allow you
+delete the branch label.
+
+181
+00:11:19.740 --> 00:11:22.955
+If you know that you don't care
+about the unmerged commits,
+
+182
+00:11:22.955 --> 00:11:27.318
+you can click the Force delete check box
+before trying to delete the branch label.
+
+183
+00:11:27.318 --> 00:11:29.060
+And the branch label will be deleted.
+
+184
+00:11:30.847 --> 00:11:35.114
+Let's take a look at what could happen if
+you check the Force delete check box when
+
+185
+00:11:35.114 --> 00:11:37.280
+deleting a branch label.
+
+186
+00:11:37.280 --> 00:11:40.920
+Let's say that you created
+a featureX branch off of commit C
+
+187
+00:11:40.920 --> 00:11:43.510
+of the master branch, as shown.
+
+188
+00:11:43.510 --> 00:11:46.490
+Then you did some work on featureX and
+made commit D.
+
+189
+00:11:47.590 --> 00:11:51.070
+At that point, if you tried to
+delete the featureX branch label,
+
+190
+00:11:51.070 --> 00:11:56.070
+there would be a problem because commit
+D does not belong to any other branch.
+
+191
+00:11:56.070 --> 00:11:59.710
+Sourcetree and Git normally
+will not allow you to do that.
+
+192
+00:11:59.710 --> 00:12:04.210
+However, if you select the Force delete
+check box, that means that the featureX
+
+193
+00:12:04.210 --> 00:12:08.820
+label will be deleted and your left
+with what's called a dangling commit.
+
+194
+00:12:08.820 --> 00:12:11.610
+Commit D doesn't belong to any branch.
+
+195
+00:12:11.610 --> 00:12:14.880
+Git will periodically garbage collect,
+looking for and
+
+196
+00:12:14.880 --> 00:12:16.890
+deleting old dangling commits.
+
+197
+00:12:16.890 --> 00:12:19.870
+So be careful if you check
+the Force delete checkbox.
+
+198
+00:12:19.870 --> 00:12:23.700
+It assumes that you want to throw away
+the work that is in the dangling commits.
+
+199
+00:12:25.650 --> 00:12:28.490
+Here is a review of what we've
+discussed in this video.
+
+200
+00:12:30.290 --> 00:12:34.220
+A branch is a set of commits that trace
+back to the project's first commit.
+
+201
+00:12:35.900 --> 00:12:38.000
+Creating a branch creates a branch label.
+
+202
+00:12:40.030 --> 00:12:43.850
+Checkout involves updating the HEAD
+reference and updating the working tree.
+
+203
+00:12:45.910 --> 00:12:48.720
+A detached HEAD reference
+points directly to a commit.
+
+204
+00:12:50.840 --> 00:12:53.180
+Fix a detached HEAD by creating a branch.
+
+205
+00:12:55.140 --> 00:12:57.430
+Deleting a branch deletes a branch label.
+
+206
+00:12:59.670 --> 00:13:02.655
+Dangling commits will eventually
+be garbage collected.
+
+207
+00:13:05.865 --> 00:13:09.485
+Now it's time for you to try
+the things discussed in this video.
+
+208
+00:13:09.485 --> 00:13:11.105
+Separate hands-on
+instructions are provided.

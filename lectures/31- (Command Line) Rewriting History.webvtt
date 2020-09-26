@@ -1,0 +1,921 @@
+WEBVTT
+
+1
+00:00:02.256 --> 00:00:04.342
+This video discusses Rewriting History.
+
+2
+00:00:06.357 --> 00:00:08.735
+We will start by talking
+about amending a commit.
+
+3
+00:00:11.974 --> 00:00:14.656
+You can change the most recent commit.
+
+4
+00:00:14.656 --> 00:00:19.860
+This includes changing the commit message
+and/or changing the project files.
+
+5
+00:00:19.860 --> 00:00:23.576
+This creates a new SHA-1 rewriting
+the history of the commit.
+
+6
+00:00:26.035 --> 00:00:27.114
+Let's look at an example.
+
+7
+00:00:29.355 --> 00:00:31.513
+First we will create fileC.txt.
+
+8
+00:00:33.690 --> 00:00:38.571
+We then add it to the staging area, And
+
+9
+00:00:38.571 --> 00:00:41.390
+then we commit it with a typo
+in the commit message.
+
+10
+00:00:42.810 --> 00:00:47.008
+If we look at the most recent commit
+we can see our SHA-1 and our typo.
+
+11
+00:00:47.008 --> 00:00:53.891
+We execute git commit again
+specifying the amend option and
+
+12
+00:00:53.891 --> 00:00:58.028
+fix our typo in the commit message.
+
+13
+00:00:58.028 --> 00:01:01.112
+We then again look at
+the most recent commit and
+
+14
+00:01:01.112 --> 00:01:04.433
+we can see that we have
+fixed the commit message and
+
+15
+00:01:04.433 --> 00:01:09.210
+we can see that the SHA-1 is now
+different from the original SHA-1.
+
+16
+00:01:09.210 --> 00:01:12.170
+In addition to amending
+the most recent commit message,
+
+17
+00:01:12.170 --> 00:01:15.180
+you can change the files of the commit.
+
+18
+00:01:15.180 --> 00:01:17.930
+You do this by modifying
+the staging area and
+
+19
+00:01:17.930 --> 00:01:21.950
+then again executing git
+commit with the amend option.
+
+20
+00:01:21.950 --> 00:01:26.820
+If you want to keep the old commit
+message you can add the no-edit option.
+
+21
+00:01:26.820 --> 00:01:29.090
+Let's take a look at an example.
+
+22
+00:01:29.090 --> 00:01:32.544
+First we'll view our most
+recent commit then we'll
+
+23
+00:01:32.544 --> 00:01:34.907
+change the content of fileC.txt.
+
+24
+00:01:37.603 --> 00:01:40.936
+We'll add that file to
+the staging area then we
+
+25
+00:01:40.936 --> 00:01:45.740
+execute git commit with the amend
+option and the no-edit option.
+
+26
+00:01:45.740 --> 00:01:49.765
+This will change the commit to
+include the updated filesC.text.
+
+27
+00:01:51.320 --> 00:01:54.187
+We can then again view
+the most recent commit and
+
+28
+00:01:54.187 --> 00:01:58.283
+we can see that we have a new SHA-1
+as well as updated fileC.text.
+
+29
+00:02:01.890 --> 00:02:04.541
+Next we will discuss interactive rebase.
+
+30
+00:02:07.928 --> 00:02:12.370
+Interactive rebase lets you
+edit commits using commands.
+
+31
+00:02:12.370 --> 00:02:17.000
+The commits can belong to any branch and
+can in fact belong to a single branch.
+
+32
+00:02:18.860 --> 00:02:21.130
+The commit history is changed, so
+
+33
+00:02:21.130 --> 00:02:25.230
+in general do not use interactive
+rebase if you have shared commits.
+
+34
+00:02:26.430 --> 00:02:32.450
+Interactive mode of the git rebase
+command is turned with the -i option,
+
+35
+00:02:32.450 --> 00:02:35.410
+and as an argument you specify a commit.
+
+36
+00:02:35.410 --> 00:02:38.890
+The children of those
+commits can be modified.
+
+37
+00:02:38.890 --> 00:02:41.710
+In this example,
+before an interactive rebase,
+
+38
+00:02:41.710 --> 00:02:45.420
+we have a single master branch
+with three commits, A, B, and C.
+
+39
+00:02:46.530 --> 00:02:50.052
+And, after the rebase we
+have combined commits B and
+
+40
+00:02:50.052 --> 00:02:52.141
+C into a single commit B prime.
+
+41
+00:02:55.461 --> 00:03:00.130
+You can use interactive rebase
+to change a branch in many ways.
+
+42
+00:03:00.130 --> 00:03:04.830
+You can use a commit from the branch
+as is, you can edit a commit message,
+
+43
+00:03:05.910 --> 00:03:09.910
+you can stop the interactive rebase and
+edit the commit.
+
+44
+00:03:09.910 --> 00:03:12.370
+You can drop or delete the commit.
+
+45
+00:03:12.370 --> 00:03:17.110
+You can squash or fix up the commits,
+which we'll talk about a little later.
+
+46
+00:03:17.110 --> 00:03:19.090
+You can reorder the commits and
+
+47
+00:03:19.090 --> 00:03:23.902
+you can include shell commands to
+execute during the interactive rebase.
+
+48
+00:03:28.039 --> 00:03:29.887
+This is an example of the editor and
+
+49
+00:03:29.887 --> 00:03:34.170
+we have two commits associated
+with the interactive rebase.
+
+50
+00:03:34.170 --> 00:03:37.599
+Git provides you with these comments to
+help you with the interactive rebase.
+
+51
+00:03:38.750 --> 00:03:41.160
+You can change the command on each line.
+
+52
+00:03:41.160 --> 00:03:45.120
+Here we are picking both of the commits
+meaning that we are using the commits.
+
+53
+00:03:46.250 --> 00:03:50.780
+You can change that command to
+reword to edit the commit message,
+
+54
+00:03:51.900 --> 00:03:57.480
+change it to edit to use the commit but
+to stop and amend the commit.
+
+55
+00:03:57.480 --> 00:04:01.640
+Squash to use the commit but
+combine it with the previous commit,
+
+56
+00:04:01.640 --> 00:04:05.160
+fix up is like a squash but
+you don't combine the commit messages.
+
+57
+00:04:06.665 --> 00:04:12.765
+Exec is used to run a shell command
+anywhere in the interactive rebase and
+
+58
+00:04:12.765 --> 00:04:15.769
+d or drop is used to remove a commit.
+
+59
+00:04:15.769 --> 00:04:19.760
+If you re-order the commits,
+they will be reapplied in that order.
+
+60
+00:04:20.870 --> 00:04:25.561
+If you remove or comment out of line,
+that commit will be deleted.
+
+61
+00:04:25.561 --> 00:04:28.744
+If you remove everything from the list,
+the rebase will be aborted.
+
+62
+00:04:32.525 --> 00:04:34.820
+Let's look at an example
+where we edit a commit.
+
+63
+00:04:34.820 --> 00:04:38.800
+Before the rebase,
+we have three commits A, B, and C,
+
+64
+00:04:38.800 --> 00:04:44.260
+in commit B we have a typo in the file
+name and as well as in the commit message.
+
+65
+00:04:44.260 --> 00:04:49.860
+After the interactive rebase, we've fixed
+the file name and the commit message.
+
+66
+00:04:49.860 --> 00:04:52.487
+Because history has been rewritten,
+
+67
+00:04:52.487 --> 00:04:56.843
+the commit ID changes from B to
+B-prime and from C to C-prime.
+
+68
+00:04:59.813 --> 00:05:04.350
+Here we look at the commit graph and we
+can see that the second commit has a typo.
+
+69
+00:05:04.350 --> 00:05:07.817
+It also has an error in the file name.
+
+70
+00:05:07.817 --> 00:05:12.719
+Since we want to change the second commit,
+we can execute git rebase
+
+71
+00:05:12.719 --> 00:05:17.546
+with the -i option respecify
+the SHA-1 of the original commit.
+
+72
+00:05:17.546 --> 00:05:20.761
+So we can work with the children
+of that commit which includes
+
+73
+00:05:20.761 --> 00:05:25.704
+the commit with the typo When we
+
+74
+00:05:25.704 --> 00:05:29.560
+execute the git rebase with the
+interactive mode, this screen shows up.
+
+75
+00:05:29.560 --> 00:05:34.620
+We can change the pick command to edit for
+the fileB.txt commit.
+
+76
+00:05:34.620 --> 00:05:38.946
+This means that when git is reapplying
+the commits, it will stop on this commit.
+
+77
+00:05:42.780 --> 00:05:45.690
+After saving the file,
+git executes the rebase and
+
+78
+00:05:45.690 --> 00:05:48.000
+stops on the commit that we want to edit.
+
+79
+00:05:49.630 --> 00:05:53.345
+You can see that git tells you what
+state you are in and what you can do.
+
+80
+00:05:56.388 --> 00:05:58.633
+If we list the contents
+of the working tree,
+
+81
+00:05:58.633 --> 00:06:01.434
+we can see that we are on
+the commit that needs editing.
+
+82
+00:06:05.862 --> 00:06:10.755
+At this point we can rename the file
+to fix the typo in the file name.
+
+83
+00:06:10.755 --> 00:06:15.550
+We can execute git status, and
+git tells us that an interactive rebase
+
+84
+00:06:15.550 --> 00:06:20.480
+is in progress, and
+provides information on what to do next.
+
+85
+00:06:20.480 --> 00:06:23.194
+You can see that we've deleted a file,
+and added a new file.
+
+86
+00:06:26.751 --> 00:06:30.694
+At this point we can add
+the files to the staging area and
+
+87
+00:06:30.694 --> 00:06:34.660
+then execute git commit
+with the amend option.
+
+88
+00:06:34.660 --> 00:06:36.690
+We can also fix the commit message.
+
+89
+00:06:37.740 --> 00:06:40.740
+Git shows you that you're
+in a detached HEAD state.
+
+90
+00:06:40.740 --> 00:06:44.170
+And this is because the interactive
+rebase paused on the commit that you
+
+91
+00:06:44.170 --> 00:06:44.980
+wanted to edit.
+
+92
+00:06:47.326 --> 00:06:49.640
+At this point we can execute git rebase,
+
+93
+00:06:49.640 --> 00:06:53.668
+the continued option to reapply
+the rest of the commits to the branch.
+
+94
+00:06:56.358 --> 00:07:00.391
+We look at our commit graph and we now see
+that the second commit has been fixed.
+
+95
+00:07:03.107 --> 00:07:05.052
+If we list the files of the working tree,
+
+96
+00:07:05.052 --> 00:07:07.352
+we see that our file name
+has been fixed as well.
+
+97
+00:07:09.660 --> 00:07:13.928
+Next we will delete a commit and when we
+do this we're saying that we do not want
+
+98
+00:07:13.928 --> 00:07:16.650
+to use any of the work of the commit.
+
+99
+00:07:16.650 --> 00:07:18.985
+This can occur if you've
+made a mistake for example.
+
+100
+00:07:22.605 --> 00:07:27.477
+Here we look at our commit graph and
+we see that in the initial commit we
+
+101
+00:07:27.477 --> 00:07:32.183
+added fileA.txt, in the second
+commit we added fileB.txt, and
+
+102
+00:07:32.183 --> 00:07:36.090
+in the most recent commit,
+we've added fileC.txt.
+
+103
+00:07:36.090 --> 00:07:40.300
+If we list the contents of our
+working tree, we see the three files.
+
+104
+00:07:40.300 --> 00:07:46.100
+Now let's assume for
+some reason we don't mean fileB.txt.
+
+105
+00:07:46.100 --> 00:07:50.122
+We can execute the interactive rebase
+specifying the initial commit,
+
+106
+00:07:50.122 --> 00:07:52.344
+allowing to delete the second commit.
+
+107
+00:07:55.025 --> 00:07:59.107
+The editor comes up and
+we can change the command pick to drop for
+
+108
+00:07:59.107 --> 00:08:01.891
+the commit associated with fileB.text.
+
+109
+00:08:05.949 --> 00:08:10.450
+After we save the file, the rebase will be
+performed and the commit will be deleted.
+
+110
+00:08:12.450 --> 00:08:14.040
+We can view the commit graph and
+
+111
+00:08:14.040 --> 00:08:18.360
+see that the commit related to
+fileB.txt has been deleted.
+
+112
+00:08:18.360 --> 00:08:20.790
+We can view the contents
+of the working tree and
+
+113
+00:08:20.790 --> 00:08:23.880
+see that fileB.txt has also been deleted.
+
+114
+00:08:23.880 --> 00:08:25.108
+The work of that commit is gone.
+
+115
+00:08:29.094 --> 00:08:31.770
+Another option is to squash a commit.
+
+116
+00:08:31.770 --> 00:08:34.250
+And this does three main things.
+
+117
+00:08:34.250 --> 00:08:38.990
+It applies the newer squashed
+commit to an older commit.
+
+118
+00:08:38.990 --> 00:08:43.180
+It combines the commit messages,
+and then removes the newer commit.
+
+119
+00:08:44.420 --> 00:08:48.780
+Another related option is called fixup and
+it's like the squash, but
+
+120
+00:08:48.780 --> 00:08:51.630
+the newer commit's message is discarded.
+
+121
+00:08:51.630 --> 00:08:52.640
+Let's look at in the example.
+
+122
+00:08:55.080 --> 00:08:59.050
+Here we view our commit graft and
+we see that we have three commits.
+
+123
+00:08:59.050 --> 00:09:06.422
+The first added fileA.txt, second added
+fileB.txt, and the third added fileC.txt.
+
+124
+00:09:06.422 --> 00:09:10.539
+Let's say that we would like to squash
+the most recent commit combining it's work
+
+125
+00:09:10.539 --> 00:09:11.800
+with the second commit.
+
+126
+00:09:13.860 --> 00:09:17.740
+If we view the contents of the working
+tree, we can see the three files.
+
+127
+00:09:18.960 --> 00:09:22.286
+Now let's say that we would
+like to squash the most recent
+
+128
+00:09:22.286 --> 00:09:26.463
+commit into the second commit,
+combining the work of the two commits.
+
+129
+00:09:28.685 --> 00:09:32.850
+We execute the interactive rebase
+specifying the initial commit so
+
+130
+00:09:32.850 --> 00:09:34.610
+we can work on its children.
+
+131
+00:09:37.330 --> 00:09:42.190
+The editor appears and
+we change the pick command to squash for
+
+132
+00:09:42.190 --> 00:09:44.040
+the most recent commit.
+
+133
+00:09:44.040 --> 00:09:46.520
+This will combine the work
+of both of these commits.
+
+134
+00:09:49.230 --> 00:09:52.887
+At this point, you can edit
+the commit message, which by default,
+
+135
+00:09:52.887 --> 00:09:55.598
+combines the commit messages
+of the two commits.
+
+136
+00:09:58.811 --> 00:10:02.388
+When we save the fie the interactive
+rebase is executed and
+
+137
+00:10:02.388 --> 00:10:05.530
+the two commits are combined
+into a single commit.
+
+138
+00:10:07.920 --> 00:10:10.990
+We can view the commit graph and
+see that we we now have two commits.
+
+139
+00:10:12.320 --> 00:10:14.970
+If we view the contents of
+the working tree we see that
+
+140
+00:10:14.970 --> 00:10:16.900
+all three files are there.
+
+141
+00:10:16.900 --> 00:10:19.755
+Squashing the commits did not
+result in any work being lost.
+
+142
+00:10:23.879 --> 00:10:27.090
+Let's look at the difference
+between squash and delete.
+
+143
+00:10:27.090 --> 00:10:32.040
+Squash combines the commit with the older
+commit, creating a single commit.
+
+144
+00:10:32.040 --> 00:10:33.940
+The work of both commits is included.
+
+145
+00:10:35.460 --> 00:10:36.840
+In the case of delete,
+
+146
+00:10:36.840 --> 00:10:41.000
+none of the changes from this commit
+are applied to other commits.
+
+147
+00:10:41.000 --> 00:10:42.670
+All of the changes are thrown out.
+
+148
+00:10:43.780 --> 00:10:48.740
+The work of the commit is lost and there
+is a greater chance of a merge conflict.
+
+149
+00:10:49.790 --> 00:10:53.461
+This is because some of the transitional
+work between commits may be deleted.
+
+150
+00:10:56.863 --> 00:10:59.220
+Here is an example of
+squash versus delete.
+
+151
+00:10:59.220 --> 00:11:02.200
+Before an interactive rebase
+we have three commits.
+
+152
+00:11:02.200 --> 00:11:05.180
+In commit A we add fileA.text,
+
+153
+00:11:05.180 --> 00:11:10.630
+commit B we add fileB.txt and
+commit C we add fileC.txt.
+
+154
+00:11:10.630 --> 00:11:16.800
+If we execute an interactive rebase and
+squash commit C, we are left two commits.
+
+155
+00:11:16.800 --> 00:11:21.020
+Commit B prime contains all three files
+and we have not lost any of the work.
+
+156
+00:11:22.630 --> 00:11:25.560
+If we perform an interactive rebase and
+delete commit B,
+
+157
+00:11:25.560 --> 00:11:31.360
+we are left with two commits and fileB.txt
+is no longer part of our work entry.
+
+158
+00:11:34.020 --> 00:11:35.990
+Next we will discuss Squash Merges.
+
+159
+00:11:38.130 --> 00:11:42.010
+A squash merge merges the tip of
+the feature branch under the tip
+
+160
+00:11:42.010 --> 00:11:43.870
+of the base branch.
+
+161
+00:11:43.870 --> 00:11:47.050
+Because it is a a merge,
+there is a chance of a merge conflict.
+
+162
+00:11:47.050 --> 00:11:50.750
+It places the results of this
+merge into the staging area
+
+163
+00:11:50.750 --> 00:11:52.970
+which then can be committed.
+
+164
+00:11:52.970 --> 00:11:56.890
+If we look before the squash merge,
+we have four commits,
+
+165
+00:11:56.890 --> 00:12:00.420
+two on the master branch, and
+two on the featureX branch.
+
+166
+00:12:00.420 --> 00:12:06.660
+After the squash merge, we combine
+commits C and D into a new commit E.
+
+167
+00:12:06.660 --> 00:12:09.390
+You now have a simple linear history but
+
+168
+00:12:09.390 --> 00:12:12.480
+commits B and
+D are no longer in the commit graph.
+
+169
+00:12:14.360 --> 00:12:17.860
+After the featureX label
+is deleted commits B and
+
+170
+00:12:17.860 --> 00:12:20.800
+D no longer are part of named branch.
+
+171
+00:12:20.800 --> 00:12:24.140
+They will eventually be
+garbage collected by git.
+
+172
+00:12:24.140 --> 00:12:27.380
+You can see that a squash
+merge simplifies things but
+
+173
+00:12:27.380 --> 00:12:29.229
+it also rewrites the commit history.
+
+174
+00:12:31.930 --> 00:12:36.960
+To perform a squash merge, you check out
+the master branch and then execute git
+
+175
+00:12:36.960 --> 00:12:43.110
+merge with the squash option and specify
+the featureX branch as the argument.
+
+176
+00:12:43.110 --> 00:12:46.370
+This adds the merged content
+to the staging area and
+
+177
+00:12:46.370 --> 00:12:50.550
+you execute git commit to
+create the squash merge commit.
+
+178
+00:12:50.550 --> 00:12:52.548
+You can then delete the featureX branch.
+
+179
+00:12:55.537 --> 00:12:58.137
+You an also squash merge
+with the fast forward,
+
+180
+00:12:58.137 --> 00:13:01.220
+you again check out the master branch.
+
+181
+00:13:01.220 --> 00:13:04.091
+You execute git merge with
+the squash option and
+
+182
+00:13:04.091 --> 00:13:07.550
+featureX branch specified as an argument.
+
+183
+00:13:07.550 --> 00:13:12.120
+You execute git commit and the merge
+will automatically be fast forwarded.
+
+184
+00:13:12.120 --> 00:13:14.410
+You can then delete the featureX branch.
+
+185
+00:13:15.420 --> 00:13:19.540
+You can see, before the merge,
+we had three commits on two branches and
+
+186
+00:13:19.540 --> 00:13:24.110
+after the squash merge we have two
+commits on the single master branch.
+
+187
+00:13:24.110 --> 00:13:27.355
+Commits C and
+C prime contain the same project files,
+
+188
+00:13:27.355 --> 00:13:29.959
+there is just a different commit history.
+
+189
+00:13:32.877 --> 00:13:35.180
+Here is a review of what we've
+discussed in this video.
+
+190
+00:13:36.450 --> 00:13:41.530
+You can amend the most recent commit's
+message and/or its committed files.
+
+191
+00:13:41.530 --> 00:13:44.060
+This will create a new SHA-1 for
+the commit.
+
+192
+00:13:46.630 --> 00:13:50.060
+Interactive rebase allows you to
+rewrite the history of a branch.
+
+193
+00:13:51.590 --> 00:13:54.582
+A squash reduces multiple
+commits into a single commit.
+
+194
+00:13:57.128 --> 00:14:00.420
+Now it is time for you to work with
+the topics discussed in this video.
+
+195
+00:14:00.420 --> 00:14:02.590
+Separate hands on instructions
+that are provided.

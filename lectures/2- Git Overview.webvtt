@@ -1,0 +1,710 @@
+WEBVTT
+
+1
+00:00:02.250 --> 00:00:06.450
+In this video, we'll take an overview
+look at the Git version control system.
+
+2
+00:00:08.270 --> 00:00:10.840
+We will begin with version
+control in general and
+
+3
+00:00:10.840 --> 00:00:12.727
+then talk about Git specifically.
+
+4
+00:00:15.762 --> 00:00:20.840
+We can think of version control
+from the perspectives of content,
+
+5
+00:00:20.840 --> 00:00:22.571
+teams, and agility.
+
+6
+00:00:22.571 --> 00:00:26.401
+Version control manages
+a collection of changing and
+
+7
+00:00:26.401 --> 00:00:29.641
+improving files which
+we can call a project.
+
+8
+00:00:29.641 --> 00:00:36.412
+The complete history of the project
+is tracked and available at any time.
+
+9
+00:00:36.412 --> 00:00:41.042
+Version control also supports teams
+working on that collection of files.
+
+10
+00:00:41.042 --> 00:00:45.753
+Teams work in many different ways, and
+a good version control system will support
+
+11
+00:00:45.753 --> 00:00:48.842
+many of their workflows or
+ways of getting work done.
+
+12
+00:00:48.842 --> 00:00:53.006
+Version control helps support
+collaboration on the project and
+
+13
+00:00:53.006 --> 00:00:57.871
+improves quality through facilitating
+team communication and reviews.
+
+14
+00:00:57.871 --> 00:01:02.338
+Finally, version control enables agility,
+the ability to adapt quickly and
+
+15
+00:01:02.338 --> 00:01:04.920
+constructively to a changing environment.
+
+16
+00:01:05.960 --> 00:01:10.600
+It does this by managing small changes
+to a project and by allowing you
+
+17
+00:01:10.600 --> 00:01:15.329
+to easily test, fix or undo any ideas and
+changes that the team makes.
+
+18
+00:01:18.070 --> 00:01:21.043
+What type of content can be
+managed with version control?
+
+19
+00:01:21.043 --> 00:01:24.053
+Most version control
+systems don't really care.
+
+20
+00:01:24.053 --> 00:01:25.845
+Any content that you value and
+
+21
+00:01:25.845 --> 00:01:30.152
+want to continuously improve is
+a good candidate for version control.
+
+22
+00:01:30.152 --> 00:01:35.002
+Git is commonly used for managing the
+source code related to software projects.
+
+23
+00:01:35.002 --> 00:01:40.301
+Git is especially good at managing
+text-based content like this.
+
+24
+00:01:40.301 --> 00:01:45.052
+Code that is used to run tests is also
+a good candidate for version control.
+
+25
+00:01:45.052 --> 00:01:50.533
+The tests need to be properly managed and
+are usually always improving.
+
+26
+00:01:50.533 --> 00:01:54.430
+Version control is not limited
+to developer related projects.
+
+27
+00:01:54.430 --> 00:01:59.964
+IT teams should manage configuration
+information in version control as well so
+
+28
+00:01:59.964 --> 00:02:05.094
+that the infrastructure can be properly
+managed and rebuilt at any time.
+
+29
+00:02:05.094 --> 00:02:09.732
+Documentation, books and websites all
+contain content that is consistently
+
+30
+00:02:09.732 --> 00:02:14.801
+changing and improving, making them great
+candidates for version control as well.
+
+31
+00:02:14.801 --> 00:02:18.626
+Again any content that you
+want to properly manage and
+
+32
+00:02:18.626 --> 00:02:23.223
+continuously improve should be
+managed with version control.
+
+33
+00:02:23.223 --> 00:02:27.542
+A distributed version control system
+is a type of version control system.
+
+34
+00:02:27.542 --> 00:02:31.451
+It usually has these characteristics.
+
+35
+00:02:31.451 --> 00:02:36.387
+Each user has a local copy of
+the complete history of the project,
+
+36
+00:02:36.387 --> 00:02:38.822
+which is known as a repository.
+
+37
+00:02:38.822 --> 00:02:42.080
+Here we see that there
+are two users on the team and
+
+38
+00:02:42.080 --> 00:02:46.310
+each has a copy of a remote
+repository on their local computer.
+
+39
+00:02:46.310 --> 00:02:50.906
+Even though repositories are distributed
+among team members there's also
+
+40
+00:02:50.906 --> 00:02:55.139
+a single remote repository that is
+designated as the source of truth or
+
+41
+00:02:55.139 --> 00:02:57.094
+official state of the project.
+
+42
+00:02:57.094 --> 00:03:03.371
+This repository is usually hosted
+in a data center or in the cloud.
+
+43
+00:03:03.371 --> 00:03:08.299
+Another characteristic of Distributed
+Version Control is that because each
+
+44
+00:03:08.299 --> 00:03:12.162
+user has a local copy of
+the complete history of the project,
+
+45
+00:03:12.162 --> 00:03:14.832
+they can continue to work while offline.
+
+46
+00:03:14.832 --> 00:03:20.000
+And finally, content is synchronized
+between repositories by
+
+47
+00:03:20.000 --> 00:03:25.272
+pulling content from or
+pushing content to a remote repository.
+
+48
+00:03:25.272 --> 00:03:28.082
+Now that we've discussed
+version control in general,
+
+49
+00:03:28.082 --> 00:03:29.882
+we will discuss Git in particular.
+
+50
+00:03:32.123 --> 00:03:34.622
+Git is a distributed
+version control system.
+
+51
+00:03:34.622 --> 00:03:39.525
+We've seen that this means each user
+has a local copy of the repository and
+
+52
+00:03:39.525 --> 00:03:42.782
+that repositories can
+easily be synchronized.
+
+53
+00:03:42.782 --> 00:03:47.207
+Git is a free and open source software
+project meaning that the code that
+
+54
+00:03:47.207 --> 00:03:49.873
+implements Git is publically available.
+
+55
+00:03:49.873 --> 00:03:54.781
+No single company owns Git, and anyone
+can make contributions to improve it.
+
+56
+00:03:54.781 --> 00:03:57.213
+Git has a vibrant community of support and
+
+57
+00:03:57.213 --> 00:04:01.395
+an ecosystem in which many other
+technologies are integrated with it.
+
+58
+00:04:03.321 --> 00:04:07.162
+Git adapts well to many types
+of projects and work flows.
+
+59
+00:04:07.162 --> 00:04:11.550
+This means that whatever your project
+is or however your team likes to work
+
+60
+00:04:11.550 --> 00:04:15.172
+together, Git can be adapted as
+a useful tool for your team.
+
+61
+00:04:15.172 --> 00:04:18.948
+Git has been used successfully for
+very small projects and for
+
+62
+00:04:18.948 --> 00:04:20.333
+very large projects.
+
+63
+00:04:20.333 --> 00:04:27.642
+In fact software development of the Linux
+operating system is managed using Git.
+
+64
+00:04:27.642 --> 00:04:32.472
+A Git repository contains a series of
+snapshots of the project over time
+
+65
+00:04:32.472 --> 00:04:34.413
+which are known as commits.
+
+66
+00:04:34.413 --> 00:04:36.973
+Each commit contains all
+of the directories and
+
+67
+00:04:36.973 --> 00:04:39.982
+files of the project at the time
+the snapshot was taken.
+
+68
+00:04:39.982 --> 00:04:41.117
+You can go back and
+
+69
+00:04:41.117 --> 00:04:45.301
+view the project at earlier points
+by viewing the older commits.
+
+70
+00:04:45.301 --> 00:04:49.801
+In this example the repository
+holds three commits.
+
+71
+00:04:49.801 --> 00:04:54.827
+In the first commit a file named
+file.txt was added to the repository,
+
+72
+00:04:54.827 --> 00:04:59.203
+beginning the process of tracking
+this very simple project.
+
+73
+00:04:59.203 --> 00:05:01.558
+In commit 2 a directory, or
+
+74
+00:05:01.558 --> 00:05:06.964
+folder named img was added along
+with an image named image.png.
+
+75
+00:05:06.964 --> 00:05:11.639
+The original file.txt file is
+also included in commit 2,
+
+76
+00:05:11.639 --> 00:05:15.576
+maintaining a complete
+snapshot of the project.
+
+77
+00:05:15.576 --> 00:05:19.561
+In commit 3,
+the file.txt file was modified.
+
+78
+00:05:19.561 --> 00:05:22.454
+You can think of that as
+version 2 of the file.
+
+79
+00:05:22.454 --> 00:05:26.383
+The project at commit 3 therefore contains
+
+80
+00:05:26.383 --> 00:05:31.070
+a modified file.txt file and
+the image.png file.
+
+81
+00:05:31.070 --> 00:05:35.328
+Notice that the project has gone through
+a series of continuous improvements with
+
+82
+00:05:35.328 --> 00:05:36.200
+the help of Git.
+
+83
+00:05:37.831 --> 00:05:41.157
+Now that we have a basic
+understanding of version control and
+
+84
+00:05:41.157 --> 00:05:45.342
+of Git, let's discuss the options that
+you have for interfacing with Git.
+
+85
+00:05:45.342 --> 00:05:48.924
+The command line interface and
+the graphical user interface.
+
+86
+00:05:51.011 --> 00:05:54.530
+In this course,
+you have a fundamental decision to make.
+
+87
+00:05:54.530 --> 00:05:57.943
+You have the option of going through
+the hands-on portion of this course using
+
+88
+00:05:57.943 --> 00:05:59.141
+a command line interface.
+
+89
+00:05:59.141 --> 00:06:03.897
+Or you can use the free graphical
+tool called Sourcetree which
+
+90
+00:06:03.897 --> 00:06:08.300
+is a Git client for Windows and
+the Mac operating system.
+
+91
+00:06:08.300 --> 00:06:12.908
+Let's first discuss the option of
+using the command line interface for
+
+92
+00:06:12.908 --> 00:06:15.452
+this course, and with Git in general.
+
+93
+00:06:15.452 --> 00:06:18.735
+A reason that you should
+consider using the command line,
+
+94
+00:06:18.735 --> 00:06:23.171
+is that command line skills are assumed
+for most modern developer and IT jobs.
+
+95
+00:06:23.171 --> 00:06:28.491
+The need for these skills is not
+going away in the foreseeable future.
+
+96
+00:06:28.491 --> 00:06:32.280
+Another reason to use the command
+line is that if something can be
+
+97
+00:06:32.280 --> 00:06:35.661
+executed at the command line,
+it can also be automated.
+
+98
+00:06:35.661 --> 00:06:40.020
+One of the fundamental principles of
+DevOps is to automate everything that can
+
+99
+00:06:40.020 --> 00:06:40.883
+be automated.
+
+100
+00:06:40.883 --> 00:06:43.930
+So using the command line goes
+hand in hand with automation.
+
+101
+00:06:46.850 --> 00:06:50.998
+Another reason to use the command
+line is that working with Git using
+
+102
+00:06:50.998 --> 00:06:53.491
+the command line is often fast and easy.
+
+103
+00:06:53.491 --> 00:06:57.800
+Git is designed and documented on
+the assumption that you will at least
+
+104
+00:06:57.800 --> 00:07:01.022
+occasionally interact with
+it at the command line.
+
+105
+00:07:01.022 --> 00:07:04.956
+There are some reasons that you might
+choose to use Sourcetree rather than
+
+106
+00:07:04.956 --> 00:07:05.852
+a command line.
+
+107
+00:07:05.852 --> 00:07:08.339
+The biggest reason for
+this course at least,
+
+108
+00:07:08.339 --> 00:07:12.919
+is that if you are not already comfortable
+with using a command line, it can be quite
+
+109
+00:07:12.919 --> 00:07:16.730
+challenging to learn to use the command
+line and Git at the same time.
+
+110
+00:07:16.730 --> 00:07:21.164
+One option is to go through this course
+first using the Sourcetree client while
+
+111
+00:07:21.164 --> 00:07:23.730
+you develop your basic
+command line skills.
+
+112
+00:07:23.730 --> 00:07:27.405
+Then you can go through the course again
+using your newly developed skills.
+
+113
+00:07:28.752 --> 00:07:33.309
+Another reason to consider using a Git
+client like Sourcetree is that some tasks
+
+114
+00:07:33.309 --> 00:07:35.563
+might be easier with a user interface.
+
+115
+00:07:35.563 --> 00:07:39.287
+This is especially true when
+displaying information visually or
+
+116
+00:07:39.287 --> 00:07:43.561
+when working with interactive Git
+commands such as interactive rebates.
+
+117
+00:07:43.561 --> 00:07:48.184
+It's helpful to understand the
+capabilities of the command line as well
+
+118
+00:07:48.184 --> 00:07:52.973
+as the graphical tools in order to choose
+the best tool for a specific task.
+
+119
+00:07:52.973 --> 00:07:57.275
+Finally, a reason that you should consider
+using Sourcetree rather than a command
+
+120
+00:07:57.275 --> 00:08:00.962
+line is if you will not be using Git
+often enough to keep your command line
+
+121
+00:08:00.962 --> 00:08:01.772
+skills fresh.
+
+122
+00:08:01.772 --> 00:08:04.512
+It is generally easier
+to user git periodically
+
+123
+00:08:04.512 --> 00:08:07.115
+with SourceTree than
+with the command line,
+
+124
+00:08:07.115 --> 00:08:10.893
+because the user interface guides
+you through more of the tasks.
+
+125
+00:08:10.893 --> 00:08:14.769
+If you are familiar with the command line,
+you might consider going through both
+
+126
+00:08:14.769 --> 00:08:17.460
+the command line and
+SourceTree paths for this course.
+
+127
+00:08:17.460 --> 00:08:20.233
+This will enforce your reinforce
+your Git knowledge and
+
+128
+00:08:20.233 --> 00:08:22.714
+allow you to choose the best tool for
+a given task.
+
+129
+00:08:24.822 --> 00:08:27.790
+The rest of the course involves
+hands on learning with Git.
+
+130
+00:08:27.790 --> 00:08:30.914
+You will see some of the content
+marked as command line, and
+
+131
+00:08:30.914 --> 00:08:33.551
+some of the content will
+be marked as Sourcetree.
+
+132
+00:08:33.551 --> 00:08:36.242
+It's up to you to decide
+which path you take.
+
+133
+00:08:36.242 --> 00:08:40.160
+In general, the concepts that you
+learn are the same for both paths.
+
+134
+00:08:42.091 --> 00:08:45.752
+Here is a brief review
+of what we've covered.
+
+135
+00:08:45.752 --> 00:08:50.543
+Version control enables team to manage
+a collection of files in an agile way.
+
+136
+00:08:50.543 --> 00:08:53.796
+This collection of files
+is called a project and
+
+137
+00:08:53.796 --> 00:08:57.712
+Git is flexible enough to
+manage many types of projects.
+
+138
+00:08:57.712 --> 00:09:00.472
+Git is a distributed
+version control system.
+
+139
+00:09:00.472 --> 00:09:05.499
+Thos means that users work with local
+copies of the repository enabling them
+
+140
+00:09:05.499 --> 00:09:10.773
+to work while offline and synchronize
+with other repositories at a later time.
+
+141
+00:09:10.773 --> 00:09:14.682
+A repository contains
+the project history as commits.
+
+142
+00:09:14.682 --> 00:09:18.625
+A commit is a snapshot of the entire
+project at a point in time.
+
+143
+00:09:20.572 --> 00:09:25.032
+You have the choice of working with Git
+using a command line interface and, or
+
+144
+00:09:25.032 --> 00:09:27.102
+using a graphical user interface.
+
+145
+00:09:27.102 --> 00:09:30.955
+At this point in the course,
+you'll start working hands on with Git, so
+
+146
+00:09:30.955 --> 00:09:33.180
+select the path that makes sense for you.
+
+147
+00:09:33.180 --> 00:09:36.708
+If you are in doubt, we recommend
+starting with the Sourcetree path.

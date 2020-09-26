@@ -1,0 +1,962 @@
+WEBVTT
+
+1
+00:00:02.300 --> 00:00:04.280
+In this video we will discuss Merging.
+
+2
+00:00:06.500 --> 00:00:08.310
+We will start with the Merging overview.
+
+3
+00:00:11.350 --> 00:00:13.804
+Merging combines the work
+of independent branches.
+
+4
+00:00:14.825 --> 00:00:19.705
+Usually this involves merging a topic
+branch such as the featureX branch
+
+5
+00:00:19.705 --> 00:00:23.765
+into what is called a base branch,
+such as the master branch.
+
+6
+00:00:23.765 --> 00:00:27.375
+The base branch is usually a longer
+running branch than the topic branch.
+
+7
+00:00:28.615 --> 00:00:33.095
+In this example, the work of the two
+branches is combined into a single commit
+
+8
+00:00:33.095 --> 00:00:37.340
+named M, which we will see
+later is called a merge commit.
+
+9
+00:00:37.340 --> 00:00:41.710
+Prior to the merge, the master branch
+didn't know about the featureX branch.
+
+10
+00:00:41.710 --> 00:00:46.410
+After the merge, the work of featureX
+is included in the master branch.
+
+11
+00:00:46.410 --> 00:00:51.230
+Notice that after the merge commit, commit
+B is part of the featureX branch and
+
+12
+00:00:51.230 --> 00:00:52.810
+the master branch.
+
+13
+00:00:52.810 --> 00:00:56.480
+If we trace back from commit
+M to the initial commit,
+
+14
+00:00:56.480 --> 00:00:59.800
+we can see that there is
+a path that includes commit B.
+
+15
+00:00:59.800 --> 00:01:02.500
+If we trace the path of
+the featureX branch,
+
+16
+00:01:02.500 --> 00:01:05.970
+we can see that it contains commits B and
+A.
+
+17
+00:01:05.970 --> 00:01:08.460
+If we trace the two paths of commit M,
+
+18
+00:01:08.460 --> 00:01:10.640
+we can see that all of
+the commits are included.
+
+19
+00:01:12.130 --> 00:01:17.000
+In fact we could color commit B half
+green since it belongs to both branches.
+
+20
+00:01:17.000 --> 00:01:21.079
+For simplicity in the rest of this course,
+we will keep the commits a single color,
+
+21
+00:01:21.079 --> 00:01:24.419
+but keep in mind that a commit often
+belongs to more than one branch.
+
+22
+00:01:27.510 --> 00:01:32.038
+There are four main types of merges,
+fast-forward merge,
+
+23
+00:01:32.038 --> 00:01:35.610
+merge commit, squash merge and rebase.
+
+24
+00:01:35.610 --> 00:01:39.350
+We will talk about the first two in
+this video and the last two later.
+
+25
+00:01:41.430 --> 00:01:45.095
+Next we will discuss fast-forward merges.
+
+26
+00:01:45.095 --> 00:01:51.060
+A fast-forward merge moves the base branch
+label to the tip of the topic branch.
+
+27
+00:01:51.060 --> 00:01:55.440
+In the before example on the left, we can
+see that we have a base branch called
+
+28
+00:01:55.440 --> 00:01:58.395
+master and a topic branch called featureX.
+
+29
+00:01:59.730 --> 00:02:04.880
+Commit A was made to the master branch and
+then a featureX branch was created.
+
+30
+00:02:04.880 --> 00:02:08.275
+Commits B and
+C were created on the featureX branch.
+
+31
+00:02:08.275 --> 00:02:13.680
+If at this point the featureX branch is
+ready to be merged into the master branch,
+
+32
+00:02:13.680 --> 00:02:16.040
+a fast-forward merge can be executed.
+
+33
+00:02:17.050 --> 00:02:21.239
+As you see on the right,
+a fast-forward merge simply involves
+
+34
+00:02:21.239 --> 00:02:24.567
+moving the master label
+from commit A to commit C.
+
+35
+00:02:24.567 --> 00:02:26.744
+After the fast-forward merge,
+
+36
+00:02:26.744 --> 00:02:30.950
+both branches contain exactly
+the same commits, C, B, and A.
+
+37
+00:02:32.050 --> 00:02:35.980
+All three commits are exactly the same
+as they were before the merge,
+
+38
+00:02:35.980 --> 00:02:38.000
+only the master branch label was moved.
+
+39
+00:02:39.250 --> 00:02:43.470
+The master branch now contains the work
+of featureX and the merge is complete.
+
+40
+00:02:46.170 --> 00:02:50.320
+A fast-forward merge is possible only
+if no other commits have been made to
+
+41
+00:02:50.320 --> 00:02:52.860
+the base branch since
+the topic branch was created.
+
+42
+00:02:53.880 --> 00:02:56.570
+If any commits have been
+added to the base branch,
+
+43
+00:02:56.570 --> 00:03:00.230
+Git will not allow you
+perform a fast-forward merge.
+
+44
+00:03:00.230 --> 00:03:03.700
+In this example,
+a fast-forward merge is not possible
+
+45
+00:03:03.700 --> 00:03:08.290
+because commit D was created after
+the featureX branch was created.
+
+46
+00:03:08.290 --> 00:03:11.645
+If Git had allowed the fast-forward merge,
+the master branch
+
+47
+00:03:11.645 --> 00:03:16.270
+label would move to commit C and
+the work of commit D would be bypassed.
+
+48
+00:03:16.270 --> 00:03:20.659
+Whoever did the work of commit D
+would not be very happy with that, so
+
+49
+00:03:20.659 --> 00:03:23.133
+the merge is not fast-forwardable.
+
+50
+00:03:24.962 --> 00:03:28.745
+Here are the basic steps to
+performing a fast-forward merge.
+
+51
+00:03:28.745 --> 00:03:30.935
+Start by checking out the base branch,
+
+52
+00:03:30.935 --> 00:03:36.525
+which in this case is the master branch,
+then merge the featureX branch.
+
+53
+00:03:36.525 --> 00:03:41.020
+A fast-forward merge is the default
+way that Git will attempt the merge.
+
+54
+00:03:41.020 --> 00:03:45.610
+Assuming the merger's successful, you can
+then delete the featureX branch label.
+
+55
+00:03:45.610 --> 00:03:48.930
+The diagram on the right shows
+the state after the fast-forward merge.
+
+56
+00:03:51.201 --> 00:03:53.790
+Let's perform a fast-forward
+merge with Source Tree.
+
+57
+00:03:54.820 --> 00:03:56.960
+We start in this state shown here.
+
+58
+00:03:56.960 --> 00:03:59.620
+We have a single commit
+on the master branch and
+
+59
+00:03:59.620 --> 00:04:01.130
+two commits on the feature branch.
+
+60
+00:04:02.130 --> 00:04:03.780
+We have the feature branch checked out.
+
+61
+00:04:05.000 --> 00:04:07.650
+Let's assume we have completed
+our work on the feature and
+
+62
+00:04:07.650 --> 00:04:09.879
+we're ready to merge it
+into the master branch.
+
+63
+00:04:12.156 --> 00:04:15.126
+First we check out the master
+branch by double clicking on it.
+
+64
+00:04:18.293 --> 00:04:21.098
+Next we click on the Merge button
+to begin the merge process.
+
+65
+00:04:23.419 --> 00:04:25.830
+A Merge window opens.
+
+66
+00:04:25.830 --> 00:04:29.710
+You're asked to pick a commit
+to merge into your current tree.
+
+67
+00:04:29.710 --> 00:04:33.650
+Since we want to merge in the feature1
+branch, we select the latest commit
+
+68
+00:04:33.650 --> 00:04:37.080
+on the feature1 branch,
+click OK to perform the merge.
+
+69
+00:04:39.760 --> 00:04:41.400
+After the merge is executed,
+
+70
+00:04:41.400 --> 00:04:45.650
+you can see that the master branch label
+has been moved to the latest commit.
+
+71
+00:04:45.650 --> 00:04:49.790
+At this point, the master branch and
+the feature1 branch are exactly the same.
+
+72
+00:04:52.010 --> 00:04:53.670
+Since at this point the feature and
+
+73
+00:04:53.670 --> 00:04:58.460
+master branches are the same, you no
+longer need the feature branch label.
+
+74
+00:04:58.460 --> 00:05:01.240
+Click on the Branch tab to begin
+the process of deleting it.
+
+75
+00:05:02.790 --> 00:05:05.670
+Select the feature branch and
+click Delete Branches.
+
+76
+00:05:07.900 --> 00:05:10.248
+You have now merged
+the work of feature1 and
+
+77
+00:05:10.248 --> 00:05:13.430
+have a nice clean master branch
+containing three commits.
+
+78
+00:05:16.669 --> 00:05:19.806
+As we have just seen,
+after a branch has been merged,
+
+79
+00:05:19.806 --> 00:05:22.360
+its branch label can be deleted.
+
+80
+00:05:22.360 --> 00:05:26.340
+This prevents a continuous increase
+in the number of merged branch labels
+
+81
+00:05:26.340 --> 00:05:28.080
+as the project grows.
+
+82
+00:05:28.080 --> 00:05:32.630
+Dealing with an ever increasing number of
+feature branch labels can be confusing.
+
+83
+00:05:32.630 --> 00:05:35.940
+If you'd like to retain the knowledge
+of where the feature work occurred,
+
+84
+00:05:35.940 --> 00:05:39.670
+you can include this information
+in the features commit messages or
+
+85
+00:05:39.670 --> 00:05:42.940
+you can add a tag that permanently
+marks the feature work.
+
+86
+00:05:42.940 --> 00:05:45.691
+Even though we have deleted
+the merge branch label here,
+
+87
+00:05:45.691 --> 00:05:48.730
+whether or not you should delete
+the branch labels after a merge
+
+88
+00:05:48.730 --> 00:05:50.759
+is a decision that your team should make.
+
+89
+00:05:54.287 --> 00:05:59.490
+We can see that with a fast-forward merge,
+the resulting commit history is linear.
+
+90
+00:05:59.490 --> 00:06:01.753
+There are no commits that
+have multiple parents.
+
+91
+00:06:04.274 --> 00:06:05.897
+Next we will discuss merge commits.
+
+92
+00:06:09.521 --> 00:06:13.989
+A merge commit combines the work of the
+tips of the feature and base branches and
+
+93
+00:06:13.989 --> 00:06:17.490
+places the result into
+a single merge commit.
+
+94
+00:06:17.490 --> 00:06:18.300
+In this example,
+
+95
+00:06:18.300 --> 00:06:24.090
+the featureX branch was merged into
+the master branch using merge commit M.
+
+96
+00:06:24.090 --> 00:06:28.540
+The project in commit M will include
+feature X which is included in commit C,
+
+97
+00:06:29.540 --> 00:06:34.800
+as well as anything else that is in commit
+E, the previous tip of the master branch.
+
+98
+00:06:34.800 --> 00:06:37.670
+A merge commit always
+has multiple parents.
+
+99
+00:06:37.670 --> 00:06:42.910
+We can see here that the commit M
+has two parents, commits C and E.
+
+100
+00:06:42.910 --> 00:06:45.270
+Because of this nonlinear commit graph,
+
+101
+00:06:45.270 --> 00:06:48.370
+it's easy to see the branch
+in the commit history.
+
+102
+00:06:48.370 --> 00:06:53.115
+Combining the work of multiple commits may
+result in what's called a merge conflict,
+
+103
+00:06:53.115 --> 00:06:57.290
+if both branches change the same
+things in different ways.
+
+104
+00:06:57.290 --> 00:06:59.676
+We will discuss merge conflicts later,
+and for
+
+105
+00:06:59.676 --> 00:07:02.371
+now we will assume that
+the merge will be successful.
+
+106
+00:07:05.139 --> 00:07:09.171
+Performing a merge with a merge commit
+is basically the same as performing
+
+107
+00:07:09.171 --> 00:07:10.543
+a fast-forward merge.
+
+108
+00:07:10.543 --> 00:07:13.295
+The steps are there to
+check out the base branch,
+
+109
+00:07:13.295 --> 00:07:18.240
+merge the topic branch and then
+optionally delete the topic branch label.
+
+110
+00:07:18.240 --> 00:07:20.890
+Git will automatically attempt
+to create a merge commit
+
+111
+00:07:20.890 --> 00:07:23.770
+if the merge is not fast-forwardable.
+
+112
+00:07:23.770 --> 00:07:25.890
+In this example, before the merge,
+
+113
+00:07:25.890 --> 00:07:29.460
+you have a featureX branch based off
+of commit A of the master branch.
+
+114
+00:07:30.547 --> 00:07:32.010
+Two commits, D and
+
+115
+00:07:32.010 --> 00:07:36.420
+E were made to the master branch since
+the featureX branch label was created.
+
+116
+00:07:37.420 --> 00:07:41.990
+Because the master branch has moved along
+since the featureX branch was created,
+
+117
+00:07:41.990 --> 00:07:43.964
+this merge is not fast-forwardable.
+
+118
+00:07:45.480 --> 00:07:49.570
+After the merge, you have a merge
+commit M containing a combination
+
+119
+00:07:49.570 --> 00:07:54.420
+of the featureX branch and
+the latest master branch, commit E.
+
+120
+00:07:54.420 --> 00:07:57.766
+All of the commits shown then
+belong to the master branch,
+
+121
+00:07:57.766 --> 00:08:00.029
+and you have a nonlinear commit graph.
+
+122
+00:08:00.029 --> 00:08:02.616
+Like with fast-forward merges, the feature
+
+123
+00:08:02.616 --> 00:08:08.020
+branch label can be deleted to prevent an
+ever increasing number of branch labels.
+
+124
+00:08:08.020 --> 00:08:11.705
+In this case the nonlinear commit graph
+clearly shows the branches and merges.
+
+125
+00:08:15.235 --> 00:08:18.710
+Let's perform a merge
+commit using Source Tree.
+
+126
+00:08:18.710 --> 00:08:21.360
+The first thing that we do is
+check out the base branch,
+
+127
+00:08:21.360 --> 00:08:24.250
+which is the master branch in our case.
+
+128
+00:08:24.250 --> 00:08:27.505
+You can see that the commit graph
+shows that we started our project with
+
+129
+00:08:27.505 --> 00:08:29.540
+fileA.txt.
+
+130
+00:08:29.540 --> 00:08:34.300
+We created a branch named feature1 and
+created two commits.
+
+131
+00:08:34.300 --> 00:08:38.150
+While we were creating feature1, two
+commits were made to the master branch.
+
+132
+00:08:39.380 --> 00:08:43.080
+In the first commit,
+fileB.txt was created.
+
+133
+00:08:43.080 --> 00:08:45.530
+In the second commit, feature2 was added.
+
+134
+00:08:47.750 --> 00:08:50.520
+The next step is to merge
+the featureX branch.
+
+135
+00:08:50.520 --> 00:08:51.966
+Start by clicking the Merge button.
+
+136
+00:08:54.323 --> 00:08:58.515
+A Merge dialogue opens asking you to pick
+the commit that you want to merge into
+
+137
+00:08:58.515 --> 00:08:59.750
+your current branch.
+
+138
+00:09:00.760 --> 00:09:04.250
+In this case,
+we select the tip of the feature1 branch.
+
+139
+00:09:04.250 --> 00:09:07.040
+Click OK to create the merge commit.
+
+140
+00:09:07.040 --> 00:09:11.196
+Git automatically performs a merge commit
+if the branch is not fast-forwardable.
+
+141
+00:09:14.242 --> 00:09:18.620
+After performing the merge, the commit
+graph shows that the feature1 branch has
+
+142
+00:09:18.620 --> 00:09:21.260
+been merged into the master branch.
+
+143
+00:09:21.260 --> 00:09:24.240
+Our project now contains
+the work done in both branches.
+
+144
+00:09:26.710 --> 00:09:29.140
+Now you can delete
+the featureX branch variable,
+
+145
+00:09:29.140 --> 00:09:31.780
+since all of the commits
+belong to the master branch.
+
+146
+00:09:32.970 --> 00:09:36.420
+One way that you can delete the feature
+branch label is by right-clicking
+
+147
+00:09:36.420 --> 00:09:38.870
+on the branch name under the Branches tab.
+
+148
+00:09:38.870 --> 00:09:41.693
+In Source Tree you've probably
+already discovered that there
+
+149
+00:09:41.693 --> 00:09:44.100
+are often several ways to
+accomplish the same thing.
+
+150
+00:09:47.148 --> 00:09:50.474
+You are left with a nice,
+clean, nonlinear commit history.
+
+151
+00:09:55.757 --> 00:09:59.864
+In some cases, you might have a situation
+where a merge is fast-forwardable,
+
+152
+00:09:59.864 --> 00:10:02.810
+but you would rather have a merge commit.
+
+153
+00:10:02.810 --> 00:10:06.060
+For example, your team's policy
+might be to always merge
+
+154
+00:10:06.060 --> 00:10:08.990
+feature branches using merge commits.
+
+155
+00:10:08.990 --> 00:10:12.296
+This is so that you can clearly see
+the branches in the commit graph.
+
+156
+00:10:12.296 --> 00:10:17.820
+A no fast-forward merge means that
+a merge commit will always be created,
+
+157
+00:10:17.820 --> 00:10:20.630
+even if the merge is fast-forwardable.
+
+158
+00:10:20.630 --> 00:10:24.640
+The steps to perform a no fast-forward
+merge are similar to the steps for
+
+159
+00:10:24.640 --> 00:10:25.680
+the other merges.
+
+160
+00:10:25.680 --> 00:10:28.751
+The only exception is that
+you select the Create
+
+161
+00:10:28.751 --> 00:10:32.610
+a commit even if merge resolved
+via fast-forward option.
+
+162
+00:10:32.610 --> 00:10:34.350
+This will always create a merge commit.
+
+163
+00:10:35.680 --> 00:10:37.840
+In the before example on the left,
+
+164
+00:10:37.840 --> 00:10:42.758
+the featureX branch is fast-forwardable
+because no commits have been made to
+
+165
+00:10:42.758 --> 00:10:46.370
+the master branch since we
+created the featureX branch.
+
+166
+00:10:46.370 --> 00:10:50.470
+After the no fast-forward merge, we see
+that we've created a merge commit and
+
+167
+00:10:50.470 --> 00:10:53.410
+our feature branch history is easy to see.
+
+168
+00:10:53.410 --> 00:10:58.360
+The project files in commit M are exactly
+the same as the project files in commit
+
+169
+00:10:58.360 --> 00:11:03.560
+C because no other changes were made
+to the project on the master branch.
+
+170
+00:11:03.560 --> 00:11:08.101
+In this case, the difference between
+a fast-forward merge and a merge commit is
+
+171
+00:11:08.101 --> 00:11:11.995
+only in the project history information,
+not in the project files.
+
+172
+00:11:15.121 --> 00:11:19.624
+In Source Tree, when you want to force
+a merge commit to be created, select
+
+173
+00:11:19.624 --> 00:11:24.550
+the check box labeled Create a commit
+even if merge resolved via fast-forward.
+
+174
+00:11:24.550 --> 00:11:25.675
+Then click the OK button.
+
+175
+00:11:29.039 --> 00:11:32.992
+After the no fast-forward merge, you
+are left with a nonlinear commit graph,
+
+176
+00:11:32.992 --> 00:11:33.706
+as expected.
+
+177
+00:11:36.915 --> 00:11:40.270
+Different teams may have different
+policies on what to do with
+
+178
+00:11:40.270 --> 00:11:43.440
+fast-forwardable merges,
+and with merges in general.
+
+179
+00:11:44.550 --> 00:11:47.770
+They may require a linear
+history to keep things clean,
+
+180
+00:11:47.770 --> 00:11:51.744
+they may require merge commits to
+clearly see the branch history, or
+
+181
+00:11:51.744 --> 00:11:55.192
+they may let the person doing
+the merging decide what to do.
+
+182
+00:11:57.953 --> 00:12:02.518
+In addition to merging topic
+branches into long running branches,
+
+183
+00:12:02.518 --> 00:12:08.870
+some teams periodically merge long-running
+branches into other long-running branches.
+
+184
+00:12:08.870 --> 00:12:12.610
+These merges are usually easy
+because they are fast-forwardable,
+
+185
+00:12:12.610 --> 00:12:14.239
+even if a merge commit is used.
+
+186
+00:12:15.330 --> 00:12:16.220
+In this example,
+
+187
+00:12:16.220 --> 00:12:20.380
+commits are made to the develop
+branch as the project is worked on.
+
+188
+00:12:20.380 --> 00:12:23.300
+The master branch stays at commit A.
+
+189
+00:12:23.300 --> 00:12:28.310
+Commit A may be the most recent release
+that the project's customers are using.
+
+190
+00:12:28.310 --> 00:12:32.010
+When the develop branch is at a point
+where the team wants to release it,
+
+191
+00:12:32.010 --> 00:12:35.000
+they can perform either
+a fast-forward merge or
+
+192
+00:12:35.000 --> 00:12:38.760
+use a simple merge commit as
+shown here with commit G.
+
+193
+00:12:38.760 --> 00:12:43.595
+Either way, the merge is easy because
+the project files in commit G are exactly
+
+194
+00:12:43.595 --> 00:12:45.654
+the same as the files in commit F.
+
+195
+00:12:48.820 --> 00:12:51.520
+Here is a review of what we've
+discussed in this video.
+
+196
+00:12:53.150 --> 00:12:55.760
+Merging combines the work
+of multiple branches.
+
+197
+00:12:57.682 --> 00:13:02.030
+A fast-forward merge moves the base branch
+label to the tip of the topic branch.
+
+198
+00:13:04.730 --> 00:13:09.460
+A merge is fast-forwardable if no other
+commits have been made to the base branch
+
+199
+00:13:09.460 --> 00:13:11.010
+since the branch was created.
+
+200
+00:13:13.370 --> 00:13:17.230
+A merge commit is the result of
+combining the work of multiple commits.
+
+201
+00:13:19.260 --> 00:13:21.387
+A merge commit has multiple parents.
+
+202
+00:13:24.392 --> 00:13:28.000
+Now it's time for you to work on
+the topics discussed in this video.
+
+203
+00:13:28.000 --> 00:13:29.621
+Separate instructions are provided for
+you.

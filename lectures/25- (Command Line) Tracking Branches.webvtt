@@ -1,0 +1,633 @@
+WEBVTT
+
+1
+00:00:00.950 --> 00:00:05.980
+This video discusses tracking branches.
+
+2
+00:00:05.980 --> 00:00:09.625
+We will start with the tracking branch overview.
+
+3
+00:00:09.625 --> 00:00:15.135
+A tracking branch is a local branch that represents a remote branch.
+
+4
+00:00:15.135 --> 00:00:17.700
+Locally, a tracking branch name starts with
+
+5
+00:00:17.700 --> 00:00:21.750
+the remote name then a forward slash and then the branch name.
+
+6
+00:00:21.750 --> 00:00:23.775
+If you clone a repository,
+
+7
+00:00:23.775 --> 00:00:26.915
+you'll have a default local tracking branch.
+
+8
+00:00:26.915 --> 00:00:32.295
+In this example, the remote repository contains a master branch with three commits.
+
+9
+00:00:32.295 --> 00:00:34.380
+On the remote repository,
+
+10
+00:00:34.380 --> 00:00:36.930
+the head reference points to the default branch
+
+11
+00:00:36.930 --> 00:00:39.600
+that will be checked out when the repository is cloned.
+
+12
+00:00:39.600 --> 00:00:43.970
+In this case, the default branch is named master.
+
+13
+00:00:43.970 --> 00:00:45.990
+When we clone the remote repository,
+
+14
+00:00:45.990 --> 00:00:47.565
+the same three commits,
+
+15
+00:00:47.565 --> 00:00:52.875
+master branch label and head reference will be copied to the local repository.
+
+16
+00:00:52.875 --> 00:00:55.680
+You can see that the commit graph on the remote repository
+
+17
+00:00:55.680 --> 00:00:59.780
+looks exactly like this part of the commit graph locally.
+
+18
+00:00:59.780 --> 00:01:04.540
+After the clone, you will have the master branch checked out.
+
+19
+00:01:04.540 --> 00:01:09.055
+You can see that there is an additional branch label on the local repository.
+
+20
+00:01:09.055 --> 00:01:11.125
+This is the tracking branch.
+
+21
+00:01:11.125 --> 00:01:14.275
+It represents the remote master branch.
+
+22
+00:01:14.275 --> 00:01:18.265
+Origin is a shortcut for the URL to the remote repository,
+
+23
+00:01:18.265 --> 00:01:22.390
+and master is the name of the branch on the remote repository.
+
+24
+00:01:22.390 --> 00:01:24.910
+Because the clone just happened,
+
+25
+00:01:24.910 --> 00:01:27.945
+these two repositories are synchronized.
+
+26
+00:01:27.945 --> 00:01:30.370
+All of the master branch labels point to commit
+
+27
+00:01:30.370 --> 00:01:34.180
+C. That includes the local master branch label,
+
+28
+00:01:34.180 --> 00:01:39.080
+the tracking master branch label and the remote master branch label.
+
+29
+00:01:39.080 --> 00:01:42.360
+You can see that these three branches are related.
+
+30
+00:01:42.360 --> 00:01:48.369
+Right now they each contain the same three commits.
+
+31
+00:01:48.369 --> 00:01:53.130
+A tracking branch is related to its associated remote branch and local branch,
+
+32
+00:01:53.130 --> 00:01:54.660
+but they are decoupled.
+
+33
+00:01:54.660 --> 00:02:00.405
+Tracking branches updates separately from both the remote branch and the local branch.
+
+34
+00:02:00.405 --> 00:02:05.785
+This is because tracking branches are only updated with network commands like clone,
+
+35
+00:02:05.785 --> 00:02:07.750
+fetch, pull and push.
+
+36
+00:02:07.750 --> 00:02:13.450
+The tracking branch acts as a sort of intermediary between the local and remote branches.
+
+37
+00:02:13.450 --> 00:02:16.720
+In this example, our tracking branch points to commit
+
+38
+00:02:16.720 --> 00:02:20.890
+C. This means that at the time of the most recent network command,
+
+39
+00:02:20.890 --> 00:02:24.695
+commit C was the latest commit on the remote master branch.
+
+40
+00:02:24.695 --> 00:02:28.110
+Locally, we then created commit D.
+
+41
+00:02:28.110 --> 00:02:31.020
+This moves the head reference and master branch label to
+
+42
+00:02:31.020 --> 00:02:33.980
+commit D. The tracking branch label
+
+43
+00:02:33.980 --> 00:02:38.145
+stays behind because it only moves with network commands.
+
+44
+00:02:38.145 --> 00:02:41.670
+Committing is a local command.
+
+45
+00:02:41.670 --> 00:02:43.700
+If we look at the remote repository,
+
+46
+00:02:43.700 --> 00:02:46.096
+we can see that since our last network command,
+
+47
+00:02:46.096 --> 00:02:49.580
+someone pushed a new commit E. We are now
+
+48
+00:02:49.580 --> 00:02:53.570
+in a state where the three master branch labels point to different commits.
+
+49
+00:02:53.570 --> 00:02:57.253
+The local master branch label points to commit D,
+
+50
+00:02:57.253 --> 00:03:00.695
+the master tracking branch label points to commit C,
+
+51
+00:03:00.695 --> 00:03:03.155
+and the remote master branch label points to commit
+
+52
+00:03:03.155 --> 00:03:09.020
+E. The three related branches are no longer in sync.
+
+53
+00:03:09.020 --> 00:03:14.445
+Next, we will discuss viewing tracking branch names.
+
+54
+00:03:14.445 --> 00:03:19.934
+By default, the git branch command only lists the names of local branches,
+
+55
+00:03:19.934 --> 00:03:22.630
+use the all option of the git branch command
+
+56
+00:03:22.630 --> 00:03:26.245
+to display all local and tracking branch names.
+
+57
+00:03:26.245 --> 00:03:28.345
+Let's look at an example.
+
+58
+00:03:28.345 --> 00:03:33.910
+First, we clone a bitbucket remote repository named project e. This will create a git
+
+59
+00:03:33.910 --> 00:03:40.455
+managed directory named project e. We then change to that directory.
+
+60
+00:03:40.455 --> 00:03:43.820
+We first execute a git branch command.
+
+61
+00:03:43.820 --> 00:03:48.935
+You can see that it shows only the local master branch and because of the asterisk,
+
+62
+00:03:48.935 --> 00:03:52.075
+we have the master branch checked out.
+
+63
+00:03:52.075 --> 00:03:57.060
+We then execute the git branch command passing in the all option.
+
+64
+00:03:57.060 --> 00:04:00.140
+The first branch is the local master branch.
+
+65
+00:04:00.140 --> 00:04:02.825
+The second line is really not a unique branch,
+
+66
+00:04:02.825 --> 00:04:06.670
+but is a symbolic reference that we will discuss shortly.
+
+67
+00:04:06.670 --> 00:04:09.320
+The third line shows that we have a tracking branch that
+
+68
+00:04:09.320 --> 00:04:12.520
+tracks the master branch on the remote repository.
+
+69
+00:04:12.520 --> 00:04:16.350
+This tracking branch was created automatically during the git clone.
+
+70
+00:04:16.350 --> 00:04:17.825
+If you look at this list,
+
+71
+00:04:17.825 --> 00:04:21.478
+only the first and third lines represent unique branches,
+
+72
+00:04:21.478 --> 00:04:27.020
+with the second line representing a symbolic reference to an existing branch.
+
+73
+00:04:27.020 --> 00:04:31.205
+When using the all option with the git branch command,
+
+74
+00:04:31.205 --> 00:04:36.650
+we saw that there is a reference named remote/origin/head.
+
+75
+00:04:36.650 --> 00:04:38.570
+This is a symbolic reference,
+
+76
+00:04:38.570 --> 00:04:42.065
+meaning that it is a reference that points to another reference.
+
+77
+00:04:42.065 --> 00:04:45.870
+This specifies the default remote tracking branch.
+
+78
+00:04:45.870 --> 00:04:48.245
+This allows you to only type the remote name
+
+79
+00:04:48.245 --> 00:04:51.885
+instead of the whole tracking branch name in git commands.
+
+80
+00:04:51.885 --> 00:04:54.580
+Let's look at an example.
+
+81
+00:04:54.580 --> 00:04:59.400
+We start by executing the git branch command with the all option.
+
+82
+00:04:59.400 --> 00:05:03.825
+We have one local branch named master and it is checked out.
+
+83
+00:05:03.825 --> 00:05:09.115
+The default remote tracking branch has been set to origin/master.
+
+84
+00:05:09.115 --> 00:05:15.890
+The third line says that the master branch has been set up as a tracking branch.
+
+85
+00:05:15.890 --> 00:05:19.895
+Let's say that we want to see the commits of our master tracking branch.
+
+86
+00:05:19.895 --> 00:05:26.390
+One way to do that is to specify origin/master as the argument of the git log command.
+
+87
+00:05:26.390 --> 00:05:30.470
+Here we see that the tracking branch has two commits.
+
+88
+00:05:30.470 --> 00:05:34.760
+Because we have a default remote tracking branch,
+
+89
+00:05:34.760 --> 00:05:37.445
+we can execute the git log command again,
+
+90
+00:05:37.445 --> 00:05:40.948
+but this time we can just specify origin as the argument,
+
+91
+00:05:40.948 --> 00:05:44.380
+and receive the same results.
+
+92
+00:05:44.530 --> 00:05:48.870
+You can change the default remote tracking branch
+
+93
+00:05:48.870 --> 00:05:52.285
+locally using the git remote set head command.
+
+94
+00:05:52.285 --> 00:05:54.720
+Let's look at an example.
+
+95
+00:05:54.720 --> 00:05:59.710
+We start by executing the git branch command with the all option.
+
+96
+00:05:59.710 --> 00:06:01.780
+We can see that there are two local branches;
+
+97
+00:06:01.780 --> 00:06:04.970
+develop, which is checked out and master.
+
+98
+00:06:04.970 --> 00:06:10.430
+We can see that the default remote tracking branch has been set to origin/master.
+
+99
+00:06:10.430 --> 00:06:15.660
+We see that the develop and master branches had been set up as tracking branches.
+
+100
+00:06:15.660 --> 00:06:18.510
+Let's say that we mostly commit to the develop branch,
+
+101
+00:06:18.510 --> 00:06:24.165
+and for convenience we want to make that the default remote tracking branch.
+
+102
+00:06:24.165 --> 00:06:26.931
+We execute the git remote set command,
+
+103
+00:06:26.931 --> 00:06:32.860
+specifying origin as the remote name and develop as the default branch.
+
+104
+00:06:32.860 --> 00:06:37.370
+We then execute git branch again and now we can see
+
+105
+00:06:37.370 --> 00:06:40.840
+that our default branch is set to origin/develop.
+
+106
+00:06:40.840 --> 00:06:46.080
+This means that in any git command where we would have specified origin/develop,
+
+107
+00:06:46.080 --> 00:06:50.470
+we can simply specify origin instead.
+
+108
+00:06:50.720 --> 00:06:54.140
+We have just seen how to change
+
+109
+00:06:54.140 --> 00:06:57.335
+the default remote tracking branch in your local repository.
+
+110
+00:06:57.335 --> 00:07:02.760
+In bitbucket, you can change the default branch for all users of the repository.
+
+111
+00:07:02.760 --> 00:07:06.125
+Once you are in the remote repository, click on settings,
+
+112
+00:07:06.125 --> 00:07:11.000
+then specify the default branch name under the main branch section.
+
+113
+00:07:11.000 --> 00:07:14.900
+This will change the default branch for all users.
+
+114
+00:07:14.900 --> 00:07:19.393
+This is the branch that will be checked out after users clone the repository,
+
+115
+00:07:19.393 --> 00:07:23.310
+and is their default remote tracking branch.
+
+116
+00:07:23.310 --> 00:07:29.697
+Finally, we will discuss viewing tracking branch status.
+
+117
+00:07:29.697 --> 00:07:33.610
+The git status command includes tracking branch status.
+
+118
+00:07:33.610 --> 00:07:36.640
+You can see here that you are locally on the master branch,
+
+119
+00:07:36.640 --> 00:07:40.720
+and that there is a tracking branch named origin slash master.
+
+120
+00:07:40.720 --> 00:07:44.530
+Git is telling us that we are up to date with the tracking branch,
+
+121
+00:07:44.530 --> 00:07:49.030
+which means that as of the last time that we issued a network command like fetch,
+
+122
+00:07:49.030 --> 00:07:52.158
+we have the latest commit in our local repository,
+
+123
+00:07:52.158 --> 00:07:57.125
+and our local master branch label points to that same commit.
+
+124
+00:07:57.125 --> 00:08:01.060
+The git status command will inform you if
+
+125
+00:08:01.060 --> 00:08:05.433
+the cached tracking branch information is out of sync with your local branch.
+
+126
+00:08:05.433 --> 00:08:07.980
+Let's look at an example.
+
+127
+00:08:07.980 --> 00:08:12.432
+We start by making a local commit.
+
+128
+00:08:12.432 --> 00:08:15.271
+We then execute git status.
+
+129
+00:08:15.271 --> 00:08:20.280
+Notice that it says that your local branch is ahead of the tracking branch by one commit.
+
+130
+00:08:20.280 --> 00:08:23.140
+It recommends that you execute git push so that
+
+131
+00:08:23.140 --> 00:08:27.585
+this new local commit will be added to the remote repository.
+
+132
+00:08:27.585 --> 00:08:30.490
+Note that git status uses cached information from
+
+133
+00:08:30.490 --> 00:08:34.170
+the last time that a command like fetch was executed.
+
+134
+00:08:34.170 --> 00:08:36.430
+The tracking branch is a representation of
+
+135
+00:08:36.430 --> 00:08:39.250
+the associated branch on the remote repository.
+
+136
+00:08:39.250 --> 00:08:44.530
+If someone else made a commit since you last executed any network command like fetch,
+
+137
+00:08:44.530 --> 00:08:48.370
+you would not know it by executing git status.
+
+138
+00:08:48.370 --> 00:08:51.860
+Use git log with the all option to see
+
+139
+00:08:51.860 --> 00:08:55.920
+a combined log of the commits of all local and tracking branches.
+
+140
+00:08:55.920 --> 00:08:57.960
+Let's look at an example.
+
+141
+00:08:57.960 --> 00:09:01.460
+We start by editing fileA.txt.
+
+142
+00:09:01.460 --> 00:09:04.785
+This adds uncommitted changes to the working tree.
+
+143
+00:09:04.785 --> 00:09:06.550
+We then add fileA.txt.
+
+144
+00:09:06.550 --> 00:09:09.360
+to the staging area.
+
+145
+00:09:09.360 --> 00:09:12.672
+We then commit the changes.
+
+146
+00:09:12.672 --> 00:09:16.995
+Then we execute the git log command specifying the all option.
+
+147
+00:09:16.995 --> 00:09:21.090
+This gives us a view of the local branches and the remote tracking branches.
+
+148
+00:09:21.090 --> 00:09:26.040
+We can see that the local master branch is one commit ahead of the tracking branch.
+
+149
+00:09:26.040 --> 00:09:28.805
+This means that the local repository has a commit that
+
+150
+00:09:28.805 --> 00:09:33.124
+the remote repository does not have.
+
+151
+00:09:33.124 --> 00:09:38.250
+Here is a review of what we've discussed in this video.
+
+152
+00:09:38.250 --> 00:09:45.140
+Tracking branches are local branches that represent remote branches.
+
+153
+00:09:45.140 --> 00:09:51.310
+They are named <remote>/<branch> for example origin/master.
+
+154
+00:09:51.310 --> 00:09:56.055
+They can become out of sync with local branches,
+
+155
+00:09:56.055 --> 00:10:00.320
+and they are updated with network commands like clone,
+
+156
+00:10:00.320 --> 00:10:04.123
+fetch, pull, and push.
+
+157
+00:10:04.123 --> 00:10:09.230
+Now, it's time for you to work on some of the topics discussed in this video.
+
+158
+00:10:09.230 --> 00:10:13.000
+Separate hands-on instructions are provided for you.

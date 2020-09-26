@@ -1,0 +1,1023 @@
+WEBVTT
+
+1
+00:00:02.599 --> 00:00:05.192
+In this video we will discuss references.
+
+2
+00:00:07.338 --> 00:00:09.954
+We will start with
+an overview of references.
+
+3
+00:00:12.978 --> 00:00:16.000
+Commits can be associated with references.
+
+4
+00:00:16.000 --> 00:00:20.610
+A reference is a user-friendly name
+that points to a commit's SHA-1 value or
+
+5
+00:00:20.610 --> 00:00:22.030
+another reference.
+
+6
+00:00:22.030 --> 00:00:24.290
+If a reference points
+to another reference,
+
+7
+00:00:24.290 --> 00:00:25.960
+it's called a symbolic reference.
+
+8
+00:00:27.220 --> 00:00:31.820
+Here, the latest commit has two references
+associated with it, HEAD and master.
+
+9
+00:00:33.850 --> 00:00:37.720
+Instead of using SHA-1 hashes and
+Git commands, you can use references.
+
+10
+00:00:39.240 --> 00:00:42.830
+As an example,
+here we execute a git log command.
+
+11
+00:00:42.830 --> 00:00:46.160
+Notice that the commit
+object has a SHA-1 hash and
+
+12
+00:00:46.160 --> 00:00:49.350
+two references associated with it,
+HEAD and master.
+
+13
+00:00:51.410 --> 00:00:56.600
+We could then call the git show command,
+passing it either the full SHA-1 hash,
+
+14
+00:00:56.600 --> 00:01:00.190
+part of the SHA-1 hash,
+the master reference, or
+
+15
+00:01:00.190 --> 00:01:04.280
+the HEAD reference, since they
+all point to the same SHA-1 hash.
+
+16
+00:01:04.280 --> 00:01:06.470
+In this example,
+we passed the HEAD reference.
+
+17
+00:01:07.840 --> 00:01:11.223
+Executing the command shows details
+related to the commit object.
+
+18
+00:01:15.439 --> 00:01:18.840
+Next, we will discuss branch labels and
+the HEAD reference.
+
+19
+00:01:20.650 --> 00:01:24.770
+Master is the default name of
+the main branch in the repository.
+
+20
+00:01:24.770 --> 00:01:28.490
+A branch is an independent path for
+a set of commits.
+
+21
+00:01:28.490 --> 00:01:32.160
+If we never create a branch in
+a repository, then by default,
+
+22
+00:01:32.160 --> 00:01:34.630
+all commits are part of the master branch.
+
+23
+00:01:34.630 --> 00:01:37.080
+Here, we execute the git status command.
+
+24
+00:01:37.080 --> 00:01:40.580
+And Git informs us that we
+are currently on the master branch.
+
+25
+00:01:40.580 --> 00:01:43.773
+Any commits that we would make at
+this point would be to this branch.
+
+26
+00:01:46.152 --> 00:01:49.950
+A branch label points to the most
+recent commit in the branch.
+
+27
+00:01:49.950 --> 00:01:53.110
+That commit is commonly
+called the tip of the branch.
+
+28
+00:01:53.110 --> 00:01:56.400
+Branch labels are implemented
+as references.
+
+29
+00:01:56.400 --> 00:01:59.460
+In this example there are three
+commits on the master branch,
+
+30
+00:01:59.460 --> 00:02:03.190
+with the master branch label
+pointing to the tip of the branch.
+
+31
+00:02:03.190 --> 00:02:06.780
+Note the subtle difference between
+a branch and a branch label.
+
+32
+00:02:06.780 --> 00:02:09.440
+All three commits belong
+to the master branch,
+
+33
+00:02:09.440 --> 00:02:13.490
+even though the master branch label
+is only at the tip of the branch.
+
+34
+00:02:13.490 --> 00:02:17.170
+Since a branch in
+Git is implemented as a tiny branch label,
+
+35
+00:02:17.170 --> 00:02:21.180
+branches are extremely simple to
+implement and use very few resources.
+
+36
+00:02:23.330 --> 00:02:27.220
+We mentioned that Git implements
+branch labels as references.
+
+37
+00:02:27.220 --> 00:02:31.550
+These references are stored in the .git
+directory of the local repository.
+
+38
+00:02:31.550 --> 00:02:34.240
+Just so that we can understand
+them better, let's take a look
+
+39
+00:02:34.240 --> 00:02:38.200
+inside the .git directory and
+view a branch label reference.
+
+40
+00:02:38.200 --> 00:02:40.460
+This is not a common thing to do and
+
+41
+00:02:40.460 --> 00:02:43.850
+Git might actually optimize the directory
+by what is known as packing.
+
+42
+00:02:43.850 --> 00:02:46.300
+This can change the location
+of the reference, so
+
+43
+00:02:46.300 --> 00:02:49.180
+it's best not to directly work
+inside of this directory.
+
+44
+00:02:50.970 --> 00:02:54.270
+Let's start by changing from the project
+directory to the .git directory.
+
+45
+00:02:56.780 --> 00:03:02.180
+Listing the contents of the .git directory
+shows that it contains a refs directory.
+
+46
+00:03:02.180 --> 00:03:04.070
+References are stored in this directory.
+
+47
+00:03:05.730 --> 00:03:07.440
+We change to the refs directory.
+
+48
+00:03:08.540 --> 00:03:12.832
+Listing the contents of this directory
+shows that it contains a heads directory
+
+49
+00:03:12.832 --> 00:03:14.056
+and a tags directory.
+
+50
+00:03:14.056 --> 00:03:15.834
+We will learn about tags shortly,
+
+51
+00:03:15.834 --> 00:03:18.790
+but local branch references
+are in the heads directory.
+
+52
+00:03:20.340 --> 00:03:21.890
+We change to the heads directory.
+
+53
+00:03:23.890 --> 00:03:27.040
+Listing the contents of the heads
+directory shows that there's currently
+
+54
+00:03:27.040 --> 00:03:30.650
+just one branch label
+reference named master.
+
+55
+00:03:30.650 --> 00:03:32.220
+This is not surprising.
+
+56
+00:03:32.220 --> 00:03:34.580
+It's the name of the default
+branch in the repository.
+
+57
+00:03:35.940 --> 00:03:40.020
+Master is a reference which is
+implemented as a simple text file.
+
+58
+00:03:40.020 --> 00:03:42.768
+If we view the contents
+of the master reference,
+
+59
+00:03:42.768 --> 00:03:45.188
+we can see that it contains a SHA-1 hash.
+
+60
+00:03:45.188 --> 00:03:49.360
+This is the SHA-1 of the commit
+object at the tip of the branch.
+
+61
+00:03:49.360 --> 00:03:53.490
+This is how Git makes the association
+between the master branch label reference
+
+62
+00:03:53.490 --> 00:03:55.660
+and the SHA-1 hash of
+the tip of the branch.
+
+63
+00:03:56.770 --> 00:04:00.379
+Notice that reference files are tiny,
+containing only a short string.
+
+64
+00:04:03.800 --> 00:04:05.830
+HEAD is a reference to the current commit.
+
+65
+00:04:07.350 --> 00:04:10.010
+It usually points to the branch
+label of the current branch.
+
+66
+00:04:12.140 --> 00:04:15.290
+Because it only points to the current
+commit and there can only be
+
+67
+00:04:15.290 --> 00:04:19.280
+one current commit, there is only one
+HEAD reference in your local repository.
+
+68
+00:04:21.020 --> 00:04:23.860
+In this example we have three
+commits on the master branch.
+
+69
+00:04:24.980 --> 00:04:28.380
+The master branch label reference
+points to the most recent commit.
+
+70
+00:04:29.420 --> 00:04:32.000
+The HEAD reference points
+to the master branch label.
+
+71
+00:04:33.970 --> 00:04:38.460
+You can also see this relationship
+when you execute the git log command.
+
+72
+00:04:38.460 --> 00:04:43.410
+Here we execute the git log command with
+the one line option to keep things concise
+
+73
+00:04:43.410 --> 00:04:47.580
+and the -1 option to limit
+the display to the current commit.
+
+74
+00:04:47.580 --> 00:04:50.620
+You can see that for
+the current commit with the SHA-1 hash,
+
+75
+00:04:50.620 --> 00:04:55.450
+starting with 483d,
+there are two associated references.
+
+76
+00:04:55.450 --> 00:04:58.550
+The HEAD reference points
+to the master branch label
+
+77
+00:04:58.550 --> 00:05:02.060
+which points to the current
+commit's SHA-1 hash by association.
+
+78
+00:05:03.670 --> 00:05:06.758
+You can see that this is the same
+relationship as the one shown in
+
+79
+00:05:06.758 --> 00:05:07.465
+the diagram.
+
+80
+00:05:10.113 --> 00:05:13.185
+HEAD is implemented in Git as a reference.
+
+81
+00:05:13.185 --> 00:05:16.420
+There's a single HEAD reference
+in a local repository and
+
+82
+00:05:16.420 --> 00:05:18.390
+it points to the current commit.
+
+83
+00:05:18.390 --> 00:05:21.610
+We have seen that you can view the HEAD
+reference by executing the git
+
+84
+00:05:21.610 --> 00:05:23.030
+log command.
+
+85
+00:05:23.030 --> 00:05:26.660
+As a learning experience, you can
+also view it in the .git directory.
+
+86
+00:05:28.600 --> 00:05:32.240
+We start by changing from our project
+directory to the .git directory.
+
+87
+00:05:33.510 --> 00:05:37.270
+Listing the contents of the .git
+directory shows that the HEAD reference
+
+88
+00:05:37.270 --> 00:05:38.340
+is a top level file.
+
+89
+00:05:40.670 --> 00:05:44.230
+You can view the contents of this file
+to see that currently HEAD points to
+
+90
+00:05:44.230 --> 00:05:46.090
+the master branch label reference.
+
+91
+00:05:47.170 --> 00:05:50.040
+When a reference points to
+another reference like this,
+
+92
+00:05:50.040 --> 00:05:51.750
+it's called a symbolic reference.
+
+93
+00:05:54.490 --> 00:05:59.351
+Next, we will discuss referencing
+prior commits with the ~ and
+
+94
+00:05:59.351 --> 00:06:02.520
+^ characters.
+
+95
+00:06:02.520 --> 00:06:06.548
+In git commands, the ~ character
+can be appended to git IDs and
+
+96
+00:06:06.548 --> 00:06:09.060
+references to refer to prior commits.
+
+97
+00:06:10.941 --> 00:06:12.640
+Let's look at an example.
+
+98
+00:06:12.640 --> 00:06:16.210
+Here we will execute the git log
+command to view the current branch's
+
+99
+00:06:16.210 --> 00:06:17.300
+commit history.
+
+100
+00:06:17.300 --> 00:06:21.000
+We specify the oneline option
+to keep things concise, and
+
+101
+00:06:21.000 --> 00:06:23.000
+the graph option to show the commit graph.
+
+102
+00:06:24.280 --> 00:06:26.010
+When we execute the command,
+
+103
+00:06:26.010 --> 00:06:28.410
+you can see that there are four
+commits on this branch.
+
+104
+00:06:30.120 --> 00:06:33.856
+If we execute git show HEAD,
+it will show the information for
+
+105
+00:06:33.856 --> 00:06:38.265
+the current commit object,
+whose SHA-1 hash value begins with e0.
+
+106
+00:06:39.736 --> 00:06:42.152
+If we append a ~ to HEAD in the command,
+
+107
+00:06:42.152 --> 00:06:47.600
+we are referring to the current commit's
+parent, whose SHA-1 hash begins with 1e.
+
+108
+00:06:48.790 --> 00:06:52.605
+Appending a single ~ is
+equivalent to appending a ~1.
+
+109
+00:06:54.540 --> 00:07:00.490
+If we execute the command with an argument
+of master~3, we will reference the commit
+
+110
+00:07:00.490 --> 00:07:04.863
+three commits away from the current
+commit, whose SHA-1 begins with 14.
+
+111
+00:07:06.630 --> 00:07:09.470
+If we execute the command
+with a partial SHA-1,
+
+112
+00:07:09.470 --> 00:07:13.440
+followed by three successive tildes,
+we again reference the commit
+
+113
+00:07:13.440 --> 00:07:17.602
+three commits away from the current
+commit, whose SHA-1 begins with 14.
+
+114
+00:07:20.090 --> 00:07:25.040
+The caret character can be appended to
+IDs and references in git commands,
+
+115
+00:07:25.040 --> 00:07:28.340
+primarily to refer to a specific
+parent in a merge commit.
+
+116
+00:07:29.340 --> 00:07:31.890
+Merge commits have multiple parents.
+
+117
+00:07:31.890 --> 00:07:36.180
+As an example, ^2 refers to
+a merge commit's, second parent.
+
+118
+00:07:37.260 --> 00:07:41.280
+Here, we execute the git log command
+to view a list of our commits.
+
+119
+00:07:41.280 --> 00:07:45.049
+You can see that there are four commits,
+all on a branch with no merges.
+
+120
+00:07:46.460 --> 00:07:51.800
+We execute the git show command,
+including an argument of master^.
+
+121
+00:07:51.800 --> 00:07:56.287
+This refers to the first parent
+whose SHA-1 starts with 1e.
+
+122
+00:07:56.287 --> 00:08:01.547
+Note that this is the same behavior
+as if we had used the ~ character.
+
+123
+00:08:01.547 --> 00:08:05.658
+We then execute git show
+with the HEAD^2 argument.
+
+124
+00:08:05.658 --> 00:08:08.925
+This is trying to refer to
+the current commit's second parent.
+
+125
+00:08:08.925 --> 00:08:12.049
+But because there is only one parent,
+we receive an error.
+
+126
+00:08:14.315 --> 00:08:19.234
+We can execute the git show command with
+HEAD^^ as the argument which results
+
+127
+00:08:19.234 --> 00:08:21.390
+in different behavior.
+
+128
+00:08:21.390 --> 00:08:24.380
+This will return the first
+parent's first parent,
+
+129
+00:08:24.380 --> 00:08:28.040
+which is the commit with the SHA-1 of e8.
+
+130
+00:08:28.040 --> 00:08:32.869
+Notice that this is
+the same behavior as if we
+
+131
+00:08:32.869 --> 00:08:37.578
+used an argument of HEAD~~ or HEAD~ 2.
+
+132
+00:08:37.578 --> 00:08:42.550
+Tilda and caret characters can be combined
+arbitrarily to access any commit.
+
+133
+00:08:42.550 --> 00:08:45.500
+Even in a tree with many branches and
+merges.
+
+134
+00:08:45.500 --> 00:08:50.619
+For example HEAD~^ 2 refers to
+the parent's second parent.
+
+135
+00:08:52.820 --> 00:08:54.870
+Finally, we will discuss tags.
+
+136
+00:08:56.960 --> 00:09:00.550
+A tag is a reference attached
+to a specific commit.
+
+137
+00:09:00.550 --> 00:09:02.860
+It acts as a user-friendly label for
+the commit.
+
+138
+00:09:04.680 --> 00:09:06.180
+There are two types of tags.
+
+139
+00:09:07.500 --> 00:09:09.840
+The first type is a lightweight tag.
+
+140
+00:09:09.840 --> 00:09:14.660
+This is implemented as a simple reference,
+much like a branch label or HEAD.
+
+141
+00:09:14.660 --> 00:09:16.190
+It refers to the commit object.
+
+142
+00:09:17.600 --> 00:09:20.940
+The second type of tag
+is an annotated tag.
+
+143
+00:09:20.940 --> 00:09:24.590
+This is one of the four Git
+object types mentioned earlier.
+
+144
+00:09:24.590 --> 00:09:29.490
+An annotated tag is similar to a commit
+object in that it includes metadata such
+
+145
+00:09:29.490 --> 00:09:34.250
+as tag author information,
+tag date, tag message, and
+
+146
+00:09:34.250 --> 00:09:36.900
+the ID of the commit object
+referenced by the tag.
+
+147
+00:09:37.910 --> 00:09:42.390
+Annotated tags can be signed and
+verified with GNU Privacy Guard.
+
+148
+00:09:42.390 --> 00:09:45.990
+This enables someone like a product
+manager to sign off on a release,
+
+149
+00:09:45.990 --> 00:09:47.410
+for example.
+
+150
+00:09:47.410 --> 00:09:51.530
+In general, annotated tags are recommended
+over lightweight tags because they
+
+151
+00:09:51.530 --> 00:09:54.590
+are true Git objects and
+offer more capabilities.
+
+152
+00:09:57.100 --> 00:10:01.710
+To view all the tags in the repository,
+use the git tag command.
+
+153
+00:10:01.710 --> 00:10:06.960
+Here we execute the git tag command and
+see that this repository has two tags.
+
+154
+00:10:06.960 --> 00:10:12.562
+One for version 0.1 and
+one for version 1.0.
+
+155
+00:10:12.562 --> 00:10:17.660
+Like other references, you can use tags
+instead of SHA-1 values in Git commands.
+
+156
+00:10:19.300 --> 00:10:23.820
+Here we execute the git show command
+using a tag name as an argument.
+
+157
+00:10:23.820 --> 00:10:27.390
+We happen to be viewing a lightweight tag,
+so git show shows
+
+158
+00:10:27.390 --> 00:10:31.440
+information about the commit
+associated with the version 0.1 tag.
+
+159
+00:10:34.860 --> 00:10:37.460
+To tag a commit with a lightweight tag,
+
+160
+00:10:37.460 --> 00:10:41.310
+use the git tag command followed with
+an argument specifying the tag name.
+
+161
+00:10:42.600 --> 00:10:45.830
+You can optionally specify
+a commit to be tagged.
+
+162
+00:10:45.830 --> 00:10:49.620
+If you don't specify a commit, the commit
+that HEAD points to will be tagged.
+
+163
+00:10:50.920 --> 00:10:55.980
+Here we execute the git tag command
+passing v1.0 as a tag name.
+
+164
+00:10:55.980 --> 00:10:57.860
+Because no commit is specified,
+
+165
+00:10:57.860 --> 00:11:01.150
+this tags the current commit which
+is the commit that HEAD points to.
+
+166
+00:11:02.520 --> 00:11:06.240
+We can then execute git tag to
+view the tag that we just created.
+
+167
+00:11:08.140 --> 00:11:14.090
+Next, we execute the git tag command
+specifying v0.1 as the tag name.
+
+168
+00:11:14.090 --> 00:11:16.890
+We specify the Commit as HEAD^.
+
+169
+00:11:16.890 --> 00:11:20.895
+This tags the parent and
+the current commit with the v0.1 tag.
+
+170
+00:11:22.501 --> 00:11:24.117
+We execute git tag again, and
+
+171
+00:11:24.117 --> 00:11:27.162
+now we see both of the lightweight
+tags that we created.
+
+172
+00:11:29.633 --> 00:11:33.739
+We can then use a tag name in the git show
+command to obtain more information on
+
+173
+00:11:33.739 --> 00:11:35.615
+the commit referenced by the tag.
+
+174
+00:11:37.391 --> 00:11:42.276
+To tag a commit with an annotated tag,
+you also use the git tag command,
+
+175
+00:11:42.276 --> 00:11:44.730
+but specify the -a option.
+
+176
+00:11:44.730 --> 00:11:46.870
+This will create a Git object.
+
+177
+00:11:46.870 --> 00:11:49.160
+You must specify a tag message.
+
+178
+00:11:49.160 --> 00:11:51.480
+You can specify it in three ways.
+
+179
+00:11:51.480 --> 00:11:55.293
+The first is to pass the -m
+flag specifying a message.
+
+180
+00:11:55.293 --> 00:12:00.183
+The second is to pass the capital F flag
+specifying a file which contains the tag
+
+181
+00:12:00.183 --> 00:12:01.820
+message.
+
+182
+00:12:01.820 --> 00:12:04.420
+The third way is not to
+specify either flag,
+
+183
+00:12:04.420 --> 00:12:07.780
+in which case an editor will be opened so
+that you can type the tag message.
+
+184
+00:12:09.550 --> 00:12:10.600
+In this example,
+
+185
+00:12:10.600 --> 00:12:15.520
+we use the git tag command with the -a
+option to create an annotated tag.
+
+186
+00:12:15.520 --> 00:12:19.935
+The -m option is used to specify a tag
+message of "includes feature 2".
+
+187
+00:12:21.020 --> 00:12:23.990
+We name the tag v2.0.
+
+188
+00:12:23.990 --> 00:12:25.680
+Since we didn't specify a commit,
+
+189
+00:12:25.680 --> 00:12:28.227
+this tag will be associated
+with the current commit.
+
+190
+00:12:30.394 --> 00:12:34.100
+If you execute git show and
+specify an annotated tag as an argument,
+
+191
+00:12:34.100 --> 00:12:36.831
+the information returned
+will include tag object
+
+192
+00:12:36.831 --> 00:12:39.640
+information followed by
+the commit information.
+
+193
+00:12:41.130 --> 00:12:44.669
+Here, we execute git show
+with v2.0 as the argument.
+
+194
+00:12:46.520 --> 00:12:50.910
+You can see that information from the
+annotated tag, such as the tagger name,
+
+195
+00:12:50.910 --> 00:12:53.270
+date, and tag message is shown first.
+
+196
+00:12:54.720 --> 00:12:58.290
+Then the information for the commit
+associated with the tag is displayed.
+
+197
+00:13:00.050 --> 00:13:04.180
+The git push command alone does not
+automatically transfer tags to the remote
+
+198
+00:13:04.180 --> 00:13:05.410
+repository.
+
+199
+00:13:05.410 --> 00:13:08.830
+To transfer a single tag,
+use the git push command and
+
+200
+00:13:08.830 --> 00:13:13.490
+specify the remote name, such as origin,
+as well as the tag name.
+
+201
+00:13:13.490 --> 00:13:15.270
+To transfer all of your tags,
+
+202
+00:13:15.270 --> 00:13:18.800
+you can execute git push remote,
+followed by the tags option.
+
+203
+00:13:20.790 --> 00:13:23.660
+After you push tags,
+you can log into Bitbucket and
+
+204
+00:13:23.660 --> 00:13:25.940
+view them on the remote repository.
+
+205
+00:13:25.940 --> 00:13:28.700
+We see here that we've pushed two tags.
+
+206
+00:13:28.700 --> 00:13:32.157
+When other users clone or
+fetch from the remote repository,
+
+207
+00:13:32.157 --> 00:13:33.799
+they'll also see the tags.
+
+208
+00:13:36.531 --> 00:13:41.008
+Here's a review of what we've
+discussed in this video.
+
+209
+00:13:41.008 --> 00:13:44.740
+A branch label is a reference that
+points to the tip of the branch.
+
+210
+00:13:47.340 --> 00:13:50.000
+HEAD is a reference that
+points to the current commit.
+
+211
+00:13:53.690 --> 00:13:59.040
+In Git commands use ~ and ^ to
+conveniently refer to previous commits.
+
+212
+00:14:01.320 --> 00:14:04.620
+Create tags to place labels
+on specific commits.
+
+213
+00:14:06.300 --> 00:14:09.540
+Tags are not automatically
+pushed to a remote repository.
+
+214
+00:14:12.120 --> 00:14:12.840
+Now it's time for
+
+215
+00:14:12.840 --> 00:14:15.810
+you to work on some of the things
+that we've discussed in this video.
+
+216
+00:14:15.810 --> 00:14:18.420
+Separate hands-on instructions
+are provided for you.

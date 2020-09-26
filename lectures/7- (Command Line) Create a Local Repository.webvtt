@@ -1,0 +1,117 @@
+WEBVTT
+
+1
+00:00:02.790 --> 00:00:09.715
+In this video we will discuss creating a local repository using a command line.
+
+2
+00:00:09.715 --> 00:00:14.075
+You should already be familiar with these Git locations.
+
+3
+00:00:14.075 --> 00:00:17.205
+We will use a command line to create a local repository
+
+4
+00:00:17.205 --> 00:00:21.090
+which automatically includes the working tree and staging area.
+
+5
+00:00:21.090 --> 00:00:23.453
+For a new local repository,
+
+6
+00:00:23.453 --> 00:00:26.325
+the working tree and staging area start out empty,
+
+7
+00:00:26.325 --> 00:00:29.870
+and no commits are in the local repository.
+
+8
+00:00:29.870 --> 00:00:34.685
+You can execute the git init command in an empty directory to
+
+9
+00:00:34.685 --> 00:00:39.270
+initialize or create a repository.
+
+10
+00:00:39.270 --> 00:00:43.790
+Here we are in our home directory and we create a repos directory.
+
+11
+00:00:43.790 --> 00:00:46.080
+This is a recommended single location for
+
+12
+00:00:46.080 --> 00:00:49.430
+all of your local repositories on your computer.
+
+13
+00:00:49.430 --> 00:00:53.930
+We change directories to the repos directory.
+
+14
+00:00:53.930 --> 00:00:56.280
+Next, we'll create a project directory.
+
+15
+00:00:56.280 --> 00:00:59.255
+We are naming this directory myproj.
+
+16
+00:00:59.255 --> 00:01:02.245
+We change into the myproj directory.
+
+17
+00:01:02.245 --> 00:01:04.895
+Now that we are inside of our project directory,
+
+18
+00:01:04.895 --> 00:01:09.785
+we can execute git init to begin managing our project directory with Git.
+
+19
+00:01:09.785 --> 00:01:14.390
+Notice that Git responds with a message saying that it has initialized and empty Git
+
+20
+00:01:14.390 --> 00:01:20.590
+repository inside of a newly created dot Git directory in the project directory.
+
+21
+00:01:20.590 --> 00:01:23.455
+We can now list the contents of the project directory,
+
+22
+00:01:23.455 --> 00:01:27.505
+specifying the dash a flag to include hidden directories.
+
+23
+00:01:27.505 --> 00:01:32.110
+Notice that Git has created a dot git directory.
+
+24
+00:01:32.110 --> 00:01:35.650
+In your project directory you now have
+
+25
+00:01:35.650 --> 00:01:38.980
+an empty working tree and a hidden dot git directory.
+
+26
+00:01:38.980 --> 00:01:42.610
+The dot git directory contains an empty staging area and
+
+27
+00:01:42.610 --> 00:01:48.015
+a local repository containing no commits.
+
+28
+00:01:48.015 --> 00:01:52.010
+It's time for you to create your own local repository using a command line.
+
+29
+00:01:52.010 --> 00:01:55.910
+Separate instructions are provided for you to follow.

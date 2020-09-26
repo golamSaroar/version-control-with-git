@@ -1,0 +1,793 @@
+WEBVTT
+
+1
+00:00:00.940 --> 00:00:06.450
+In this video, we'll discuss resolving merge conflicts.
+
+2
+00:00:06.450 --> 00:00:09.680
+We will start with a merge conflict overview.
+
+3
+00:00:09.680 --> 00:00:13.160
+If you perform a merge with a merge commit,
+
+4
+00:00:13.160 --> 00:00:16.180
+Git takes on the responsibility of combining the work of
+
+5
+00:00:16.180 --> 00:00:20.830
+multiple branches and placing the result into a single merge commit.
+
+6
+00:00:20.830 --> 00:00:22.920
+Git will try to do this automatically.
+
+7
+00:00:22.920 --> 00:00:25.480
+However, there are cases where multiple branches
+
+8
+00:00:25.480 --> 00:00:28.470
+make different changes to the same part of a file.
+
+9
+00:00:28.470 --> 00:00:31.090
+In that case, a merge conflict occurs and
+
+10
+00:00:31.090 --> 00:00:35.074
+a person needs to make a decision on how to resolve it.
+
+11
+00:00:35.074 --> 00:00:39.490
+In this example, we start with commit A on the master branch.
+
+12
+00:00:39.490 --> 00:00:42.940
+That commit contains a fileA.txt file,
+
+13
+00:00:42.940 --> 00:00:45.265
+containing the string 'feature 1'.
+
+14
+00:00:45.265 --> 00:00:49.255
+Then, let's say that you create a 'feature 2' branch based on commit A.
+
+15
+00:00:49.255 --> 00:00:51.959
+While you are working on the 'feature 2' branch,
+
+16
+00:00:51.959 --> 00:00:54.620
+someone makes commit C on the master branch.
+
+17
+00:00:54.620 --> 00:00:57.685
+Commit C contains a fileA.txt file that
+
+18
+00:00:57.685 --> 00:01:02.375
+includes the string 'feature 3' as the second line of the file.
+
+19
+00:01:02.375 --> 00:01:04.720
+Now, let's say that you have finished 'feature 2' and
+
+20
+00:01:04.720 --> 00:01:07.510
+made a commit B on the 'feature 2' branch,
+
+21
+00:01:07.510 --> 00:01:13.680
+commit B contains a string 'feature 2' as the second line of the fileA.txt file.
+
+22
+00:01:13.680 --> 00:01:17.855
+Now, you are ready to merge your 'feature 2' work into the master branch.
+
+23
+00:01:17.855 --> 00:01:21.390
+You cannot use a fast forward merge because commit
+
+24
+00:01:21.390 --> 00:01:25.435
+C has been made to the master branch after you created the 'feature 2' branch.
+
+25
+00:01:25.435 --> 00:01:27.280
+When you perform a merge,
+
+26
+00:01:27.280 --> 00:01:30.175
+Git tries to automatically create a merge commit
+
+27
+00:01:30.175 --> 00:01:33.805
+combining the work of commits B and C. However,
+
+28
+00:01:33.805 --> 00:01:35.920
+when Git tries to combine the work,
+
+29
+00:01:35.920 --> 00:01:41.140
+it notices that the second line of fileA.txt is different on each branch.
+
+30
+00:01:41.140 --> 00:01:45.770
+Git doesn't know how to write fileA.txt and you have a merge conflict.
+
+31
+00:01:45.770 --> 00:01:51.600
+A person needs to decide how to write fileA.txt.
+
+32
+00:01:51.600 --> 00:01:54.300
+We have just seen that a merge conflict can occur if
+
+33
+00:01:54.300 --> 00:01:58.260
+different branches change the same part of a file in different ways.
+
+34
+00:01:58.260 --> 00:02:00.510
+If only one branch changes any file,
+
+35
+00:02:00.510 --> 00:02:02.640
+you'll not have a merge conflict.
+
+36
+00:02:02.640 --> 00:02:05.700
+In this example, the 'feature 2' branch adds a new file,
+
+37
+00:02:05.700 --> 00:02:09.030
+fileB.txt, to implement 'feature 2'.
+
+38
+00:02:09.030 --> 00:02:13.280
+There is no merge conflict because changes are made to separate files.
+
+39
+00:02:13.280 --> 00:02:16.110
+Commit C changed fileA.txt,
+
+40
+00:02:16.110 --> 00:02:20.280
+and commit B created fileB.txt after the merge,
+
+41
+00:02:20.280 --> 00:02:25.680
+commit M contains the two files implementing the three features.
+
+42
+00:02:25.680 --> 00:02:31.220
+Git also can automatically merge changes to different parts of the same file.
+
+43
+00:02:31.220 --> 00:02:35.140
+In Git, a part of a file is called a hunk.
+
+44
+00:02:35.140 --> 00:02:38.890
+In this example, the project starts with commit A which contains a
+
+45
+00:02:38.890 --> 00:02:43.820
+fileA.txt file containing 'feature 1' with a bug and 'feature 2'.
+
+46
+00:02:43.820 --> 00:02:48.770
+A 'feature 3' branch is created off of commit A of the master branch.
+
+47
+00:02:48.770 --> 00:02:51.455
+While the 'feature 3' branch is being worked on,
+
+48
+00:02:51.455 --> 00:02:55.270
+commit C is made which fixes the bug in 'feature 1'.
+
+49
+00:02:55.270 --> 00:02:57.170
+On the 'feature 3' branch,
+
+50
+00:02:57.170 --> 00:03:02.600
+the string 'feature 3' is appended to the fileA.txt file as commit B.
+
+51
+00:03:02.600 --> 00:03:05.045
+Notice that the 'feature 3' branch has the bug
+
+52
+00:03:05.045 --> 00:03:07.950
+because the bug was there when the branch was created.
+
+53
+00:03:07.950 --> 00:03:10.390
+When the 'feature 3' branch is finished,
+
+54
+00:03:10.390 --> 00:03:13.555
+a merge will execute without a merge conflict.
+
+55
+00:03:13.555 --> 00:03:15.470
+Git is smart enough to realize that
+
+56
+00:03:15.470 --> 00:03:18.365
+the first part of the file was changed on the master branch,
+
+57
+00:03:18.365 --> 00:03:21.765
+and the last part of the file was changed on the 'feature 3' branch.
+
+58
+00:03:21.765 --> 00:03:23.415
+In merge commit M,
+
+59
+00:03:23.415 --> 00:03:27.620
+Git will automatically create the fileA.txt file, shown here.
+
+60
+00:03:27.620 --> 00:03:32.840
+How Git actually merges the files depends on what is called, the merge strategy.
+
+61
+00:03:32.840 --> 00:03:35.495
+Usually, the default merge strategy works well.
+
+62
+00:03:35.495 --> 00:03:37.820
+Since Git is open source software,
+
+63
+00:03:37.820 --> 00:03:41.240
+anyone can contribute improved merge strategies.
+
+64
+00:03:41.240 --> 00:03:46.815
+There is a link to more information on merge strategies here.
+
+65
+00:03:46.815 --> 00:03:49.220
+We have seen that merge conflicts occur when
+
+66
+00:03:49.220 --> 00:03:52.475
+two branches modify the same hunk of the same file.
+
+67
+00:03:52.475 --> 00:03:54.035
+To make merging easier,
+
+68
+00:03:54.035 --> 00:03:58.295
+avoid making a lot of changes over a long period of time without merging.
+
+69
+00:03:58.295 --> 00:04:02.235
+Smaller frequent mergers are usually the best approach.
+
+70
+00:04:02.235 --> 00:04:07.235
+It's better to create many small merge problems than one giant merge problem.
+
+71
+00:04:07.235 --> 00:04:10.215
+The diagram on the left shows what to avoid with Git.
+
+72
+00:04:10.215 --> 00:04:13.340
+A branch was made off of the initial commit and then
+
+73
+00:04:13.340 --> 00:04:17.930
+more branches and commits were made without merging back into the master branch.
+
+74
+00:04:17.930 --> 00:04:21.580
+Notice that the master branch has been changing as we've been working.
+
+75
+00:04:21.580 --> 00:04:23.450
+It's better to frequently merge,
+
+76
+00:04:23.450 --> 00:04:26.030
+as shown in the diagram on the right.
+
+77
+00:04:26.030 --> 00:04:28.205
+If your project is a software project,
+
+78
+00:04:28.205 --> 00:04:33.065
+decoupled modular code is much less likely to have merged conflicts.
+
+79
+00:04:33.065 --> 00:04:37.070
+In some ways, the number and complexity of merge conflicts is a test
+
+80
+00:04:37.070 --> 00:04:41.495
+of how modular your code is.
+
+81
+00:04:41.495 --> 00:04:45.500
+Next, we will discuss resolving a merge conflict.
+
+82
+00:04:45.500 --> 00:04:50.935
+Resolving a merge conflict between two branches involves three commits.
+
+83
+00:04:50.935 --> 00:04:54.795
+Let's look at a simple example to help understand these three commits.
+
+84
+00:04:54.795 --> 00:04:56.310
+In this commit graph,
+
+85
+00:04:56.310 --> 00:04:59.595
+the project starts with commit A on the master branch,
+
+86
+00:04:59.595 --> 00:05:03.105
+a 'feature X' branch was created off of commit A.
+
+87
+00:05:03.105 --> 00:05:06.330
+Commit B was then made to the master branch,
+
+88
+00:05:06.330 --> 00:05:10.180
+then commit C was made to the 'feature X' branch.
+
+89
+00:05:10.180 --> 00:05:12.720
+Let's assume that we are finished with 'feature X' and
+
+90
+00:05:12.720 --> 00:05:15.570
+want to merge it into the master branch,
+
+91
+00:05:15.570 --> 00:05:17.250
+we've checked out the master branch,
+
+92
+00:05:17.250 --> 00:05:23.020
+as you can see from the head reference pointing to the master branch label.
+
+93
+00:05:23.020 --> 00:05:25.300
+The first commit involved with resolving
+
+94
+00:05:25.300 --> 00:05:29.130
+a merge conflict is the commit at the tip of the current branch.
+
+95
+00:05:29.130 --> 00:05:32.105
+We call this commit, ours or mine.
+
+96
+00:05:32.105 --> 00:05:37.365
+In our example, the current branch is the master branch and the tip is commit B.
+
+97
+00:05:37.365 --> 00:05:41.160
+The second commit involved with resolving emerge conflict is
+
+98
+00:05:41.160 --> 00:05:44.223
+the commit at the tip of the branch to be merged.
+
+99
+00:05:44.223 --> 00:05:46.430
+We call this commit, theirs.
+
+100
+00:05:46.430 --> 00:05:51.840
+In our example, the branch to be merged is the 'feature X' branch and the tip is commit
+
+101
+00:05:51.840 --> 00:05:55.910
+C. The final commit involved with resolving
+
+102
+00:05:55.910 --> 00:06:00.385
+a two-branch merge conflict is the common ancestor of the two branches.
+
+103
+00:06:00.385 --> 00:06:02.720
+We call this commit, the merge base.
+
+104
+00:06:02.720 --> 00:06:07.715
+In our example, the most recent commit that both branches contain is commit A,
+
+105
+00:06:07.715 --> 00:06:12.455
+so commit A is our merge base.
+
+106
+00:06:12.455 --> 00:06:16.055
+Here are the basic steps to resolve a merge conflict.
+
+107
+00:06:16.055 --> 00:06:20.925
+You start out just like with any other merge by checking out the base branch.
+
+108
+00:06:20.925 --> 00:06:24.110
+In this case, the base branch is the master branch.
+
+109
+00:06:24.110 --> 00:06:29.450
+You then attempt to merge the 'feature X' branch into the master branch.
+
+110
+00:06:29.450 --> 00:06:32.820
+Git will inform you that there is a merge conflict,
+
+111
+00:06:32.820 --> 00:06:38.435
+both branches modified the same hunk in fileA.txt in different ways.
+
+112
+00:06:38.435 --> 00:06:41.412
+At this point, Git has modified fileA.txt,
+
+113
+00:06:41.412 --> 00:06:44.490
+showing you exactly where the conflicts are,
+
+114
+00:06:44.490 --> 00:06:48.090
+and has placed the file in your working tree.
+
+115
+00:06:48.090 --> 00:06:53.440
+You then open fileA.txt and resolved the merge conflict.
+
+116
+00:06:53.440 --> 00:06:56.150
+This is the part that requires human judgment.
+
+117
+00:06:56.150 --> 00:06:59.885
+Once fileA.txt looks the way that you want it to,
+
+118
+00:06:59.885 --> 00:07:03.585
+you stage it so that it becomes part of the merge commit.
+
+119
+00:07:03.585 --> 00:07:06.260
+You then commit the merge.
+
+120
+00:07:06.260 --> 00:07:09.315
+At this point, the branches are merged.
+
+121
+00:07:09.315 --> 00:07:11.920
+Just like with other merges,
+
+122
+00:07:11.920 --> 00:07:16.025
+you can then optionally delete the 'feature X' branch label.
+
+123
+00:07:16.025 --> 00:07:18.655
+The key point here is that,
+
+124
+00:07:18.655 --> 00:07:20.005
+when attempting a merge,
+
+125
+00:07:20.005 --> 00:07:24.465
+files with conflicts are modified by Git and placed in the working tree.
+
+126
+00:07:24.465 --> 00:07:29.904
+You need to fix those files before executing a successful merge.
+
+127
+00:07:29.904 --> 00:07:33.810
+Let's take a look at a merge conflict.
+
+128
+00:07:33.810 --> 00:07:38.100
+In fileA.txt, we have intentionally modified
+
+129
+00:07:38.100 --> 00:07:43.635
+the same hunk in both branches so that a merge will result in a conflict.
+
+130
+00:07:43.635 --> 00:07:48.260
+We see here that our starting commit graph has three commits.
+
+131
+00:07:48.260 --> 00:07:50.670
+The original commit added 'feature 1'.
+
+132
+00:07:50.670 --> 00:07:54.795
+A 'feature 2' branch was made off of the original commit,
+
+133
+00:07:54.795 --> 00:07:57.370
+and the commit was made to that branch.
+
+134
+00:07:57.370 --> 00:08:01.110
+The current commit on the master branch added 'feature 3'.
+
+135
+00:08:01.110 --> 00:08:03.210
+We have checked out the master branch,
+
+136
+00:08:03.210 --> 00:08:07.555
+as you can see from the head reference.
+
+137
+00:08:07.555 --> 00:08:10.450
+We then try to merge in the 'feature 2' branch.
+
+138
+00:08:10.450 --> 00:08:13.190
+You can see that Git tried automatically to perform
+
+139
+00:08:13.190 --> 00:08:15.985
+a merge but ran into a conflict in fileA.txt.
+
+140
+00:08:15.985 --> 00:08:23.120
+Git saw that we had modified the same hunk in conflicting ways on the two branches.
+
+141
+00:08:23.120 --> 00:08:26.900
+You are asked to fix the conflicts and then commit the result.
+
+142
+00:08:26.900 --> 00:08:33.000
+You have to fix the merge conflict before you can execute a successful merge.
+
+143
+00:08:33.000 --> 00:08:38.040
+We then execute the Git status command to view information
+
+144
+00:08:38.040 --> 00:08:42.010
+on the conflicted files that Git has placed in the working tree.
+
+145
+00:08:42.010 --> 00:08:46.720
+The messages tell you that you have tried to merge but have unmerged paths.
+
+146
+00:08:46.720 --> 00:08:50.700
+It tells you to fix and commit fileA.txt.
+
+147
+00:08:50.700 --> 00:08:55.870
+Another option it mentions is to use the abort flag to abort this merge attempt.
+
+148
+00:08:55.870 --> 00:08:58.980
+You can see that Git messages are very helpful.
+
+149
+00:08:58.980 --> 00:09:03.960
+Next, we will have to fix the conflicted fileA.txt.
+
+150
+00:09:03.960 --> 00:09:09.424
+You can use any editor that you want to fix the conflicted file.
+
+151
+00:09:09.424 --> 00:09:11.445
+This can be a simple text editor,
+
+152
+00:09:11.445 --> 00:09:14.701
+or a custom tool called a diff or merge tool.
+
+153
+00:09:14.701 --> 00:09:18.000
+We'll keep it simple here and use a simple text editor.
+
+154
+00:09:18.000 --> 00:09:20.370
+When you view fileA.txt,
+
+155
+00:09:20.370 --> 00:09:24.765
+you can see that Git marked up the file in hunks where there are conflicts.
+
+156
+00:09:24.765 --> 00:09:27.840
+Conflicted hunks are surrounded by less than and
+
+157
+00:09:27.840 --> 00:09:31.220
+greater than signs that are called, conflict markers.
+
+158
+00:09:31.220 --> 00:09:36.295
+This file has one conflicted hunk immediately after the 'feature one line.
+
+159
+00:09:36.295 --> 00:09:43.110
+Any text that isn't surrounded by conflict markers was cleanly resolved by Git.
+
+160
+00:09:43.330 --> 00:09:48.424
+The first part of the conflict marker is labeled head.
+
+161
+00:09:48.424 --> 00:09:50.565
+We have checked out the master branch,
+
+162
+00:09:50.565 --> 00:09:53.895
+so this line is from the file in the master branch.
+
+163
+00:09:53.895 --> 00:09:56.655
+This is the ours commit in the merge.
+
+164
+00:09:56.655 --> 00:10:00.830
+After the equal signs is the line 'feature 2'.
+
+165
+00:10:00.830 --> 00:10:03.030
+This is labeled with the branch name,
+
+166
+00:10:03.030 --> 00:10:05.709
+so this line comes from the 'feature 2' branch.
+
+167
+00:10:05.709 --> 00:10:08.906
+This is that theirs commit in the merge.
+
+168
+00:10:08.906 --> 00:10:10.740
+So basically, what happened is that,
+
+169
+00:10:10.740 --> 00:10:15.915
+Git saw these changes and didn't know what line to a fileA.txt should say.
+
+170
+00:10:15.915 --> 00:10:17.670
+Should it say 'feature 3',
+
+171
+00:10:17.670 --> 00:10:19.440
+or should it say 'feature 2'?
+
+172
+00:10:19.440 --> 00:10:22.154
+That's why the merge conflict was presented,
+
+173
+00:10:22.154 --> 00:10:25.780
+Git needed a human to make a decision.
+
+174
+00:10:25.780 --> 00:10:31.015
+We can use our text editor to fix fileA.txt.
+
+175
+00:10:31.015 --> 00:10:33.730
+We have ordered the features nicely in a file.
+
+176
+00:10:33.730 --> 00:10:37.425
+This file will be part of the merge commit.
+
+177
+00:10:37.425 --> 00:10:41.185
+Now that we have fixed fileA.txt,
+
+178
+00:10:41.185 --> 00:10:44.664
+we can add it to the stage and commit the merge.
+
+179
+00:10:44.664 --> 00:10:48.725
+Let's start by viewing our fixed fileA.txt.
+
+180
+00:10:48.725 --> 00:10:52.445
+The features are in the correct order.
+
+181
+00:10:52.445 --> 00:10:58.785
+Next, we use the Git add command to add fileA.txt to the staging area.
+
+182
+00:10:58.785 --> 00:11:00.976
+Then, we execute Git commit.
+
+183
+00:11:00.976 --> 00:11:05.480
+Your default Git editor will appear with a default commit message.
+
+184
+00:11:05.480 --> 00:11:07.590
+Edit that message if desired.
+
+185
+00:11:07.590 --> 00:11:10.215
+The commit is then executed successfully,
+
+186
+00:11:10.215 --> 00:11:13.840
+and the branches are merged.
+
+187
+00:11:13.840 --> 00:11:19.045
+We can then view the commit graph and verify that the merge executed as expected.
+
+188
+00:11:19.045 --> 00:11:24.060
+Our current commit on the master branch contains all three features.
+
+189
+00:11:24.060 --> 00:11:26.818
+We can then optionally delete the 'feature 2' branch
+
+190
+00:11:26.818 --> 00:11:29.855
+since the master branch contains all of the commits.
+
+191
+00:11:29.855 --> 00:11:32.896
+Our merge is complete.
+
+192
+00:11:32.896 --> 00:11:37.305
+Here's a review of what we've discussed in this video.
+
+193
+00:11:37.305 --> 00:11:42.955
+Merge conflicts occur when two branches modified the same hunk.
+
+194
+00:11:42.955 --> 00:11:46.000
+When a conflict occurs,
+
+195
+00:11:46.000 --> 00:11:50.130
+Git will create files in the working tree containing conflict markers,
+
+196
+00:11:50.130 --> 00:11:54.385
+fix, add, and commit the conflicted files.
+
+197
+00:11:54.385 --> 00:11:58.790
+Now, it's time for you to work on the topics discussed in this video.
+
+198
+00:11:58.790 --> 00:12:02.060
+Separate instructions are provided for you.

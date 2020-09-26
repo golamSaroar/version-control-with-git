@@ -1,0 +1,189 @@
+WEBVTT
+
+1
+00:00:01.420 --> 00:00:06.855
+In this video, we will discuss creating a remote repository.
+
+2
+00:00:06.855 --> 00:00:11.275
+We will start by describing a remote repository.
+
+3
+00:00:11.275 --> 00:00:14.420
+A remote repository is usually
+
+4
+00:00:14.420 --> 00:00:20.360
+a professionally managed repository that is hosted in a data center or in the cloud.
+
+5
+00:00:20.360 --> 00:00:26.881
+It often acts as the central source of truth or official state of the project.
+
+6
+00:00:26.881 --> 00:00:29.420
+And it often integrates with other systems
+
+7
+00:00:29.420 --> 00:00:34.260
+like issue trackers and continuous delivery pipelines.
+
+8
+00:00:34.260 --> 00:00:41.415
+Hosted options for remote git repositories include Bitbucket and GitHub.
+
+9
+00:00:41.415 --> 00:00:45.295
+On-premise options include Bitbucket Server,
+
+10
+00:00:45.295 --> 00:00:50.025
+GitHub Enterprise, as well as some open source on-premise options.
+
+11
+00:00:50.025 --> 00:00:55.835
+The on-premise options can be hosted in a data center or in the cloud.
+
+12
+00:00:55.835 --> 00:01:01.005
+A remote repository is often a bare repository.
+
+13
+00:01:01.005 --> 00:01:04.240
+Because nobody works with the repository locally,
+
+14
+00:01:04.240 --> 00:01:09.500
+there is usually no working tree or staging area on a remote repository.
+
+15
+00:01:09.500 --> 00:01:12.080
+The root directory of a remote repository is
+
+16
+00:01:12.080 --> 00:01:16.140
+similar to the ".git" directory in a local repository.
+
+17
+00:01:16.140 --> 00:01:21.455
+By convention, remote repository names end with ".git".
+
+18
+00:01:21.455 --> 00:01:26.080
+Here's a typical URL for a remote repository hosted on Bitbucket.
+
+19
+00:01:26.080 --> 00:01:28.860
+This repository is named repoa.
+
+20
+00:01:28.860 --> 00:01:32.160
+Notice the ".git" added to the end of the URL to
+
+21
+00:01:32.160 --> 00:01:36.630
+signify that this is a remote repository.
+
+22
+00:01:36.630 --> 00:01:40.425
+Next, we will discuss creating a remote repository.
+
+23
+00:01:40.425 --> 00:01:43.890
+A git hosting provider usually provides
+
+24
+00:01:43.890 --> 00:01:47.215
+a simple interface for creating a remote repository.
+
+25
+00:01:47.215 --> 00:01:50.150
+Here, you can see the Bitbucket interface.
+
+26
+00:01:50.150 --> 00:01:53.160
+You can click the plus sign on the left or
+
+27
+00:01:53.160 --> 00:01:59.160
+the create repository button to begin the process of creating a remote repository.
+
+28
+00:01:59.160 --> 00:02:02.686
+You specify a repository name,
+
+29
+00:02:02.686 --> 00:02:07.690
+the hosting provider will append ".git" to the remote URL for you.
+
+30
+00:02:07.690 --> 00:02:12.915
+Click Create repository to create the remote repository.
+
+31
+00:02:12.915 --> 00:02:17.605
+You will then see that you have a repository hosted on Bitbucket.
+
+32
+00:02:17.605 --> 00:02:22.395
+You have created a remote repository.
+
+33
+00:02:22.395 --> 00:02:27.735
+Next, we will briefly discuss importing and existing remote repository.
+
+34
+00:02:27.735 --> 00:02:31.810
+Instead of creating an empty remote repository,
+
+35
+00:02:31.810 --> 00:02:35.375
+you can import existing remote repositories.
+
+36
+00:02:35.375 --> 00:02:40.945
+Click on the Import repository link instead of creating a new repository.
+
+37
+00:02:40.945 --> 00:02:45.730
+You can specify the existing remote repository by type.
+
+38
+00:02:45.730 --> 00:02:47.685
+Notice that in addition to git,
+
+39
+00:02:47.685 --> 00:02:52.595
+you can import other types of repositories such as a subversion repository.
+
+40
+00:02:52.595 --> 00:02:58.360
+Specify the old repositories URL and then click Import repository.
+
+41
+00:02:58.360 --> 00:03:03.425
+The result will be a remote repository hosted on Bitbucket.
+
+42
+00:03:03.425 --> 00:03:07.280
+To review, a remote repository is
+
+43
+00:03:07.280 --> 00:03:11.555
+a bare repository that often serves as the source of truth for the project.
+
+44
+00:03:11.555 --> 00:03:17.350
+Hosting providers made creating remote repositories easy.
+
+45
+00:03:17.350 --> 00:03:19.710
+You will use what you have learned in this video to help
+
+46
+00:03:19.710 --> 00:03:22.380
+create a remote repository on Bitbucket.
+
+47
+00:03:22.380 --> 00:03:26.680
+Hands on instructions are provided separately from this video.

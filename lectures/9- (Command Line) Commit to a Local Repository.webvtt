@@ -1,0 +1,548 @@
+WEBVTT
+
+1
+00:00:03.130 --> 00:00:04.027
+In this video,
+
+2
+00:00:04.027 --> 00:00:08.451
+you will learn about committing to
+a local repository using a command line.
+
+3
+00:00:10.305 --> 00:00:14.856
+We will start by viewing the status
+of files in the working tree and
+
+4
+00:00:14.856 --> 00:00:17.102
+staging area using git status.
+
+5
+00:00:18.747 --> 00:00:23.200
+Use git status to view the status of files
+in the working tree and staging area.
+
+6
+00:00:24.710 --> 00:00:26.940
+Here, we have executed git status.
+
+7
+00:00:28.380 --> 00:00:32.360
+The first line of the response reminds
+you that you're on the master branch,
+
+8
+00:00:32.360 --> 00:00:35.190
+which is usually the default
+branch of a repository.
+
+9
+00:00:36.200 --> 00:00:40.840
+The second line of the response informs
+you that git hasn't detected any new or
+
+10
+00:00:40.840 --> 00:00:43.540
+modified files in the working tree,
+and that
+
+11
+00:00:43.540 --> 00:00:48.370
+there are no files that have been added
+to the staging area for the next commit.
+
+12
+00:00:48.370 --> 00:00:51.740
+If you tried to create a commit right now,
+it would not work
+
+13
+00:00:51.740 --> 00:00:54.670
+because you haven't changed
+anything since the previous commit.
+
+14
+00:00:56.640 --> 00:01:00.380
+Let's add a file named
+fileA.txt to your working tree.
+
+15
+00:01:01.740 --> 00:01:04.980
+Git status shows the file as untracked.
+
+16
+00:01:04.980 --> 00:01:08.500
+This file is only in the working tree and
+is not managed by git.
+
+17
+00:01:09.690 --> 00:01:14.400
+Notice that git gives helpful messages
+on what you would normally do next.
+
+18
+00:01:14.400 --> 00:01:18.810
+Here, git is suggesting that you use
+the git add command to add the file to
+
+19
+00:01:18.810 --> 00:01:19.982
+the staging area.
+
+20
+00:01:22.769 --> 00:01:27.464
+If you initialized a repository in
+a directory with existing content,
+
+21
+00:01:27.464 --> 00:01:30.910
+that content will also show as untracked.
+
+22
+00:01:30.910 --> 00:01:34.620
+In this example,
+there already was a fileA.txxt file
+
+23
+00:01:34.620 --> 00:01:38.660
+in the project directory before git and
+it was executed.
+
+24
+00:01:38.660 --> 00:01:42.530
+The first call to git status will
+show this file as untracked,
+
+25
+00:01:42.530 --> 00:01:46.010
+just as if it was created after
+initializing the repository.
+
+26
+00:01:48.270 --> 00:01:52.050
+Next, we will add content to
+the staging area using git add.
+
+27
+00:01:54.096 --> 00:01:57.830
+Use git add to add content
+to the staging area.
+
+28
+00:01:57.830 --> 00:02:00.648
+Staged content is part of the next commit.
+
+29
+00:02:02.790 --> 00:02:03.870
+In this example,
+
+30
+00:02:03.870 --> 00:02:08.270
+we add the fileA.txt file to the staging
+area using the git add command.
+
+31
+00:02:09.340 --> 00:02:12.430
+Notice that we have specified
+the file name as an argument
+
+32
+00:02:12.430 --> 00:02:13.450
+to the git add command.
+
+33
+00:02:15.510 --> 00:02:20.130
+After executing git add, git again
+responds with helpful information and
+
+34
+00:02:20.130 --> 00:02:22.480
+advice on what to do next.
+
+35
+00:02:22.480 --> 00:02:25.410
+It shows that there are changes
+in the staging area that could be
+
+36
+00:02:25.410 --> 00:02:26.860
+committed to the repository.
+
+37
+00:02:28.560 --> 00:02:32.950
+The git ad command is not limited
+to using file names as arguments.
+
+38
+00:02:32.950 --> 00:02:35.420
+You can also add a directory name, and
+
+39
+00:02:35.420 --> 00:02:38.340
+all files inside of the directory
+will be tracked by git.
+
+40
+00:02:39.460 --> 00:02:44.620
+Let's say that we have created a directory
+named dirA, and inside of that directory,
+
+41
+00:02:44.620 --> 00:02:51.340
+we created two files,
+fileA.txt and fileB.txt.
+
+42
+00:02:51.340 --> 00:02:55.690
+When we execute git status,
+git notices the dirA directory and
+
+43
+00:02:55.690 --> 00:02:57.140
+shows it as untracked.
+
+44
+00:02:59.270 --> 00:03:03.255
+Instead of adding the individual files,
+we can add the directory.
+
+45
+00:03:05.781 --> 00:03:10.461
+Now when we execute git status, we can
+see that with that single add command,
+
+46
+00:03:10.461 --> 00:03:14.430
+git has added the directory and
+the two files to the staging area.
+
+47
+00:03:16.052 --> 00:03:22.390
+You can add all untracked or
+modified files at once using git add dot.
+
+48
+00:03:22.390 --> 00:03:24.180
+Here, we have created two files.
+
+49
+00:03:24.180 --> 00:03:26.019
+They are currently untracked.
+
+50
+00:03:26.019 --> 00:03:30.435
+We can execute git add dot to
+stage both of the files at once
+
+51
+00:03:30.435 --> 00:03:33.107
+without typing their file names.
+
+52
+00:03:35.062 --> 00:03:38.590
+Executing git status shows that
+both files have been staged.
+
+53
+00:03:39.590 --> 00:03:44.043
+As a word of caution, you might not want
+to use git add dot very often because you
+
+54
+00:03:44.043 --> 00:03:47.571
+can easily commit some files
+that you didn't mean to commit.
+
+55
+00:03:49.331 --> 00:03:53.371
+A modified file is a file that has
+previously been added to the stage or
+
+56
+00:03:53.371 --> 00:03:55.739
+committed to the local repository, but
+
+57
+00:03:55.739 --> 00:03:59.230
+since then has been changed
+in the working tree.
+
+58
+00:03:59.230 --> 00:04:01.140
+We can demonstrate this with an example.
+
+59
+00:04:02.380 --> 00:04:05.680
+We start by creating fileA.txt
+in the working tree.
+
+60
+00:04:07.490 --> 00:04:12.530
+We then run git status, including
+the -s flag to keep the response short.
+
+61
+00:04:13.600 --> 00:04:16.760
+Git notices that there's a new
+file in the working tree and
+
+62
+00:04:16.760 --> 00:04:21.180
+its status is untracked,
+represented by two red question marks.
+
+63
+00:04:22.720 --> 00:04:27.280
+Next, git add is executed to add
+fileA.txt to the staging area.
+
+64
+00:04:29.280 --> 00:04:34.600
+Executing git status again shows that
+fileA.txt has been added to the stage
+
+65
+00:04:34.600 --> 00:04:36.040
+represented by the green A.
+
+66
+00:04:37.560 --> 00:04:41.375
+Next, let's say that we forgot
+to add something to fileA.txt.
+
+67
+00:04:41.375 --> 00:04:45.087
+We modify fileA.txt in the working tree.
+
+68
+00:04:47.541 --> 00:04:52.510
+This time, executing git status shows
+that the file is in two states.
+
+69
+00:04:52.510 --> 00:04:55.850
+The first version of the file has
+been added to the staging area
+
+70
+00:04:55.850 --> 00:04:57.360
+represented by the green A.
+
+71
+00:04:58.480 --> 00:05:01.640
+The modified version of the file
+is in the working tree,
+
+72
+00:05:01.640 --> 00:05:03.750
+which git represents with the red M.
+
+73
+00:05:04.890 --> 00:05:08.400
+So the first version of
+fileA.txt is staged, and
+
+74
+00:05:08.400 --> 00:05:10.820
+the second version is
+modified in the working tree.
+
+75
+00:05:12.400 --> 00:05:16.870
+We can add fileA.txt again to stage
+our latest changes to the file.
+
+76
+00:05:18.480 --> 00:05:22.999
+This time when we execute git status,
+we see that the file is staged with our
+
+77
+00:05:22.999 --> 00:05:26.385
+latest version of the file,
+and is no longer modified.
+
+78
+00:05:27.804 --> 00:05:31.651
+Next, we will discuss committing
+content using git commit.
+
+79
+00:05:34.148 --> 00:05:38.784
+Use the git commit command to add staged
+content to the local repository as
+
+80
+00:05:38.784 --> 00:05:39.470
+a commit.
+
+81
+00:05:40.720 --> 00:05:44.200
+This includes content that you
+have recently added to the stage,
+
+82
+00:05:44.200 --> 00:05:46.560
+as well as the content that
+was in the previous commit.
+
+83
+00:05:47.620 --> 00:05:51.870
+The result is a commit that is
+an entire snapshot of the project.
+
+84
+00:05:51.870 --> 00:05:56.420
+In other words, once you have committed
+a file, it will remain in the staging area
+
+85
+00:05:56.420 --> 00:05:59.430
+and in all commits,
+unless you specifically remove it.
+
+86
+00:06:01.710 --> 00:06:08.440
+When executing git commit, you can use the
+-m flag to specify a short commit message.
+
+87
+00:06:08.440 --> 00:06:11.900
+In this case,
+our commit message is initial commit.
+
+88
+00:06:11.900 --> 00:06:16.170
+If you don't specify -m,
+your default git editor will open.
+
+89
+00:06:16.170 --> 00:06:18.880
+And you can enter a message
+describing the commit.
+
+90
+00:06:18.880 --> 00:06:23.240
+This is especially useful if your commit
+message contains multiple lines of text.
+
+91
+00:06:24.470 --> 00:06:27.780
+The commit message is included
+when viewing the project history.
+
+92
+00:06:27.780 --> 00:06:30.800
+So it's important that it is clear and
+accurate.
+
+93
+00:06:31.920 --> 00:06:33.978
+Once we execute git commit,
+
+94
+00:06:33.978 --> 00:06:38.885
+you will see that a commit has been
+created in the local repository.
+
+95
+00:06:38.885 --> 00:06:43.231
+Git status will then show that the working
+tree and staging area are clean.
+
+96
+00:06:45.170 --> 00:06:49.133
+Finally, we will view the commit
+history using git log.
+
+97
+00:06:51.055 --> 00:06:55.480
+You can view the local repository's
+commit history using git log.
+
+98
+00:06:55.480 --> 00:06:57.460
+Here, we have executed git log and
+
+99
+00:06:57.460 --> 00:07:00.140
+we can see that there is a single
+commit in the repository.
+
+100
+00:07:01.360 --> 00:07:03.380
+You can also see the commit message.
+
+101
+00:07:05.531 --> 00:07:10.750
+Add the --oneline option to git log to
+see a condensed version of the log.
+
+102
+00:07:10.750 --> 00:07:14.210
+In this example, you can see that there
+are three commits in the repository.
+
+103
+00:07:16.140 --> 00:07:19.780
+If you are only interested in
+viewing recent commits, you can
+
+104
+00:07:19.780 --> 00:07:23.730
+add an option specifying the number of
+commits that you would like to view.
+
+105
+00:07:23.730 --> 00:07:27.834
+In this case, we are asking to view
+only the two most recent commits.
+
+106
+00:07:30.047 --> 00:07:34.890
+As a review, git status is used to view
+the status of files in the working
+
+107
+00:07:34.890 --> 00:07:36.520
+tree and staging area.
+
+108
+00:07:37.840 --> 00:07:41.650
+Git add adds untracked or
+modified files to the staging area.
+
+109
+00:07:43.250 --> 00:07:46.350
+Git commit creates a snapshot
+of the current project and
+
+110
+00:07:46.350 --> 00:07:50.350
+stores the result as a commit
+in the local repository.
+
+111
+00:07:50.350 --> 00:07:55.593
+And git log is used to view
+the commit history Now,
+
+112
+00:07:55.593 --> 00:07:59.527
+you are ready to perform the tasks
+demonstrated in this video.
+
+113
+00:07:59.527 --> 00:08:04.230
+The separate hands-on instructions will
+guide you through viewing file status,
+
+114
+00:08:04.230 --> 00:08:07.990
+staging content, committing
+content to a local repository, and
+
+115
+00:08:07.990 --> 00:08:09.751
+viewing your commit history.

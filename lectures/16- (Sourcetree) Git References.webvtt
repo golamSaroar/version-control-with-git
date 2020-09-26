@@ -1,0 +1,445 @@
+WEBVTT
+
+1
+00:00:02.020 --> 00:00:04.190
+In this video we will discuss references.
+
+2
+00:00:06.822 --> 00:00:09.860
+We will start by discussing branch
+labels and the HEAD reference.
+
+3
+00:00:13.720 --> 00:00:16.345
+Commits can be associated with references.
+
+4
+00:00:16.345 --> 00:00:21.750
+A reference is a user-friendly name that
+points to either a commit's SHA-1 value or
+
+5
+00:00:21.750 --> 00:00:23.370
+to another reference.
+
+6
+00:00:23.370 --> 00:00:25.630
+If a reference points
+to another reference,
+
+7
+00:00:25.630 --> 00:00:27.960
+it's called a symbolic reference.
+
+8
+00:00:27.960 --> 00:00:32.570
+Here, the latest commit has two references
+associated with it, HEAD and master.
+
+9
+00:00:34.740 --> 00:00:38.590
+Master is the default name of
+the main branch in the repository.
+
+10
+00:00:38.590 --> 00:00:42.220
+A branch is an independent path for
+a set of commits.
+
+11
+00:00:42.220 --> 00:00:45.736
+If we never create a branch in
+a repository, then by default,
+
+12
+00:00:45.736 --> 00:00:48.185
+all commits are part of the master branch.
+
+13
+00:00:50.460 --> 00:00:53.890
+A branch label points to the most
+recent commit in the branch.
+
+14
+00:00:53.890 --> 00:00:57.150
+That commit is commonly
+called the tip of the branch.
+
+15
+00:00:57.150 --> 00:01:00.380
+Branch labels are implemented
+as references.
+
+16
+00:01:00.380 --> 00:01:03.500
+Both of the diagrams below
+display the same information,
+
+17
+00:01:03.500 --> 00:01:07.800
+with commits laid out horizontally on
+the left, and vertically on the right.
+
+18
+00:01:07.800 --> 00:01:11.180
+In this example, there are three
+commits on the master branch,
+
+19
+00:01:11.180 --> 00:01:14.140
+with the master branch label
+pointing to the tip of the branch.
+
+20
+00:01:15.260 --> 00:01:19.000
+Notice the subtle difference between
+a branch and a branch label.
+
+21
+00:01:19.000 --> 00:01:21.640
+All three commits belong
+to the master branch,
+
+22
+00:01:21.640 --> 00:01:25.590
+even though the master branch label
+is only at the tip of the branch.
+
+23
+00:01:25.590 --> 00:01:29.500
+Since a branch in Git is
+implemented as a tiny branch label,
+
+24
+00:01:29.500 --> 00:01:33.810
+branches are extremely simple to
+implement and use very few resources.
+
+25
+00:01:36.040 --> 00:01:39.090
+HEAD is a reference to the current commit.
+
+26
+00:01:39.090 --> 00:01:41.770
+It usually points to the branch
+label of the current branch.
+
+27
+00:01:43.560 --> 00:01:47.640
+Because it only points to the current
+commit, and there can only be one current
+
+28
+00:01:47.640 --> 00:01:51.390
+commit, there is only one HEAD
+reference in your local repository.
+
+29
+00:01:53.050 --> 00:01:56.870
+In this example, we have three
+commits on the master branch.
+
+30
+00:01:56.870 --> 00:02:00.980
+The master branch label reference
+points to the most recent commit.
+
+31
+00:02:00.980 --> 00:02:04.350
+The HEAD reference points
+to the master branch label.
+
+32
+00:02:04.350 --> 00:02:06.896
+You can also see this relationship
+when you look at the details for
+
+33
+00:02:06.896 --> 00:02:08.430
+the most recent commit in SourceTree.
+
+34
+00:02:09.890 --> 00:02:12.750
+The HEAD reference points
+to the master branch label,
+
+35
+00:02:12.750 --> 00:02:16.490
+which points to the current commit's
+SHA-1 value by association.
+
+36
+00:02:17.550 --> 00:02:20.520
+You can see that this is the same
+relationship as the one shown in
+
+37
+00:02:20.520 --> 00:02:21.201
+the diagram.
+
+38
+00:02:23.730 --> 00:02:25.560
+Finally, we will discuss tags.
+
+39
+00:02:27.210 --> 00:02:30.610
+A tag is a reference attached
+to a specific commit.
+
+40
+00:02:30.610 --> 00:02:33.660
+It acts as a user-friendly label for
+the commit.
+
+41
+00:02:33.660 --> 00:02:37.820
+These are different from branch labels,
+which move along with each new commit.
+
+42
+00:02:37.820 --> 00:02:41.797
+Tags are used to mark important commits,
+like version 1.0.
+
+43
+00:02:44.670 --> 00:02:48.360
+To add a tag to a commit,
+right-click on it and select tag.
+
+44
+00:02:50.150 --> 00:02:51.230
+Under commit,
+
+45
+00:02:51.230 --> 00:02:53.990
+the commit that you right-clicked
+on should be already specified.
+
+46
+00:02:55.210 --> 00:02:58.310
+The other option is to
+select working copy parent,
+
+47
+00:02:58.310 --> 00:03:00.790
+which means that you want to
+tag the most recent commit.
+
+48
+00:03:02.560 --> 00:03:03.890
+Add a tag name.
+
+49
+00:03:03.890 --> 00:03:07.550
+Here, we are naming this tag v0.1.
+
+50
+00:03:07.550 --> 00:03:11.618
+Click add to finish adding
+the tag to the commit.
+
+51
+00:03:11.618 --> 00:03:15.430
+The v0.1 tag is now visible
+under the description for
+
+52
+00:03:15.430 --> 00:03:19.170
+the tagged commit, and
+under the tags tab on the left.
+
+53
+00:03:21.070 --> 00:03:24.831
+When you are adding a tag to a commit,
+you can click on Advanced Options,
+
+54
+00:03:24.831 --> 00:03:26.820
+which displays the options below it.
+
+55
+00:03:27.990 --> 00:03:32.510
+Check the move existing tag box if there's
+already a tag with the same name and
+
+56
+00:03:32.510 --> 00:03:34.350
+you want to move it to this tag.
+
+57
+00:03:34.350 --> 00:03:37.520
+Otherwise, you will not be able to
+create a tag with an existing name.
+
+58
+00:03:39.002 --> 00:03:42.815
+Normally, SourceTree will create
+what is called an annotated tag.
+
+59
+00:03:42.815 --> 00:03:46.970
+An annotated tag is one of
+the four types of Git objects.
+
+60
+00:03:46.970 --> 00:03:49.960
+However, if you check
+the lightweight tag box,
+
+61
+00:03:49.960 --> 00:03:54.200
+you will create a simpler tag with
+less features than an annotated tag.
+
+62
+00:03:54.200 --> 00:03:57.070
+That is one of the reasons why
+this option is not recommended.
+
+63
+00:03:58.590 --> 00:04:03.670
+The sign tag checkbox allows you
+to sign the tag with GPG privacy.
+
+64
+00:04:03.670 --> 00:04:08.372
+This option is available if you've
+specified a GPG program in the advanced
+
+65
+00:04:08.372 --> 00:04:10.270
+SourceTree settings.
+
+66
+00:04:10.270 --> 00:04:14.110
+An example usage of this is a product
+manager might be responsible for
+
+67
+00:04:14.110 --> 00:04:15.059
+signing releases.
+
+68
+00:04:16.690 --> 00:04:20.670
+The sign message text box is
+used to add a tag message.
+
+69
+00:04:20.670 --> 00:04:24.350
+This is similar to a commit message,
+but for tags.
+
+70
+00:04:24.350 --> 00:04:27.820
+You can provide more details
+about the tag with this option.
+
+71
+00:04:27.820 --> 00:04:31.249
+The tag message will then be
+visible when you view tag details.
+
+72
+00:04:33.460 --> 00:04:38.440
+Executing a push does not automatically
+transfer tags to the remote repository.
+
+73
+00:04:38.440 --> 00:04:42.210
+If you have a remote repository specified,
+such as origin,
+
+74
+00:04:42.210 --> 00:04:47.080
+select the push tag checkbox so that this
+tag is pushed to the remote repository.
+
+75
+00:04:47.080 --> 00:04:50.510
+If the commits related to the tag
+are not in the repository,
+
+76
+00:04:50.510 --> 00:04:52.328
+they will be pushed too.
+
+77
+00:04:52.328 --> 00:04:55.430
+When others clone or
+fetch from the remote repository,
+
+78
+00:04:55.430 --> 00:04:56.830
+the tag will be included.
+
+79
+00:04:59.750 --> 00:05:03.107
+If you didn't select push tag
+when you created the tag,
+
+80
+00:05:03.107 --> 00:05:06.607
+from the tags tab,
+you can right-click on the tag name and
+
+81
+00:05:06.607 --> 00:05:11.550
+select push to, and then select the remote
+name to push to the remote repository.
+
+82
+00:05:13.780 --> 00:05:16.880
+After you push tags,
+you can log in to Bitbucket and
+
+83
+00:05:16.880 --> 00:05:19.060
+view them on the remote repository.
+
+84
+00:05:19.060 --> 00:05:21.670
+We see here that we have pushed two tags.
+
+85
+00:05:21.670 --> 00:05:26.464
+When other users clone or fetch from this
+repository, they will also see the tags.
+
+86
+00:05:28.850 --> 00:05:31.597
+Here is a review of what we've
+discussed in this video.
+
+87
+00:05:33.490 --> 00:05:36.700
+A branch label is a reference that
+points to the tip of the branch.
+
+88
+00:05:38.150 --> 00:05:40.680
+HEAD is a reference that
+points to the current commit.
+
+89
+00:05:43.250 --> 00:05:46.320
+Create tags to place labels
+on specific commits.
+
+90
+00:05:48.280 --> 00:05:51.550
+Tags are not automatically
+pushed to remote repositories.
+
+91
+00:05:53.210 --> 00:05:53.890
+Now it's time for
+
+92
+00:05:53.890 --> 00:05:57.180
+you to work on some of the things
+that we've discussed in this video.
+
+93
+00:05:57.180 --> 00:05:59.680
+Separate hands-on instructions
+are provided for you.

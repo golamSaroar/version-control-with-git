@@ -1,0 +1,129 @@
+WEBVTT
+
+1
+00:00:00.810 --> 00:00:06.775
+This video demonstrates how to create a local repository using Sourceree.
+
+2
+00:00:06.775 --> 00:00:10.770
+You should already be familiar with these Git locations.
+
+3
+00:00:10.770 --> 00:00:13.720
+We will use Sourcetree to create a local repository,
+
+4
+00:00:13.720 --> 00:00:17.695
+which automatically includes the working tree and staging area.
+
+5
+00:00:17.695 --> 00:00:19.495
+For a new local repository,
+
+6
+00:00:19.495 --> 00:00:21.865
+the working tree and staging areas start out
+
+7
+00:00:21.865 --> 00:00:26.460
+empty and no commits are in the local repository.
+
+8
+00:00:26.460 --> 00:00:30.195
+To create a local repository using Sourcetree,
+
+9
+00:00:30.195 --> 00:00:35.715
+select New, then Create Local Repository.
+
+10
+00:00:35.715 --> 00:00:41.445
+You will then be asked to specify the destination path and name of the local repository.
+
+11
+00:00:41.445 --> 00:00:45.735
+The destination path specifies the project directory.
+
+12
+00:00:45.735 --> 00:00:48.155
+Notice that in this example,
+
+13
+00:00:48.155 --> 00:00:51.875
+the project directory is located inside the repo's directory,
+
+14
+00:00:51.875 --> 00:00:57.460
+which you should have configured as the default Git project directory location earlier.
+
+15
+00:00:57.460 --> 00:01:02.150
+The name of the repository usually matches the project directory name,
+
+16
+00:01:02.150 --> 00:01:05.105
+so as you type the name in the destination path,
+
+17
+00:01:05.105 --> 00:01:09.050
+the name field will automatically be completed to match.
+
+18
+00:01:09.050 --> 00:01:14.435
+Here, we are calling our project directory and repository repoa.
+
+19
+00:01:14.435 --> 00:01:18.730
+We then clicke Create to create the local repository.
+
+20
+00:01:18.730 --> 00:01:25.400
+We have now created a local repository named repoa.
+
+21
+00:01:25.400 --> 00:01:29.570
+After you've created a local repository,
+
+22
+00:01:29.570 --> 00:01:33.740
+you can navigate to your project directory on your file system.
+
+23
+00:01:33.740 --> 00:01:36.510
+Here, we've navigated to the repo's directory,
+
+24
+00:01:36.510 --> 00:01:40.170
+where we find our repoa project directory.
+
+25
+00:01:40.170 --> 00:01:42.420
+Inside of the project directory,
+
+26
+00:01:42.420 --> 00:01:44.565
+we see the hidden.git directory,
+
+27
+00:01:44.565 --> 00:01:48.600
+which contains the staging area and local repository.
+
+28
+00:01:48.600 --> 00:01:54.456
+You may need to make hidden directories visible in your file manager in order to see it.
+
+29
+00:01:54.456 --> 00:02:00.953
+We have also just added a file called sampleprojectfile.txt to the working tree,
+
+30
+00:02:00.953 --> 00:02:05.275
+just as an example project file that Git could manage.
+
+31
+00:02:05.275 --> 00:02:10.195
+It's time for you to create your own local repository using Sourcetree.
+
+32
+00:02:10.195 --> 00:02:14.070
+Separate instructions are provided for you to follow.

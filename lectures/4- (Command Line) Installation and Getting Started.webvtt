@@ -1,0 +1,487 @@
+WEBVTT
+
+1
+00:00:02.560 --> 00:00:04.900
+In this video,
+we will discuss installing and
+
+2
+00:00:04.900 --> 00:00:07.872
+getting started with Git
+using the command line.
+
+3
+00:00:07.872 --> 00:00:12.390
+Separate hands-on instructions related
+to this video are provided for you and
+
+4
+00:00:12.390 --> 00:00:15.660
+you can perform the hands-on
+exercises after viewing this video.
+
+5
+00:00:17.540 --> 00:00:20.300
+We will begin by discussing
+the installation of Git.
+
+6
+00:00:22.470 --> 00:00:25.180
+This video is about using
+Git at the command line.
+
+7
+00:00:25.180 --> 00:00:29.530
+You have the option of using the
+Sourcetree graphical Git client instead.
+
+8
+00:00:29.530 --> 00:00:32.080
+Skip this material if you
+plan on using Sourcetree.
+
+9
+00:00:34.014 --> 00:00:37.080
+Many computers already have Git installed.
+
+10
+00:00:37.080 --> 00:00:40.860
+You can check if your computer has Git
+installed by opening a command line
+
+11
+00:00:40.860 --> 00:00:45.990
+interface and
+entering git --version as shown here.
+
+12
+00:00:45.990 --> 00:00:49.030
+If no version information is shown,
+you must install Git.
+
+13
+00:00:50.195 --> 00:00:55.325
+The command line interface is also
+known as the CLI, the command line or
+
+14
+00:00:55.325 --> 00:00:56.415
+the terminal.
+
+15
+00:00:56.415 --> 00:00:59.335
+Those terms are often
+used interchangeably.
+
+16
+00:00:59.335 --> 00:01:02.015
+If you are not comfortable
+using the command line,
+
+17
+00:01:02.015 --> 00:01:04.989
+you might consider switching to
+the Sourcetree version of this course.
+
+18
+00:01:07.710 --> 00:01:09.850
+If Git is not installed on your computer,
+
+19
+00:01:09.850 --> 00:01:14.460
+you can find installation
+instructions at the URL shown here.
+
+20
+00:01:14.460 --> 00:01:18.620
+After you install Git, you should be able
+to view the version information as shown.
+
+21
+00:01:21.060 --> 00:01:23.220
+Next we will briefly discuss Git syntax.
+
+22
+00:01:25.885 --> 00:01:29.060
+Git is accessed using Git commands.
+
+23
+00:01:29.060 --> 00:01:32.780
+All Git commands start with the word
+git followed by a space and
+
+24
+00:01:32.780 --> 00:01:34.140
+then the specific command.
+
+25
+00:01:35.580 --> 00:01:36.515
+In this example,
+
+26
+00:01:36.515 --> 00:01:41.010
+the command is status, which shows
+the status of the local repository.
+
+27
+00:01:43.160 --> 00:01:46.110
+Following the command can
+be any number of flags
+
+28
+00:01:46.110 --> 00:01:49.340
+which start either with a single dash or
+with double dashes.
+
+29
+00:01:50.480 --> 00:01:55.490
+In this example the short flag is used to
+only provide critical status information.
+
+30
+00:01:55.490 --> 00:01:59.390
+Since this repository has no
+unusual status information
+
+31
+00:01:59.390 --> 00:02:01.310
+no short status information is returned.
+
+32
+00:02:02.380 --> 00:02:06.020
+Note that flags are sometimes
+referred to as options or switches.
+
+33
+00:02:07.260 --> 00:02:11.970
+The final section of a git command
+contains zero or more arguments.
+
+34
+00:02:11.970 --> 00:02:16.450
+For example some commands accept file
+names as arguments such as the git
+
+35
+00:02:16.450 --> 00:02:17.200
+add command.
+
+36
+00:02:19.215 --> 00:02:21.590
+Next we will discuss
+getting help with Git.
+
+37
+00:02:23.270 --> 00:02:25.370
+There are many ways to get help with Git.
+
+38
+00:02:25.370 --> 00:02:29.800
+For example, online searches on
+any topic are usually successful.
+
+39
+00:02:29.800 --> 00:02:32.410
+As far as within Git itself, you can type,
+
+40
+00:02:32.410 --> 00:02:35.590
+git help, followed by a command name for
+detailed help.
+
+41
+00:02:36.950 --> 00:02:39.790
+This is the same as the online
+documentation which you can
+
+42
+00:02:39.790 --> 00:02:42.230
+find at the URL shown here.
+
+43
+00:02:42.230 --> 00:02:46.980
+You can also type git help or
+git alone to bring up overall git help.
+
+44
+00:02:49.930 --> 00:02:54.180
+Concise help can usually be
+found the -h flag for a command.
+
+45
+00:02:55.450 --> 00:02:58.890
+In this example concise help in
+the init command is displayed.
+
+46
+00:03:01.290 --> 00:03:03.950
+Help for git commands include
+some common conventions.
+
+47
+00:03:05.460 --> 00:03:09.340
+A dash or a double dash is used
+to set a flag for a command.
+
+48
+00:03:09.340 --> 00:03:11.750
+These are also known as options or
+switches.
+
+49
+00:03:13.460 --> 00:03:15.950
+A vertical bar represents or.
+
+50
+00:03:15.950 --> 00:03:20.640
+In this example -p|--patch
+can be specified as a flag.
+
+51
+00:03:22.320 --> 00:03:24.920
+Optional values are surrounded
+by square brackets.
+
+52
+00:03:26.630 --> 00:03:29.547
+Placeholders are surrounded
+by angled brackets,
+
+53
+00:03:29.547 --> 00:03:32.270
+replace the placeholder
+with an actual value.
+
+54
+00:03:33.980 --> 00:03:37.010
+Angled brackets surrounded by
+square brackets represents
+
+55
+00:03:37.010 --> 00:03:38.290
+an optional placeholder.
+
+56
+00:03:39.480 --> 00:03:41.280
+If you use this part of the command,
+
+57
+00:03:41.280 --> 00:03:43.930
+you must replace the placeholder
+with an actual value.
+
+58
+00:03:45.780 --> 00:03:47.950
+Parentheses are used for grouping.
+
+59
+00:03:47.950 --> 00:03:52.070
+These are used for clarity or
+to disambiguate the command.
+
+60
+00:03:52.070 --> 00:03:57.160
+In this example, either the -p or --patch
+option must be set for the command.
+
+61
+00:03:59.190 --> 00:04:03.230
+Two stand alone dashes are used
+to disambiguate the command.
+
+62
+00:04:03.230 --> 00:04:06.730
+For example,
+to clarify you are specifying a path here,
+
+63
+00:04:06.730 --> 00:04:09.710
+you can precede it with
+two stand alone dashes.
+
+64
+00:04:09.710 --> 00:04:12.240
+Notice that in this example,
+the dashes are optional.
+
+65
+00:04:14.220 --> 00:04:14.990
+And finally,
+
+66
+00:04:14.990 --> 00:04:19.360
+three dots are used to specify that
+multiple occurrences are possible.
+
+67
+00:04:19.360 --> 00:04:22.430
+In this example, zero or
+more paths can be specified.
+
+68
+00:04:26.841 --> 00:04:31.690
+Finally, we will discuss configuring your
+user information and default editor for
+
+69
+00:04:31.690 --> 00:04:39.070
+Git It's important to set your correct
+username and email address in Git.
+
+70
+00:04:39.070 --> 00:04:42.780
+This information is included in any
+commit that you make to the repository.
+
+71
+00:04:43.990 --> 00:04:48.350
+You use the git config command to specify
+or read configuration information.
+
+72
+00:04:49.670 --> 00:04:54.550
+The system flag means the configuration
+setting applies to every repository for
+
+73
+00:04:54.550 --> 00:04:55.890
+every user on your computer.
+
+74
+00:04:56.930 --> 00:05:00.220
+The global flag applies to
+every repository that you,
+
+75
+00:05:00.220 --> 00:05:03.290
+as a specific user, use on your computer.
+
+76
+00:05:03.290 --> 00:05:06.440
+You can see that the global flag
+is used to set the user name and
+
+77
+00:05:06.440 --> 00:05:07.790
+email in the example below.
+
+78
+00:05:09.660 --> 00:05:11.360
+Specifying a local flag or
+
+79
+00:05:11.360 --> 00:05:14.950
+no flag at all applies the setting
+only to the current repository.
+
+80
+00:05:15.970 --> 00:05:19.480
+For example, you might specify your
+personal email address only for
+
+81
+00:05:19.480 --> 00:05:20.800
+certain repositories.
+
+82
+00:05:21.860 --> 00:05:24.500
+The most local setting takes precedence.
+
+83
+00:05:24.500 --> 00:05:27.890
+If the local value is set,
+it takes precedence.
+
+84
+00:05:27.890 --> 00:05:32.050
+If a local value is not set,
+the global value takes precedence.
+
+85
+00:05:32.050 --> 00:05:35.400
+If a global value is not set,
+the system value takes precedence.
+
+86
+00:05:38.420 --> 00:05:43.160
+To read your configuration information,
+you can execute the git config command
+
+87
+00:05:43.160 --> 00:05:46.200
+with only the name of the configuration
+key that you are interested in.
+
+88
+00:05:47.530 --> 00:05:52.320
+In this example, we're reading the current
+value of our name and email address.
+
+89
+00:05:52.320 --> 00:05:56.110
+If this command is executed
+from inside a local repository,
+
+90
+00:05:56.110 --> 00:05:58.280
+the local value will be returned.
+
+91
+00:05:58.280 --> 00:06:02.610
+If a local value is not specified,
+the global value is returned.
+
+92
+00:06:02.610 --> 00:06:05.940
+If a global value is not specified,
+the system value is returned.
+
+93
+00:06:07.140 --> 00:06:10.590
+Git sometimes opens an editor for
+you to type a message.
+
+94
+00:06:10.590 --> 00:06:14.550
+For example, an editor will open if
+you don't specify a commit message.
+
+95
+00:06:14.550 --> 00:06:19.880
+To set your preferred Git editor, you can
+set the value of the core.editor key.
+
+96
+00:06:19.880 --> 00:06:23.210
+In this example the default Git
+editor has been changed to nano.
+
+97
+00:06:23.210 --> 00:06:28.170
+Now you should be ready
+to do some hands on work.
+
+98
+00:06:28.170 --> 00:06:31.310
+There are separate hands on
+instructions related to this video.
+
+99
+00:06:31.310 --> 00:06:34.390
+Those instructions will help
+guide you through installing Git,
+
+100
+00:06:34.390 --> 00:06:36.240
+if it's not already
+installed on your computer.
+
+101
+00:06:36.240 --> 00:06:40.520
+You will then verify your Git version,
+and explore Git help.
+
+102
+00:06:40.520 --> 00:06:44.652
+Finally you will configure your user name,
+email address, and default Git editor.

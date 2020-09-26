@@ -1,0 +1,555 @@
+WEBVTT
+
+1
+00:00:01.200 --> 00:00:02.910
+This video discusses rebasing.
+
+2
+00:00:04.604 --> 00:00:06.972
+We'll start with a rebasing overview.
+
+3
+00:00:09.484 --> 00:00:10.958
+We start with a warning.
+
+4
+00:00:10.958 --> 00:00:14.051
+The topics discussed here
+rewrite the commit history, so
+
+5
+00:00:14.051 --> 00:00:16.490
+this should be done with caution.
+
+6
+00:00:16.490 --> 00:00:19.400
+There's a general rule related to rebase,
+
+7
+00:00:19.400 --> 00:00:23.390
+do not rewrite history that
+has been shared with others.
+
+8
+00:00:23.390 --> 00:00:25.746
+If you've been working locally, or
+
+9
+00:00:25.746 --> 00:00:30.539
+if you know that no one else has used
+your branch, you can safely rebase it.
+
+10
+00:00:32.857 --> 00:00:38.225
+There are two types of rebase, a regular
+rebase and an interactive rebase.
+
+11
+00:00:38.225 --> 00:00:40.566
+These can be very different,
+as we will see.
+
+12
+00:00:42.281 --> 00:00:46.890
+A rebase moves commits to a new parent,
+or a base.
+
+13
+00:00:46.890 --> 00:00:49.460
+If we look at the example on the left,
+
+14
+00:00:49.460 --> 00:00:53.110
+we have a situation that would
+typically involve a merge commit,
+
+15
+00:00:53.110 --> 00:00:58.860
+because commit D has been made
+after the featureX branch was made.
+
+16
+00:00:58.860 --> 00:01:02.590
+However, there is another option,
+and that is to rebase.
+
+17
+00:01:02.590 --> 00:01:10.072
+What rebasing does is take commit B and C,
+and moves them to a new parent, commit D.
+
+18
+00:01:10.072 --> 00:01:13.503
+The result is that you no
+longer need a merge commit, and
+
+19
+00:01:13.503 --> 00:01:15.730
+the merge can be fast-forwarded.
+
+20
+00:01:15.730 --> 00:01:20.250
+Because the commits have been moved, they
+are reapplied on top of the new commit.
+
+21
+00:01:20.250 --> 00:01:22.990
+This creates a different
+ancestor chain and,
+
+22
+00:01:22.990 --> 00:01:26.390
+as a result,
+each of the commit IDs change.
+
+23
+00:01:26.390 --> 00:01:32.880
+So in this example, commit B changes to B
+prime, and commit C changes to C prime.
+
+24
+00:01:32.880 --> 00:01:37.148
+You can see that this is necessary
+because before the rebase,
+
+25
+00:01:37.148 --> 00:01:42.658
+commit B's parent was A, and after
+the rebase, commit B prime's parent is D.
+
+26
+00:01:44.892 --> 00:01:49.170
+To help understand how rebasing works,
+we can look at diffs.
+
+27
+00:01:49.170 --> 00:01:53.380
+We know that each commit contains
+a snapshot of the complete project.
+
+28
+00:01:53.380 --> 00:01:57.815
+However, Git can calculate
+the difference between two commits,
+
+29
+00:01:57.815 --> 00:02:00.202
+this is known as a diff, or a patch.
+
+30
+00:02:00.202 --> 00:02:05.169
+So commit A has the entire project,
+commit B has the entire project,
+
+31
+00:02:05.169 --> 00:02:11.190
+Git can calculate diffAB, which is
+the difference between commits A and B.
+
+32
+00:02:11.190 --> 00:02:17.000
+The same goes for commits B and C, diffBC
+is the difference between commits B and C.
+
+33
+00:02:19.622 --> 00:02:24.058
+When rebasing, Git applies
+the diffs to the new parent commit,
+
+34
+00:02:24.058 --> 00:02:27.520
+this is called reapplying commits.
+
+35
+00:02:27.520 --> 00:02:30.820
+In the before commit graph on the left,
+
+36
+00:02:30.820 --> 00:02:35.527
+we can see that the parent of B is A and
+the parent of C is B.
+
+37
+00:02:35.527 --> 00:02:38.735
+And the difference between B and
+A is diffAB,
+
+38
+00:02:38.735 --> 00:02:42.650
+and the difference between C and
+B is diffBC.
+
+39
+00:02:42.650 --> 00:02:47.000
+With rebasing, Git takes
+the difference between A and B, and
+
+40
+00:02:47.000 --> 00:02:49.890
+applies it with the parent of commit D.
+
+41
+00:02:49.890 --> 00:02:52.270
+This creates a new commit ID.
+
+42
+00:02:52.270 --> 00:02:55.704
+It then applies the difference
+between commits B and C, and
+
+43
+00:02:55.704 --> 00:02:57.155
+creates commit C prime.
+
+44
+00:03:00.135 --> 00:03:05.080
+Reapplying commits is a form of merge and
+is susceptible to merge conflicts.
+
+45
+00:03:06.240 --> 00:03:11.260
+If we look at this simple example,
+commit B changed fileA.txt one way,
+
+46
+00:03:11.260 --> 00:03:14.901
+and commit C changed
+fileA.txt in a different way.
+
+47
+00:03:14.901 --> 00:03:19.831
+Reapplying commit B onto commit C
+creates a merge conflict because
+
+48
+00:03:19.831 --> 00:03:23.097
+Git does not know how to write fileA.text.
+
+49
+00:03:24.843 --> 00:03:26.554
+Rebasing has pros and cons,
+
+50
+00:03:26.554 --> 00:03:30.771
+the pros are that you can incorporate
+changes from the parent branch.
+
+51
+00:03:30.771 --> 00:03:34.070
+So if that branch has new features or
+bug fixes, you will see them.
+
+52
+00:03:35.170 --> 00:03:38.360
+The tests on your branch
+are using more current code, and
+
+53
+00:03:38.360 --> 00:03:41.390
+because you are keeping up with
+the changes on other branches,
+
+54
+00:03:41.390 --> 00:03:44.300
+the eventual merge into
+the base branch will be easier.
+
+55
+00:03:45.370 --> 00:03:50.440
+Another big advantage of rebasing is that
+it avoids unnecessary merge commits.
+
+56
+00:03:50.440 --> 00:03:54.540
+You can then have a very well-defined and
+clean commit history.
+
+57
+00:03:54.540 --> 00:03:57.840
+The downside of rebasing
+is it's a form of merge, so
+
+58
+00:03:57.840 --> 00:04:00.530
+merge conflicts may need to be resolved.
+
+59
+00:04:00.530 --> 00:04:03.770
+We've also pointed out that if
+you've already shared your commits,
+
+60
+00:04:03.770 --> 00:04:07.569
+that can cause problems because
+the commit IDs change in a rebase.
+
+61
+00:04:08.570 --> 00:04:12.032
+And, finally, with a rebase,
+you are not preserving the commit history,
+
+62
+00:04:12.032 --> 00:04:13.828
+you are rewriting the commit history.
+
+63
+00:04:16.219 --> 00:04:18.688
+Next, we will discuss executing rebase.
+
+64
+00:04:20.928 --> 00:04:25.165
+To execute a rebase, first you
+check out the feature branch, and
+
+65
+00:04:25.165 --> 00:04:27.740
+then you rebase onto master.
+
+66
+00:04:27.740 --> 00:04:31.199
+In this example, we would check
+out the featureX branch, and
+
+67
+00:04:31.199 --> 00:04:33.539
+rebase onto the tip of the master branch.
+
+68
+00:04:35.582 --> 00:04:38.427
+In SourceTree,
+we first check out the feature1 branch,
+
+69
+00:04:40.015 --> 00:04:43.609
+We right-click on the master branch and
+select Rebase.
+
+70
+00:04:45.173 --> 00:04:49.228
+You are asked if you really want to
+rebase, because it changes the commit
+
+71
+00:04:49.228 --> 00:04:54.910
+history, And then the rebase is finished.
+
+72
+00:04:54.910 --> 00:04:59.224
+So before the rebase, we had the commit
+graph on the left, and after the rebase,
+
+73
+00:04:59.224 --> 00:05:02.726
+you can see that we have the nice
+linear commit graph on the right.
+
+74
+00:05:05.752 --> 00:05:09.710
+Next, we will discuss rebasing
+with merge conflicts.
+
+75
+00:05:09.710 --> 00:05:14.230
+Because a rebase is a form of merge,
+it can result in merge conflicts.
+
+76
+00:05:14.230 --> 00:05:18.860
+To see a merge conflict, first, you check
+out the feature branch, then you rebase
+
+77
+00:05:18.860 --> 00:05:24.190
+onto the master branch, and you will
+be notified that there is a conflict.
+
+78
+00:05:24.190 --> 00:05:25.930
+Just like with other conflicts,
+
+79
+00:05:25.930 --> 00:05:30.530
+Git will modify fileA.txt to
+include conflict markers.
+
+80
+00:05:30.530 --> 00:05:33.620
+You will fix the file,
+add it to the staging area, and
+
+81
+00:05:33.620 --> 00:05:35.210
+then continue the rebase.
+
+82
+00:05:37.389 --> 00:05:40.520
+Looking at a rebase with
+a merge conflict in SourceTree,
+
+83
+00:05:40.520 --> 00:05:43.800
+we start by checking
+out the feature branch.
+
+84
+00:05:43.800 --> 00:05:48.310
+We right-click on the master branch,
+and select Rebase, and
+
+85
+00:05:48.310 --> 00:05:50.800
+you are again asked to confirm the rebase.
+
+86
+00:05:51.940 --> 00:05:54.392
+You are then notified that
+there are merge conflicts and
+
+87
+00:05:54.392 --> 00:05:55.760
+that you need to resolve them.
+
+88
+00:05:57.566 --> 00:06:00.663
+The conflicts are shown as
+uncommitted changes and
+
+89
+00:06:00.663 --> 00:06:03.980
+include conflict markers
+inside of the files.
+
+90
+00:06:03.980 --> 00:06:09.750
+You open the conflicting file and fix it,
+you then add the fixed file to the staging
+
+91
+00:06:09.750 --> 00:06:16.530
+area, you then right-click on the master
+branch again, selecting Rebase again.
+
+92
+00:06:17.940 --> 00:06:21.324
+You will be notified that there
+is a rebase in progress, and
+
+93
+00:06:21.324 --> 00:06:27.770
+you select Continue Rebase,
+And the rebase is complete.
+
+94
+00:06:27.770 --> 00:06:30.270
+You can see the before commit
+graph on the left, and
+
+95
+00:06:30.270 --> 00:06:32.760
+you can see the new commit
+graph on the right.
+
+96
+00:06:32.760 --> 00:06:35.030
+This is also shown in SourceTree.
+
+97
+00:06:35.030 --> 00:06:37.210
+You, again,
+have a nice linear commit graph.
+
+98
+00:06:39.000 --> 00:06:42.040
+If you don't want to resolve
+the merge conflict when it occurs,
+
+99
+00:06:42.040 --> 00:06:44.630
+you can also abort a rebase.
+
+100
+00:06:44.630 --> 00:06:49.417
+What you can do when you see the
+uncommitted changes is select Actions and
+
+101
+00:06:49.417 --> 00:06:50.445
+Abort Rebase.
+
+102
+00:06:52.210 --> 00:06:55.871
+This will take you back to the state
+before you attempted the rebase.
+
+103
+00:06:58.303 --> 00:07:00.624
+Here, we show resolving merge conflicts,
+
+104
+00:07:00.624 --> 00:07:04.589
+comparing the difference between using
+a merge commit and using a rebase.
+
+105
+00:07:05.830 --> 00:07:09.759
+Using a merge commit,
+you start by checking out the base branch,
+
+106
+00:07:09.759 --> 00:07:14.127
+in this case, the master branch, and
+you merge in the featureX branch.
+
+107
+00:07:14.127 --> 00:07:17.754
+You'll have a conflict,
+you fix the conflict,
+
+108
+00:07:17.754 --> 00:07:21.835
+add it to the staging area,
+and then commit the merge.
+
+109
+00:07:21.835 --> 00:07:25.923
+When you re-base, you start by
+checking out the featureX branch,
+
+110
+00:07:25.923 --> 00:07:28.748
+and you rebase onto the master branch.
+
+111
+00:07:28.748 --> 00:07:31.998
+There you will see the conflict,
+you, again, fix it and
+
+112
+00:07:31.998 --> 00:07:35.882
+add it to the staging are, but
+this time, you continue the rebase.
+
+113
+00:07:38.788 --> 00:07:42.390
+Here is a review of what we've
+discussed in this video.
+
+114
+00:07:42.390 --> 00:07:45.420
+Rebasing moves a branch to
+the tip of another branch.
+
+115
+00:07:46.420 --> 00:07:50.243
+Rebasing is a form of merge and
+may result in merge conflicts.
+
+116
+00:07:53.622 --> 00:07:57.330
+Now it's time for you to work on
+the topics discussed in this video.
+
+117
+00:07:57.330 --> 00:07:59.451
+Separate hands-on
+instructions are provided.

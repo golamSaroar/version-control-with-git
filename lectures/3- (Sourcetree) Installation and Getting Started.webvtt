@@ -1,0 +1,153 @@
+WEBVTT
+
+1
+00:00:02.110 --> 00:00:05.780
+In this video, we will discuss installing and getting
+
+2
+00:00:05.780 --> 00:00:09.004
+started with the SourceTree Graphical Git client.
+
+3
+00:00:09.004 --> 00:00:12.575
+If you would prefer to go through this course using the command line,
+
+4
+00:00:12.575 --> 00:00:16.020
+there are separate videos and exercises for you.
+
+5
+00:00:16.020 --> 00:00:20.045
+We will begin by discussing the installation of SourceTree.
+
+6
+00:00:20.045 --> 00:00:21.865
+As a final reminder,
+
+7
+00:00:21.865 --> 00:00:24.780
+this video is about the SourceTree Git Client.
+
+8
+00:00:24.780 --> 00:00:27.760
+You have the option of using the command line instead,
+
+9
+00:00:27.760 --> 00:00:31.275
+skip this material if you plan on using the command line.
+
+10
+00:00:31.275 --> 00:00:36.165
+SourceTree is a free, Git client for Windows and the macOS.
+
+11
+00:00:36.165 --> 00:00:41.200
+You can download and learn more about SourceTree by visiting sourcetreeapp.com.
+
+12
+00:00:41.200 --> 00:00:44.920
+If you're interested in using other graphical Git clients,
+
+13
+00:00:44.920 --> 00:00:47.865
+you can visit the URL shown here.
+
+14
+00:00:47.865 --> 00:00:53.985
+Next, we will discuss configuring user information with SourceTree.
+
+15
+00:00:53.985 --> 00:00:58.140
+SourceTree starts with the simple interface shown here.
+
+16
+00:00:58.140 --> 00:01:00.955
+A good place to start is to configure your client.
+
+17
+00:01:00.955 --> 00:01:07.295
+You can do this by clicking on the gear icon in the upper right and selecting accounts.
+
+18
+00:01:07.295 --> 00:01:11.580
+The general tab under accounts contains important configuration settings,
+
+19
+00:01:11.580 --> 00:01:14.625
+including your name and email address.
+
+20
+00:01:14.625 --> 00:01:16.545
+Make sure that this information is correct,
+
+21
+00:01:16.545 --> 00:01:18.600
+because it will include this information
+
+22
+00:01:18.600 --> 00:01:22.510
+with every commit that you make to the repository.
+
+23
+00:01:22.510 --> 00:01:26.525
+Finally, you will learn about creating a default folder
+
+24
+00:01:26.525 --> 00:01:30.220
+or directory on your computer for local repositories.
+
+25
+00:01:30.220 --> 00:01:35.220
+As a side note, this course will interchange the terms directory and folder.
+
+26
+00:01:35.220 --> 00:01:38.150
+They mean the same thing.
+
+27
+00:01:38.150 --> 00:01:39.640
+It's a good idea to keep all of
+
+28
+00:01:39.640 --> 00:01:44.230
+your local repository folders inside one main folder on your computer.
+
+29
+00:01:44.230 --> 00:01:47.020
+This keeps your Git work nicely organized.
+
+30
+00:01:47.020 --> 00:01:51.370
+A common approach is to create a repos folder in your user folder.
+
+31
+00:01:51.370 --> 00:01:56.245
+The location of your repos folder is then specified in the miscellaneous section,
+
+32
+00:01:56.245 --> 00:01:59.540
+under the general tab.
+
+33
+00:01:59.540 --> 00:02:02.275
+Now you should be ready to do some hands-on work.
+
+34
+00:02:02.275 --> 00:02:05.895
+There are separate hands-on instructions related to this video.
+
+35
+00:02:05.895 --> 00:02:09.320
+Those instructions will help guide you through installing SourceTree,
+
+36
+00:02:09.320 --> 00:02:11.360
+assuming you haven't done so already.
+
+37
+00:02:11.360 --> 00:02:14.285
+You will configure your name, and email address,
+
+38
+00:02:14.285 --> 00:02:19.650
+and you will create and specify a default folder for your local repositories.
